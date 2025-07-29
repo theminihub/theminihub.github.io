@@ -1,10 +1,53 @@
 body {
-  font-family: sans-serif;
+  font-family: 'Inter', sans-serif;
   max-width: 800px;
   margin: 40px auto;
-  padding: 20px;
+  padding: 0 20px;
   line-height: 1.6;
+  color: #222;
+  background: #f9f9f9;
 }
-h1 {
+
+header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.subtitle {
+  color: #666;
+  font-size: 1.1em;
+  margin-top: 0.2em;
+}
+
+h1, h2 {
   color: #007acc;
+}
+
+ul.project-list, ul.skills {
+  list-style: none;
+  padding: 0;
+}
+
+ul.skills li {
+  display: inline-block;
+  background: #e6f2ff;
+  padding: 5px 12px;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+a {
+  color: #005f99;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  text-align: center;
+  margin-top: 40px;
+  color: #888;
+  font-size: 0.9em;
 }
