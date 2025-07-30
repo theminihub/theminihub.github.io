@@ -262,6 +262,99 @@
   </div>
 </section>
 
+    <!-- Skills Section with Interactive Filtering -->
+<section id="skills" class="py-20 bg-white dark:bg-gray-900" x-data="{ selected: 'All' }">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl font-bold text-center mb-12 text-gray-800 dark:text-white">
+      Skills
+    </h2>
+
+    <!-- Filter Buttons -->
+    <div class="flex flex-wrap justify-center gap-3 mb-12">
+      <button 
+        class="px-4 py-2 rounded-full text-sm font-medium transition"
+        :class="selected === 'All' ? 'bg-indigo-600 text-white' : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300'"
+        @click="selected = 'All'">All</button>
+
+      <button 
+        class="px-4 py-2 rounded-full text-sm font-medium transition"
+        :class="selected === 'Product' ? 'bg-indigo-600 text-white' : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300'"
+        @click="selected = 'Product'">Product</button>
+
+      <button 
+        class="px-4 py-2 rounded-full text-sm font-medium transition"
+        :class="selected === 'Analytics' ? 'bg-purple-600 text-white' : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300'"
+        @click="selected = 'Analytics'">Analytics</button>
+
+      <button 
+        class="px-4 py-2 rounded-full text-sm font-medium transition"
+        :class="selected === 'Tools' ? 'bg-green-600 text-white' : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300'"
+        @click="selected = 'Tools'">Tools</button>
+
+      <button 
+        class="px-4 py-2 rounded-full text-sm font-medium transition"
+        :class="selected === 'Leadership' ? 'bg-pink-600 text-white' : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300'"
+        @click="selected = 'Leadership'">Leadership</button>
+    </div>
+
+    <!-- Filterable Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      
+      <!-- Card Example 1 -->
+      <div x-show="selected === 'All' || selected === 'Product' || selected === 'Leadership'" 
+           class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg transition">
+        <h3 class="text-xl font-semibold mb-4 text-indigo-600 dark:text-indigo-300">
+          Product Strategy & Roadmapping
+        </h3>
+        <p class="text-gray-600 dark:text-gray-300">
+          At <strong>EnerSys</strong>, aligned global teams to refine project tracking. 
+          At <strong>BlueStacks</strong>, delivered 30+ iterations for a 500M+ user base.
+        </p>
+      </div>
+
+      <!-- Card Example 2 -->
+      <div x-show="selected === 'All' || selected === 'Analytics' || selected === 'Tools'" 
+           class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg transition">
+        <h3 class="text-xl font-semibold mb-4 text-purple-600 dark:text-purple-300">
+          Data-Informed Decisions
+        </h3>
+        <p class="text-gray-600 dark:text-gray-300">
+          Used dashboards at <strong>EnerSys</strong> for early risk visibility. 
+          At <strong>BlueStacks</strong>, analyzed user behavior to guide feature prioritization.
+        </p>
+      </div>
+
+      <!-- Card Example 3 -->
+      <div x-show="selected === 'All' || selected === 'Tools' || selected === 'Product'" 
+           class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg transition">
+        <h3 class="text-xl font-semibold mb-4 text-green-600 dark:text-green-300">
+          Operational Efficiency
+        </h3>
+        <p class="text-gray-600 dark:text-gray-300">
+          Automated reporting at <strong>EnerSys</strong>, reducing manual effort by 60%. 
+          At <strong>BlueStacks</strong>, led agile releases that improved delivery cadence.
+        </p>
+      </div>
+
+      <!-- Card Example 4 -->
+      <div x-show="selected === 'All' || selected === 'Leadership'" 
+           class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg transition">
+        <h3 class="text-xl font-semibold mb-4 text-pink-600 dark:text-pink-300">
+          Stakeholder Leadership
+        </h3>
+        <p class="text-gray-600 dark:text-gray-300">
+          Coordinated with 50+ stakeholders globally, leading sprints and workshops 
+          that ensured on-time releases and executive alignment.
+        </p>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<!-- Alpine.js CDN -->
+<script src="https://unpkg.com/alpinejs" defer></script>
+
     
 </section>
   <!-- =======================================================
