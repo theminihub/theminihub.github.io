@@ -8,34 +8,33 @@
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-   <script>
-  tailwind.config = {
-    darkMode: 'class',
-    theme: {
-      extend: {
-        colors: {
-          primary: {
-            50:  '#ffe4ec',
-            100: '#ffb3cd',
-            200: '#ff80ac',
-            300: '#ff4d8b',
-            400: '#ff1a6a',
-            500: '#e60055',
-            600: '#b40043',
-            700: '#820031',
-            800: '#50001f',
-            900: '#20000d',
-          }
-        },
-        container: {
-          center: true,
-          padding: { /* … */ },
-          screens: { /* … */ },
-        },
-      }
-    }
-  }
-</script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    container: {
+                        center: true,
+                        padding: {
+                            DEFAULT: '1.5rem',
+                            sm: '2rem',
+                            md: '2.5rem',
+                            lg: '4rem',
+                            xl: '5rem',
+                            '2xl': '6rem',
+                        },
+                        screens: {
+                            sm: '640px',
+                            md: '768px',
+                            lg: '1024px',
+                            xl: '1280px',
+                            '2xl': '1536px',
+                        },
+                    },
+                }
+            }
+        }
+    </script>
     
     <!-- AOS Animation Library -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
