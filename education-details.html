@@ -1,63 +1,669 @@
-DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Education Details | Meenakshi</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meenakshi - Portfolio</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    container: {
+                        center: true,
+                        padding: {
+                            DEFAULT: '1.5rem',
+                            sm: '2rem',
+                            md: '2.5rem',
+                            lg: '4rem',
+                            xl: '5rem',
+                            '2xl': '6rem',
+                        },
+                        screens: {
+                            sm: '640px',
+                            md: '768px',
+                            lg: '1024px',
+                            xl: '1280px',
+                            '2xl': '1536px',
+                        },
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- AOS Animation Library -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* Experience item animations */
+        .experience-item {
+            position: relative;
+            padding: 10px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .experience-item:hover {
+            transform: translateX(15px);
+            background-color: rgba(59, 130, 246, 0.05);
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 50%;
+            width: 3px;
+            height: 0;
+            background-color: #3B82F6;
+            transition: height 0.3s ease, transform 0.3s ease;
+            transform: translateY(-50%);
+        }
+
+        .experience-item:hover::before {
+            height: 70%;
+        }
+
+        /* Dark mode adjustments */
+        .dark .experience-item:hover {
+            background-color: rgba(59, 130, 246, 0.1);
+        }
+
+        /* Ensure smooth transitions */
+        .experience-item * {
+            transition: all 0.3s ease;
+        }
+    </style>
+    <script>
+        // Always start in light mode unless explicitly set to dark mode before
+        if (localStorage.getItem('darkMode') !== 'true') {
+            document.documentElement.classList.remove('dark');
+            localStorage.setItem('darkMode', 'false');
+        } else {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
 </head>
-<body>
-  <!-- Include your header/nav: -->
-  <header class="site-header">
-    <div class="container">
-      <div class="logo">Meenakshi</div>
-      <nav class="site-nav">
-        <a href="index.html">Home</a>
-        <a href="education-details.html" class="active">Education</a>
-        <a href="#contact">Contact</a>
-      </nav>
+<body class="bg-white dark:bg-gray-900 transition-colors duration-200">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm shadow-sm z-50">
+        <div class="container mx-auto">
+            <div class="flex items-center justify-between py-4">
+                <a href="#" class="text-2xl font-bold text-gray-800 dark:text-white">Portfolio</a>
+                <div class="flex items-center space-x-8">
+                    <button id="darkModeToggle" class="p-2 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200">
+                        <i class="fas fa-moon text-xl"></i>
+                        <i class="fas fa-sun text-xl hidden"></i>
+                    </button>
+                    <div class="hidden md:flex space-x-8">
+                        <a href="#about" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition">About</a>
+                        <a href="#education" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition">Education</a>
+                        <a href="#experience" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition">Experience</a>
+                        <a href="#all-projects" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition">Projects</a>
+                        <a href="#research-papers" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition">Certifications</a>
+                        <a href="#contact" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition">Contact</a>
+                    </div>
+                    <div class="hidden md:flex items-center space-x-4">
+
+<!--                         <a href="assets/docs/Meenakshi_Resume.pdf" class="px-6 py-2 bg-blue-600 dark:bg-blue-500 text-white rounded-full hover:bg-blue-700 dark:hover:bg-blue-600 transition">
+                        Resume
+                    </a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+     <!-- Education Section -->
+    <section id="education" class="py-20 bg-white dark:bg-gray-900">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-16 text-gray-800 dark:text-white" data-aos="fade-up">Education</h2>
+            <div class="space-y-8">
+                <!-- University at Buffalo -->
+<div class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300" data-aos="fade-up">
+    <div class="flex flex-col md:flex-row justify-between items-start mb-6">
+        <div class="flex-1">
+            <div class="flex items-center mb-4" data-aos="fade-right" data-aos-duration="1000">
+                <img src="assets/images/UB Logo.png" alt="University at Buffalo Logo" class="w-24 h-24 object-contain mr-4 dark:brightness-110 transform transition-transform hover:scale-110">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 dark:text-white">Master of Business Administration</h3>
+                    <p class="text-blue-600 dark:text-blue-400">STEM Designated</p>
+                </div>
+            </div>
+            <div class="flex flex-col space-y-2" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+                <div class="flex items-center justify-between">
+                    <p class="text-gray-600 dark:text-gray-200">University at Buffalo, SUNY – School of Management</p>
+                    <a href="assets/documents/CeDiploma.pdf" 
+                       target="_blank" 
+                       class="px-4 py-2 text-base bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-white rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-600 dark:hover:text-blue-400 transition-all flex items-center font-medium shadow-sm hover:shadow-md transform hover:scale-105 hover:-translate-y-1">
+                        <i class="fas fa-award mr-2 text-blue-500 dark:text-blue-400 text-lg transition-transform group-hover:rotate-12"></i>
+                        View Credential
+                    </a>
+                </div>
+                <p class="text-gray-500 dark:text-gray-300">Aug 2023 – Jun 2025</p>
+                <div class="flex items-center">
+                    <span class="inline-flex items-center bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 px-3 py-1 rounded-full transform transition-all hover:scale-105 hover:shadow-md group">
+                        <i class="fas fa-star text-green-500 dark:text-green-400 mr-2 group-hover:rotate-12 transition-transform"></i>
+                        <span class="text-green-600 dark:text-green-400 font-medium whitespace-nowrap">GPA: 3.96/4.0</span>
+                    </span>
+                </div>
+            </div>
+        </div>
     </div>
-  </header>
 
-  <!-- Your detailed education content -->
-  <main class="container mx-auto py-12">
-    <h1 class="text-4xl font-bold mb-8">Education Details</h1>
+    <!-- Academic Focus Areas -->
+    <div class="mb-6" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
+        <h4 class="text-lg font-semibold text-gray-700 dark:text-gray-200 mb-4">Academic Focus Areas</h4>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="bg-yellow-50 dark:bg-yellow-900/20 rounded-lg p-4 transform transition-all hover:scale-105 hover:shadow-lg">
+                <p class="text-yellow-700 dark:text-yellow-300 font-semibold mb-2">Analytics</p>
+                <p class="text-sm text-gray-600 dark:text-gray-300">Campaign Analysis, Social Networks, User Behavior</p>
+            </div>
+            <div class="bg-purple-50 dark:bg-purple-900/20 rounded-lg p-4 transform transition-all hover:scale-105 hover:shadow-lg">
+                <p class="text-purple-600 dark:text-purple-300 font-semibold mb-2">Information Systems & Product</p>
+            <p class="text-sm text-gray-600 dark:text-gray-300">Systems Analysis & Design, Requirements Elicitation, ERP/CRM integration, Agile/SCRUM</p>
+            </div>
+            <div class="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4 transform transition-all hover:scale-105 hover:shadow-lg">
+                <p class="text-blue-600 dark:text-blue-300 font-semibold mb-2">Data Visualization & Storytelling</p>
+                <p class="text-sm text-gray-600 dark:text-gray-300">Power BI, Tableau, Excel, Python</p>
+            </div>
+        </div>
+    </div>
 
-    <!-- MBA deep dive -->
-    <section class="mb-12">
-      <h2 class="text-2xl font-semibold mb-4">Master of Business Administration</h2>
-      <p class="mb-2"><strong>University at Buffalo, SUNY – School of Management</strong></p>
-      <p class="mb-4">Aug 2023 – Jun 2025 | STEM Designated | GPA: 3.96/4.0</p>
-      <ul class="list-disc list-inside mb-6">
-        <li>Advanced coursework in Predictive Analytics and Data Visualization</li>
-        <li>President of Product@UB: Led a 20‑member team organizing speaker series</li>
-        <li>Dean’s Ambassador: Conducted 30+ campus tours for prospective students</li>
-        <!-- add more bullet points here -->
-      </ul>
-      <a href="assets/documents/CeDiploma.pdf" target="_blank" class="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition">
-        Download MBA Credential
-      </a>
+    <!-- Relevant Coursework -->
+    <div data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
+        <h4 class="text-lg font-semibold text-gray-700 dark:text-gray-200 mb-4">Relevant Coursework</h4>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+            <div class="flex items-center space-x-2 transform transition-all hover:translate-x-2">
+                <i class="fas fa-database text-blue-600 dark:text-blue-400"></i>
+                <span class="text-gray-600 dark:text-gray-300">Database Management Systems</span>
+            </div>
+            <div class="flex items-center space-x-2 transform transition-all hover:translate-x-2">
+                <i class="fas fa-chart-line text-blue-600 dark:text-blue-400"></i>
+                <span class="text-gray-600 dark:text-gray-300"> Technology & Innovation Management</span>
+            </div>
+            <div class="flex items-center space-x-2 transform transition-all hover:translate-x-2">
+                <i class="fas fa-project-diagram text-blue-600 dark:text-blue-400"></i>
+                <span class="text-gray-600 dark:text-gray-300">Predictive Analytics</span>
+            </div>
+            <div class="flex items-center space-x-2 transform transition-all hover:translate-x-2">
+                <i class="fas fa-sitemap text-blue-600 dark:text-blue-400"></i>
+                <span class="text-gray-600 dark:text-gray-300">Digital Marketing Analytics</span>
+            </div>
+            <div class="flex items-center space-x-2 transform transition-all hover:translate-x-2">
+                <i class="fas fa-search-dollar text-blue-600 dark:text-blue-400"></i>
+                <span class="text-gray-600 dark:text-gray-300">Systems Analysis & Design</span>
+            </div>
+            <div class="flex items-center space-x-2 transform transition-all hover:translate-x-2">
+                <i class="fas fa-users text-blue-600 dark:text-blue-400"></i>
+                <span class="text-gray-600 dark:text-gray-300">Social Network Analytics</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+                <!-- MIT University -->
+<div class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="100">
+    <div class="flex flex-col md:flex-row justify-between items-start mb-6">
+        <div class="flex-1">
+            <div class="flex items-center mb-4" data-aos="fade-right" data-aos-duration="1000">
+                <img src="assets/images/mit-shillong-logo.jpg" alt="MIT University Shillong Logo" class="w-24 h-24 object-contain mr-4 dark:brightness-110 transform transition-transform hover:scale-110">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 dark:text-white">Bachelor of Technology</h3>
+                    <p class="text-blue-600 dark:text-blue-400">Computer Science and Engineering</p>
+                </div>
+            </div>
+            <div class="flex flex-col space-y-2" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+                <div class="flex items-center justify-between">
+                    <p class="text-gray-600 dark:text-gray-200">MIT University, Shillong, India</p>
+                    <a href="assets/docs/Abhishek degree certificate.pdf" 
+                       target="_blank" 
+                       class="px-4 py-2 text-base bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-white rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-600 dark:hover:text-blue-400 transition-all flex items-center font-medium shadow-sm hover:shadow-md transform hover:scale-105 hover:-translate-y-1">
+                        <i class="fas fa-award mr-2 text-blue-500 dark:text-blue-400 text-lg transition-transform group-hover:rotate-12"></i>
+                        View Credential
+                    </a>
+                </div>
+                <p class="text-gray-500 dark:text-gray-300">Aug 2014 – Jun 2018</p>
+                <div class="flex items-center">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BMSCE Academic Focus Areas -->
+    <div class="mb-6" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
+        <h4 class="text-lg font-semibold text-gray-700 dark:text-gray-200 mb-4">Academic Focus Areas</h4>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="bg-yellow-50 dark:bg-yellow-900/20 rounded-lg p-4 transform transition-all hover:scale-105 hover:shadow-lg">
+                <p class="text-yellow-700 dark:text-yellow-300 font-semibold mb-2">Computer Programming</p>
+                <p class="text-sm text-gray-600 dark:text-gray-300">Enterprise Java, C++, Advanced PHP</p>
+            </div>
+            <div class="bg-purple-50 dark:bg-purple-900/20 rounded-lg p-4 transform transition-all hover:scale-105 hover:shadow-lg">
+                <p class="text-purple-600 dark:text-purple-300 font-semibold mb-2">Database Management</p>
+                <p class="text-sm text-gray-600 dark:text-gray-300">Database Creation, Data Modeling, Data Communication & Computer Networks</p>
+            </div>
+            <div class="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4 transform transition-all hover:scale-105 hover:shadow-lg">
+                <p class="text-blue-600 dark:text-blue-300 font-semibold mb-2">Project & Product Management</p>
+                <p class="text-sm text-gray-600 dark:text-gray-300">Software Project Management, Product Development</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- MIT Relevant Coursework -->
+    <div data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
+        <h4 class="text-lg font-semibold text-gray-700 dark:text-gray-200 mb-4">Relevant Coursework</h4>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+            <div class="flex items-center space-x-2 transform transition-all hover:translate-x-2">
+                <i class="fas fa-cogs text-blue-600 dark:text-blue-400"></i>
+                <span class="text-gray-600 dark:text-gray-300">Software Project Management </span>
+            </div>
+            <div class="flex items-center space-x-2 transform transition-all hover:translate-x-2">
+                <i class="fas fa-drafting-compass text-blue-600 dark:text-blue-400"></i>
+                <span class="text-gray-600 dark:text-gray-300">Database Management Systems & Data Modeling</span>
+            </div>
+            <div class="flex items-center space-x-2 transform transition-all hover:translate-x-2">
+                <i class="fas fa-industry text-blue-600 dark:text-blue-400"></i>
+                <span class="text-gray-600 dark:text-gray-300">Spatial Database Systems </span>
+            </div>
+            <div class="flex items-center space-x-2 transform transition-all hover:translate-x-2">
+                <i class="fas fa-project-diagram text-blue-600 dark:text-blue-400"></i>
+                <span class="text-gray-600 dark:text-gray-300">Object‑Oriented Programming using C++</span>
+            </div>
+            <div class="flex items-center space-x-2 transform transition-all hover:translate-x-2">
+                <i class="fas fa-microscope text-blue-600 dark:text-blue-400"></i>
+                <span class="text-gray-600 dark:text-gray-300">Enterprise Java</span>
+            </div>
+            <div class="flex items-center space-x-2 transform transition-all hover:translate-x-2">
+                <i class="fas fa-robot text-blue-600 dark:text-blue-400"></i>
+                <span class="text-gray-600 dark:text-gray-300">Entrprenuership & Product Development</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
     </section>
 
-    <!-- BTech deep dive -->
-    <section>
-      <h2 class="text-2xl font-semibold mb-4">Bachelor of Technology</h2>
-      <p class="mb-2"><strong>MIT University, Shillong, India</strong></p>
-      <p class="mb-4">Aug 2014 – Jun 2018 | Computer Science and Engineering | GPA: 2.72/4.0</p>
-      <ul class="list-disc list-inside mb-6">
-        <li>Capstone: Enterprise Java application for campus resource management</li>
-        <li>President of Coding Club: Organized bi‑weekly hackathons</li>
-        <!-- add more bullet points here -->
-      </ul>
-      <a href="assets/docs/Abhishek degree certificate.pdf" target="_blank" class="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition">
-        Download BTech Credential
-      </a>
-    </section>
-  </main>
+  <!--Footer -->
 
-  <!-- Optional: your footer -->
-  <footer class="text-center py-8 text-gray-600 text-sm">
-    &copy; 2025 Meenakshi
-  </footer>
+<!-- =======================================================
+     CSS & JavaScript for Filtering and Abstract Toggle
+======================================================== -->
+<style>
+    .filter-bar-container {
+        position: relative;
+        overflow: hidden;
+    }
+    .filter-bar-papers {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+        display: flex;
+        justify-content: center;
+        gap: 0.75rem;
+        padding-bottom: 1rem;
+    }
+    .filter-bar-papers::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, and Opera */
+    }
+    
+    @media (max-width: 1024px) {
+        .filter-bar-container::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: 50px;
+            background: linear-gradient(to left, rgb(249 250 251), transparent);
+            pointer-events: none;
+        }
+        .dark .filter-bar-container::after {
+             background: linear-gradient(to left, rgb(31 41 55), transparent);
+        }
+        .filter-bar-papers {
+            justify-content: flex-start;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+    }
+
+    .paper-card {
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .paper-card.fade-in {
+        animation: fadeIn 0.4s ease-out forwards;
+    }
+    .paper-card.fade-out {
+        animation: fadeOut 0.3s ease-in forwards;
+    }
+    .abstract-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-out;
+    }
+    .read-abstract-btn i {
+        transition: transform 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeOut {
+        from { opacity: 1; transform: translateY(0); }
+        to { opacity: 0; transform: translateY(10px); }
+    }
+</style>
+
+<script>
+    function toggleAbstract(button) {
+        const content = button.nextElementSibling;
+        const icon = button.querySelector('i');
+        
+        if (content.style.maxHeight) {
+            content.style.maxHeight = null;
+            icon.style.transform = 'rotate(0deg)';
+        } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+            icon.style.transform = 'rotate(45deg)';
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const filterButtons = document.querySelectorAll('.filter-paper-btn');
+        const papers = document.querySelectorAll('.paper-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Update button styles
+                filterButtons.forEach(btn => {
+                    btn.classList.remove('active', 'bg-blue-600', 'text-white');
+                    btn.classList.add('bg-gray-200', 'dark:bg-gray-700', 'text-gray-700', 'dark:text-gray-300');
+                });
+                button.classList.add('active', 'bg-blue-600', 'text-white');
+                button.classList.remove('bg-gray-200', 'dark:bg-gray-700', 'text-gray-700', 'dark:text-gray-300');
+                
+                const filter = button.getAttribute('data-filter');
+                
+                papers.forEach(paper => {
+                    const tags = paper.getAttribute('data-tags').split(',');
+                    const shouldShow = (filter === 'all' || tags.includes(filter));
+                    
+                    if (shouldShow) {
+                        if (paper.style.display === 'none') {
+                            paper.classList.remove('fade-out');
+                            paper.style.display = 'block';
+                            setTimeout(() => paper.classList.add('fade-in'), 10);
+                        }
+                    } else {
+                        if (paper.style.display !== 'none') {
+                            paper.classList.add('fade-out');
+                            paper.classList.remove('fade-in');
+                            setTimeout(() => {
+                                paper.style.display = 'none';
+                            }, 300);
+                        }
+                    }
+                });
+            });
+        });
+    });
+</script>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white dark:bg-gray-900">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-16 text-gray-800 dark:text-white" data-aos="fade-up">Let's Connect</h2>
+            
+            <div class="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                <!-- Contact Information -->
+                <div class="space-y-8" data-aos="fade-right">
+                    <p class="text-gray-600 dark:text-gray-300 text-justify">
+                        Actively seeking full-time opportunities as a Product Manager, Business Analyst, Project Manager, or Program Manager. Whether you're building visionary products or solving problems with data, I'd love to be a part of it. Let's connect about how I can help your team build better.
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <a href="mailto:meenakshisinhany1995@gmail.com" class="flex items-center text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">
+                            <i class="fas fa-envelope text-xl mr-3 w-8"></i>
+                            <span>meenakshisinhany1995@gmail.com</span>
+                        </a>
+                        <a href="tel:+17162567276" class="flex items-center text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">
+                            <i class="fas fa-phone text-xl mr-3 w-8"></i>
+                            <span>+1 (716) 292-2360</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/meenakshi-sinha-ub/" target="_blank" class="flex items-center text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">
+                            <i class="fab fa-linkedin text-xl mr-3 w-8"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="https://github.com/theminihub" target="_blank" class="flex items-center text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">
+                            <i class="fab fa-github text-xl mr-3 w-8"></i>
+                            <span>GitHub</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg" data-aos="fade-left">
+                    <form action="https://formspree.io/f/mldnbogk" method="POST" class="space-y-6" id="contact-form">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Full Name</label>
+                            <input type="text" id="name" name="name" required
+                                   class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
+                                   placeholder="Your name">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email Address</label>
+                            <input type="email" id="email" name="email" required
+                                   class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
+                                   placeholder="your.email@example.com">
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Message</label>
+                            <textarea id="message" name="message" rows="4" required
+                                      class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
+                                      placeholder="Your message"></textarea>
+                        </div>
+                        
+                        <button type="submit" 
+                                class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors duration-300 flex items-center justify-center space-x-2">
+                            <span>Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 dark:bg-black text-white py-8">
+        <div class="container mx-auto text-center">
+            <p>© 2025 Meenakshi. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="assets/js/script.js"></script>
+    <style>
+        /* Hover animation styles */
+        .transform.hover\:translate-x-2:hover {
+            transform: translateX(0.5rem);
+        }
+        .transition-all {
+            transition-property: all;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 300ms;
+        }
+        /* Ensure AOS animations work with hover */
+        [data-aos] {
+            pointer-events: none;
+        }
+        [data-aos].aos-animate {
+            pointer-events: auto;
+        }
+    </style>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            disable: true,  // Disable all animations
+            duration: 1000,
+            once: true,
+            offset: 100,
+            easing: 'ease-in-out'
+        });
+        
+    function toggleAbstract(button) {
+        const abstract = button.nextElementSibling;
+        const icon = button.querySelector('i');
+        if (abstract.classList.contains('hidden')) {
+            abstract.classList.remove('hidden');
+            icon.classList.remove('fa-plus-circle');
+            icon.classList.add('fa-minus-circle');
+            button.innerHTML = button.innerHTML.replace('Read Abstract', 'Hide Abstract');
+        } else {
+            abstract.classList.add('hidden');
+            icon.classList.remove('fa-minus-circle');
+            icon.classList.add('fa-plus-circle');
+            button.innerHTML = button.innerHTML.replace('Hide Abstract', 'Read Abstract');
+        }
+    }
+
+        // Form validation and handling
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form elements
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const messageInput = document.getElementById('message');
+            const submitButton = this.querySelector('button[type="submit"]');
+            
+            // Basic validation
+            if (!nameInput.value.trim()) {
+                showError(nameInput, 'Please enter your name');
+                return;
+            }
+            
+            if (!emailInput.value.trim()) {
+                showError(emailInput, 'Please enter your email');
+                return;
+            }
+            
+            if (!isValidEmail(emailInput.value)) {
+                showError(emailInput, 'Please enter a valid email address');
+                return;
+            }
+            
+            if (!messageInput.value.trim()) {
+                showError(messageInput, 'Please enter your message');
+                return;
+            }
+            
+            // Disable submit button and show loading state
+            submitButton.disabled = true;
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            
+            // Submit form using Formspree
+            const formData = new FormData(this);
+            fetch(this.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.ok) {
+                    // Show success message
+                    this.reset();
+                    showSuccess('Message sent successfully! I will get back to you soon.');
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            })
+            .catch(error => {
+                showError(null, 'Sorry, there was an error sending your message. Please try again.');
+            })
+            .finally(() => {
+                // Re-enable submit button
+                submitButton.disabled = false;
+                submitButton.innerHTML = '<span>Send Message</span><i class="fas fa-paper-plane"></i>';
+            });
+        });
+
+        function isValidEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+
+        function showError(element, message) {
+            // Remove any existing error messages
+            const existingError = element?.parentElement.querySelector('.error-message');
+            if (existingError) {
+                existingError.remove();
+            }
+            
+            // Create and show new error message
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'error-message text-red-500 text-sm mt-1';
+            errorDiv.textContent = message;
+            
+            if (element) {
+                element.parentElement.appendChild(errorDiv);
+                element.classList.add('border-red-500');
+                
+                // Remove error styling after 5 seconds
+                setTimeout(() => {
+                    errorDiv.remove();
+                    element.classList.remove('border-red-500');
+                }, 5000);
+            } else {
+                // Show global error message
+                const form = document.getElementById('contact-form');
+                form.insertBefore(errorDiv, form.firstChild);
+                
+                setTimeout(() => {
+                    errorDiv.remove();
+                }, 5000);
+            }
+        }
+
+        function showSuccess(message) {
+            const successDiv = document.createElement('div');
+            successDiv.className = 'success-message bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4';
+            successDiv.innerHTML = `
+                <span class="block sm:inline">${message}</span>
+                <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+                    <i class="fas fa-check"></i>
+                </span>
+            `;
+            
+            const form = document.getElementById('contact-form');
+            form.insertBefore(successDiv, form.firstChild);
+            
+            setTimeout(() => {
+                successDiv.remove();
+            }, 5000);
+    }
+    </script>
 </body>
-</html>
+</html> 
