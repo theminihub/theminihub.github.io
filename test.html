@@ -376,100 +376,51 @@
   AOS.init();
 </script>
 
-    <section id="about" class="py-20 bg-gray-50 dark:bg-gray-800">
-  <div class="container mx-auto">
+<section id="product-showcase" class="py-20 bg-white dark:bg-gray-900">
+  <div class="container mx-auto px-6">
     <h2 class="text-3xl font-bold text-center mb-16 text-gray-800 dark:text-white" data-aos="fade-up">
-      About Me
+      Product Showcase
     </h2>
 
-    <!-- Flex Container for 50-50 split -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-      
-      <!-- Left: About Text -->
-      <div data-aos="fade-right">
-        <p class="text-lg text-gray-600 dark:text-gray-400 mb-6 leading-relaxed text-justify">
-          I’m a product-obsessed & data-focused MBA graduate from the University at Buffalo 
-          with a strong foundation in project management, process improvement, cross-functional 
-          leadership, and tech-driven innovation. With experience spanning startups and enterprises, 
-          I enjoy solving problems that sit at the intersection of business and technology.
-        </p>
-        <p class="text-lg text-gray-600 dark:text-gray-400 mb-6 leading-relaxed text-justify">
-          I've recently served as the President of Product@UB (a graduate club for product 
-          enthusiasts at UB) and a Dean's Ambassador for UB School of Management, helping build 
-          the next generation of product leaders.
-        </p>
-        
-        <div class="flex flex-wrap gap-4 mt-8">
-          <a href="#all-projects" 
-             class="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition">
-            <i class="fas fa-project-diagram mr-2"></i> View Projects
-          </a>
-          <a href="#research-papers" 
-             class="inline-flex items-center px-6 py-3 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white rounded-full hover:bg-gray-300 dark:hover:bg-gray-600 transition">
-            <i class="fas fa-file-alt mr-2"></i> View Case Studies
-          </a>
+    <!-- Grid for Mockups -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+      <!-- Card Example with Lightbox -->
+      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1" data-aos="fade-up" data-aos-duration="800">
+        <img src="assets/images/mockup1-thumbnail.png" alt="BNPL App Redesign" class="rounded-t-xl object-cover w-full h-56 cursor-pointer hover:scale-105 transition-transform duration-500" onclick="openModal('https://www.canva.com/design/DAGYevwlK0Y/KCHmQMUvLEh-R28dB9qH8g/view?mode=prototype')">
+        <div class="p-6 text-center">
+          <h3 class="text-xl font-semibold mb-3 text-gray-800 dark:text-white">BNPL App Redesign</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4 text-sm">An interactive redesign aimed at reducing churn and improving user flow for a BNPL app.</p>
+          <button onclick="openModal('https://www.canva.com/design/DAGYevwlK0Y/KCHmQMUvLEh-R28dB9qH8g/view?mode=prototype')" 
+                  class="px-5 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition">
+            View Prototype
+          </button>
         </div>
       </div>
-      
-      <!-- Right: Skills -->
-      <div data-aos="fade-left">
-        <h3 class="text-2xl font-bold mb-8 text-gray-800 dark:text-white">Skills</h3>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
-          <!-- Product Management -->
-          <div>
-            <h4 class="text-lg font-semibold mb-4 text-indigo-600 dark:text-indigo-400">Product Management</h4>
-            <div class="flex flex-wrap gap-2">
-              <span class="px-4 py-2 rounded-full bg-indigo-100 text-indigo-700 text-sm font-medium">Roadmapping</span>
-              <span class="px-4 py-2 rounded-full bg-indigo-100 text-indigo-700 text-sm font-medium">Stakeholder Management</span>
-              <span class="px-4 py-2 rounded-full bg-indigo-100 text-indigo-700 text-sm font-medium">Agile & Scrum</span>
-              <span class="px-4 py-2 rounded-full bg-indigo-100 text-indigo-700 text-sm font-medium">Release Planning</span>
-              <span class="px-4 py-2 rounded-full bg-indigo-100 text-indigo-700 text-sm font-medium">User-Centered Design</span>
-            </div>
-          </div>
-
-          <!-- Analytics & Data -->
-          <div>
-            <h4 class="text-lg font-semibold mb-4 text-purple-600 dark:text-purple-400">Analytics & Data</h4>
-            <div class="flex flex-wrap gap-2">
-              <span class="px-4 py-2 rounded-full bg-purple-100 text-purple-700 text-sm font-medium">SQL</span>
-              <span class="px-4 py-2 rounded-full bg-purple-100 text-purple-700 text-sm font-medium">R</span>
-              <span class="px-4 py-2 rounded-full bg-purple-100 text-purple-700 text-sm font-medium">Python</span>
-              <span class="px-4 py-2 rounded-full bg-purple-100 text-purple-700 text-sm font-medium">Tableau</span>
-              <span class="px-4 py-2 rounded-full bg-purple-100 text-purple-700 text-sm font-medium">GA4 Analytics</span>
-            </div>
-          </div>
-
-          <!-- Tools & Technology -->
-          <div>
-            <h4 class="text-lg font-semibold mb-4 text-green-600 dark:text-green-400">Tools & Technology</h4>
-            <div class="flex flex-wrap gap-2">
-              <span class="px-4 py-2 rounded-full bg-green-100 text-green-700 text-sm font-medium">Jira</span>
-              <span class="px-4 py-2 rounded-full bg-green-100 text-green-700 text-sm font-medium">Confluence</span>
-              <span class="px-4 py-2 rounded-full bg-green-100 text-green-700 text-sm font-medium">Power BI</span>
-              <span class="px-4 py-2 rounded-full bg-green-100 text-green-700 text-sm font-medium">Planisware</span>
-              <span class="px-4 py-2 rounded-full bg-green-100 text-green-700 text-sm font-medium">Power Automate</span>
-            </div>
-          </div>
-
-          <!-- Leadership & Collaboration -->
-          <div>
-            <h4 class="text-lg font-semibold mb-4 text-pink-600 dark:text-pink-400">Leadership & Collaboration</h4>
-            <div class="flex flex-wrap gap-2">
-              <span class="px-4 py-2 rounded-full bg-pink-100 text-pink-700 text-sm font-medium">Team Leadership</span>
-              <span class="px-4 py-2 rounded-full bg-pink-100 text-pink-700 text-sm font-medium">Cross-Functional Collaboration</span>
-              <span class="px-4 py-2 rounded-full bg-pink-100 text-pink-700 text-sm font-medium">Mentorship</span>
-              <span class="px-4 py-2 rounded-full bg-pink-100 text-pink-700 text-sm font-medium">Public Speaking</span>
-              <span class="px-4 py-2 rounded-full bg-pink-100 text-pink-700 text-sm font-medium">Stakeholder Communication</span>
-            </div>
-          </div>
-          
-        </div>
-      </div>
     </div>
   </div>
+
+  <!-- Lightbox Modal -->
+  <div id="mockupModal" class="fixed inset-0 bg-black/80 hidden z-50 flex items-center justify-center p-6">
+    <div class="bg-white dark:bg-gray-800 w-full max-w-5xl h-[80vh] rounded-lg overflow-hidden shadow-lg relative">
+      <button onclick="closeModal()" class="absolute top-3 right-3 text-gray-600 dark:text-gray-300 hover:text-red-500 text-2xl">&times;</button>
+      <iframe id="mockupFrame" src="" class="w-full h-full border-none"></iframe>
+    </div>
+  </div>
+
+  <script>
+    function openModal(url) {
+      document.getElementById('mockupModal').classList.remove('hidden');
+      document.getElementById('mockupFrame').src = url;
+    }
+    function closeModal() {
+      document.getElementById('mockupModal').classList.add('hidden');
+      document.getElementById('mockupFrame').src = '';
+    }
+  </script>
 </section>
+
 
     <section id="product-showcase" class="py-20 bg-white dark:bg-gray-900">
   <div class="container mx-auto px-6">
