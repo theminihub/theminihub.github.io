@@ -1,42 +1,2395 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Meenakshi | Product Leader</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meenakshi - Portfolio</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    container: {
+                        center: true,
+                        padding: {
+                            DEFAULT: '1.5rem',
+                            sm: '2rem',
+                            md: '2.5rem',
+                            lg: '4rem',
+                            xl: '5rem',
+                            '2xl': '6rem',
+                        },
+                        screens: {
+                            sm: '640px',
+                            md: '768px',
+                            lg: '1024px',
+                            xl: '1280px',
+                            '2xl': '1536px',
+                        },
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- AOS Animation Library -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* Experience item animations */
+        .experience-item {
+            position: relative;
+            padding: 10px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .experience-item:hover {
+            transform: translateX(15px);
+            background-color: rgba(59, 130, 246, 0.05);
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 50%;
+            width: 3px;
+            height: 0;
+            background-color: #3B82F6;
+            transition: height 0.3s ease, transform 0.3s ease;
+            transform: translateY(-50%);
+        }
+
+        .experience-item:hover::before {
+            height: 70%;
+        }
+
+        /* Dark mode adjustments */
+        .dark .experience-item:hover {
+            background-color: rgba(59, 130, 246, 0.1);
+        }
+
+        /* Ensure smooth transitions */
+        .experience-item * {
+            transition: all 0.3s ease;
+        }
+    </style>
+    <script>
+        // Always start in light mode unless explicitly set to dark mode before
+        if (localStorage.getItem('darkMode') !== 'true') {
+            document.documentElement.classList.remove('dark');
+            localStorage.setItem('darkMode', 'false');
+        } else {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
 </head>
-<body>
+<body class="bg-white dark:bg-gray-900 transition-colors duration-200">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm shadow-sm z-50">
+        <div class="container mx-auto">
+            <div class="flex items-center justify-between py-4">
+                <a href="#" class="text-2xl font-bold text-gray-800 dark:text-white">AGH</a>
+                <div class="flex items-center space-x-8">
+                    <button id="darkModeToggle" class="p-2 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200">
+                        <i class="fas fa-moon text-xl"></i>
+                        <i class="fas fa-sun text-xl hidden"></i>
+                    </button>
+                    <div class="hidden md:flex space-x-8">
+                        <a href="#about" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition">About</a>
+                        <a href="#education" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition">Education</a>
+                        <a href="#experience" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition">Experience</a>
+                        <a href="#all-projects" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition">Projects</a>
+                        <a href="#research-papers" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition">Certifications</a>
+                        <a href="#contact" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition">Contact</a>
+                    </div>
+                    <div class="hidden md:flex items-center space-x-4">
 
-  <!-- Header -->
-  <header class="site-header">
-    <div class="container">
-      <div class="logo">Meenakshi</div>
-      <nav class="site-nav">
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
+<!--                         <a href="assets/docs/Meenakshi_Resume.pdf" class="px-6 py-2 bg-blue-600 dark:bg-blue-500 text-white rounded-full hover:bg-blue-700 dark:hover:bg-blue-600 transition">
+                        Resume
+                    </a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-text">
-      <h1>Meenakshi R</h1>
-      <h2>Product Leader & Data-Driven Strategist</h2>
-      <p>
-        Experienced PMO Intern at EnerSys and former Software Project Manager at BlueStacks.
-        Passionate about building products that solve real problems at the intersection of business and tech.
-      </p>
-      <a href="#contact" class="cta-button">Contact Me</a>
-    </div>
-    <div class="hero-image">
-      <img src="assets/images/meenakshi.jpg" alt="Meenakshi profile photo" />
-    </div>
-  </section>
+    <!-- Hero Section -->
+    <section id="hero" class="pt-32 pb-20 bg-white dark:bg-gray-900 relative overflow-hidden">
+        <!-- Neural Network Background Pattern -->
+        <div class="absolute inset-0 opacity-10 dark:opacity-5">
+            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <pattern id="neural-net" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
+                        <circle cx="25" cy="25" r="2" fill="currentColor" class="text-blue-600 dark:text-blue-400"/>
+                        <path d="M25 25L50 25M25 25L25 50M25 25L0 25M25 25L25 0M25 25L40 40M25 25L10 10M25 25L40 10M25 25L10 40" 
+                              stroke="currentColor" 
+                              class="text-blue-400 dark:text-blue-600" 
+                              stroke-width="0.5"/>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#neural-net)"/>
+            </svg>
+        </div>
+        
+        <!-- Background Gradient Effect -->
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-50/80 to-indigo-50/80 dark:from-blue-900/40 dark:to-indigo-900/40 backdrop-blur-sm"></div>
+        
+        <div class="container mx-auto relative">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="md:w-1/2" data-aos="fade-right">
+                    <h1 class="text-4xl md:text-6xl font-bold text-gray-800 dark:text-white mb-4">
+                        Meenakshi
+                    </h1>
+                    <h2 class="text-2xl md:text-3xl text-gray-600 dark:text-gray-300 mb-6">
+                       Data-Focused Product Leader  
+                    </h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 leading-relaxed text-justify">
+                      I’m a product-obsessed & data-focused MBA graduate from the University at Buffalo with a strong foundation in project management, process improvement,  cross-functional leadership, and tech-driven innovation. With experience spanning startups and enterprises, I enjoy solving problems that sit at the intersection of business and technology. I've recently served as the President of Product@UB (a graduate club for product enthusiasts at UB) and a Dean's Ambassador for UB School of Management, helping build the next generation of product leaders.
+                   </p>
+                    <div class="flex space-x-4">
+<!--                         <a href="assets/docs/Meenakshi_Resume.pdf" class="px-8 py-3 bg-blue-600 dark:bg-blue-500 text-white rounded-full hover:bg-blue-700 dark:hover:bg-blue-600 transition flex items-center">
+                            <i class="fas fa-download mr-2"></i> Download Resume -->
+                        </a>
+                        <a href="#contact" class="px-8 py-3 border-2 border-blue-600 dark:border-blue-500 text-blue-600 dark:text-blue-400 rounded-full hover:bg-blue-600 dark:hover:bg-blue-500 hover:text-white transition">
+                            Contact Me
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 mt-12 md:mt-0 relative" data-aos="fade-left">
+                    <div class="relative w-72 h-72 mx-auto">
+                        <!-- Decorative Elements -->
+                        <div class="absolute -inset-4 bg-gradient-to-r from-blue-600/20 to-indigo-600/20 rounded-full blur-2xl opacity-50 animate-pulse"></div>
+                        <div class="absolute -inset-4 bg-gradient-to-r from-blue-600/10 to-indigo-600/10 rounded-full rotate-45"></div>
+                        
+                        <!-- Image Container -->
+                        <div class="relative w-full h-full rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-2xl">
+                            <img src="assets/images/Meenakshi.jpg" alt="Meenakshi" 
+                                 class="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-500">
+                        </div>
+                        
+                        <!-- Floating Badges -->
+                        <div class="absolute -right-4 top-10 bg-white dark:bg-gray-800 rounded-full p-3 shadow-lg">
+                            <i class="fas fa-brain text-blue-600 dark:text-blue-400 text-xl"></i>
+                        </div>
+                        <div class="absolute -left-4 bottom-10 bg-white dark:bg-gray-800 rounded-full p-3 shadow-lg">
+                            <i class="fas fa-code text-indigo-600 dark:text-indigo-400 text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-16 text-gray-800 dark:text-white" data-aos="fade-up">About Me</h2>
+            <div class="flex flex-col lg:flex-row gap-0 max-w-8xl mx-auto">
+                <!-- Left Column (50%) -->
+                <div class="lg:w-1/2 lg:pr-12" data-aos="fade-right">
+                    <!-- About Text -->
+                    <div class="space-y-6">
+                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed text-justify">
+                            Looking for someone passionate about building products and artificial intelligence?
+                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed text-justify">
+                            Someone who can balance being a clean slate and utilising their experience?
+                        </p>
+                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed text-justify">
+                            Someone who can be a self-starter but is also a champion teammate when needed?
+                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed text-justify">
+                            Someone who can effectively communicate their point?
+                    </p>
+                       <p class="text-gray-600 dark:text-gray-300 leading-relaxed text-justify">
+                            Someone who is a technology nerd but still has impressive people skills?
+                    </p>
+                      <p class="text-gray-600 dark:text-gray-300 leading-relaxed text-justify">
+                            You're in the right place. That someone is me!
+                    </p>
+                    </div>
+
+                    <!-- Where I've Delivered Impact -->
+                    <div class="mt-12">
+                        <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-8">Where I've Delivered Impact</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+                            <!-- Healthcare Card -->
+                            <div class="bg-white dark:bg-gray-800/50 rounded-lg p-4 shadow-sm hover:shadow-md transition-all duration-300">
+                                <div class="flex items-center mb-3">
+                                    <i class="fas fa-hospital text-xl text-blue-500 dark:text-blue-400 mr-3"></i>
+                                    <h4 class="text-lg font-bold text-gray-800 dark:text-white">Healthcare</h4>
+                                </div>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm">Developed GLM and Random Forest models to identify cost drivers in inpatient care—diagnosis, readmission, and length of stay—enabling actionable recommendations in healthcare reporting.</p>
+                            </div>
+
+                            <!-- Consulting Tech Card -->
+                            <div class="bg-white dark:bg-gray-800/50 rounded-lg p-4 shadow-sm hover:shadow-md transition-all duration-300">
+                                <div class="flex items-center mb-3">
+                                    <i class="fas fa-balance-scale text-xl text-blue-500 dark:text-blue-400 mr-3"></i>
+                                    <h4 class="text-lg font-bold text-gray-800 dark:text-white">Consulting</h4>
+                                </div>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm">Boosted law firm profitability by designing flat-fee optimization dashboards and automating performance tracking—resulting in a 78% GPM increase and reduced case processing time at Kruger Law.</p>
+                            </div>
+
+                            <!-- Public Safety Card -->
+                            <div class="bg-white dark:bg-gray-800/50 rounded-lg p-4 shadow-sm hover:shadow-md transition-all duration-300">
+                                <div class="flex items-center mb-3">
+                                    <i class="fas fa-shield-alt text-xl text-blue-500 dark:text-blue-400 mr-3"></i>
+                                    <h4 class="text-lg font-bold text-gray-800 dark:text-white">Operations Research</h4>
+                                </div>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm">Improved post-COVID forecasting accuracy for Raymond Corporation by building ARIMA and SARIMA models to predict electric forklift demand, enabling data-driven inventory and staffing decisions.</p>
+                            </div>
+
+                            <!-- Retail & Marketing Card -->
+                            <div class="bg-white dark:bg-gray-800/50 rounded-lg p-4 shadow-sm hover:shadow-md transition-all duration-300">
+                                <div class="flex items-center mb-3">
+                                    <i class="fas fa-shopping-cart text-xl text-blue-500 dark:text-blue-400 mr-3"></i>
+                                    <h4 class="text-lg font-bold text-gray-800 dark:text-white">Retail & Marketing</h4>
+                                </div>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm">Drove campaign efficiency for Tailored Brands by segmenting customer purchase behavior and optimizing marketing channels, reducing reporting costs by 89% and increasing ROI through GA4-based analytics.</p>
+                            </div>
+
+                            <!-- Autonomous Systems Card -->
+                            <div class="bg-white dark:bg-gray-800/50 rounded-lg p-4 shadow-sm hover:shadow-md transition-all duration-300">
+                                <div class="flex items-center mb-3">
+                                    <i class="fas fa-car text-xl text-blue-500 dark:text-blue-400 mr-3"></i>
+                                    <h4 class="text-lg font-bold text-gray-800 dark:text-white">Market Research</h4>
+                                </div>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm">Led statistical mentoring in regression, hypothesis testing, and classification using Python, R, and SPSS—empowering students to apply rigorous analytics to market behavior and consumer insights.</p>
+                            </div>
+
+                            <!-- IoT & Networks Card -->
+                            <div class="bg-white dark:bg-gray-800/50 rounded-lg p-4 shadow-sm hover:shadow-md transition-all duration-300">
+                                <div class="flex items-center mb-3">
+                                    <i class="fas fa-network-wired text-xl text-blue-500 dark:text-blue-400 mr-3"></i>
+                                    <h4 class="text-lg font-bold text-gray-800 dark:text-white">Customer Analytics</h4>
+                                </div>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm">Built churn prediction models for BNPL app users using Gradient Boosting and AdaBoost, delivering actionable targeting insights and reducing customer attrition; optimized via GridSearchCV and feature engineering.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4 mt-12">
+                        <a href="#all-projects" class="inline-flex items-center justify-center px-6 py-3 bg-blue-600 dark:bg-blue-500 text-white rounded-full hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors">
+                            <i class="fas fa-project-diagram mr-2"></i>
+                            View Projects
+                        </a>
+                        <a href="#research-papers" class="inline-flex items-center justify-center px-6 py-3 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white rounded-full hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
+                            <i class="fas fa-file-alt mr-2"></i>
+                            View Case studies
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Column (Technical Skills) (50%) -->
+                <div class="lg:w-1/2 lg:pl-12 lg:border-l border-gray-200 dark:border-gray-700 lg:-mt-[2.2rem]" data-aos="fade-left">
+                    <div class="bg-white dark:bg-gray-800/50 rounded-xl p-8 shadow-sm h-full">
+                        <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-10">Technical Skills</h3>
+                        <div class="space-y-10">
+                            <!-- Programming & Scripting -->
+                            <div>
+                                <h4 class="font-semibold text-gray-700 dark:text-gray-200 mb-3">Programming & Scripting</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-white rounded-full">SQL</span>
+                                    <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-white rounded-full">Python</span>
+                                    <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-white rounded-full">R</span>
+                                    <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-white rounded-full">SPSS</span>
+                                    <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-white rounded-full">SAS</span>
+<!--                                     <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-white rounded-full">Bash</span> -->
+                                    <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-white rounded-full">Git</span>
+                                </div>
+
+                            </div>
+
+                            <!-- Data Handling & Visualization -->
+                            <div>
+                                <h4 class="font-semibold text-gray-700 dark:text-gray-200 mb-3">Data Handling & Visualization</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-white rounded-full">Pandas</span>
+                                    <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-white rounded-full">NumPy</span>
+                                    <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-white rounded-full">Matplotlib</span>
+                                    <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-white rounded-full">Seaborn</span>
+                                    <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-white rounded-full">Power BI</span>
+                                    <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-white rounded-full">Tableau</span>
+                                    <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-white rounded-full">Excel</span>
+                                </div>
+                            </div>
+
+
+                            <!-- Machine Learning -->
+                            <div>
+                                <h4 class="font-semibold text-gray-700 dark:text-gray-200 mb-3">Machine Learning</h4>
+                                <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-white rounded-full">Supervised Learning</span>
+                                <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-white rounded-full">Unsupervised Learning</span>
+                                <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-white rounded-full">Scikit-learn</span>
+                                <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-white rounded-full">GridSearchCV</span>
+                                <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-white rounded-full">Confusion Matrix</span>
+                            </div>
+                             <div class="mt-2 text-gray-600 dark:text-gray-300 text-sm">
+                             <span class="font-semibold">Models:</span> Logistic Regression, Gradient Boosting, AdaBoost, Time Series Forecasting (ARIMA, SARIMA)
+                            </div>
+                    </div>
+
+
+                            <!-- Generative AI & LLMs -->
+                            <div>
+                                <h4 class="font-semibold text-gray-700 dark:text-gray-200 mb-3">Generative AI & LLMs</h4>
+                                <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-white rounded-full">Exploring LLM Applications</span>
+                                <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-white rounded-full">Prompt Engineering (Beginner)</span>
+                            </div>
+                    </div>
+                            <!-- Cloud, MLOps & Big Data -->
+                            <div>
+                                <h4 class="font-semibold text-gray-700 dark:text-gray-200 mb-3">Cloud, MLOps & Big Data</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-white rounded-full">AWS (S3)</span>
+                                    <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-white rounded-full">Azure</span>      
+<!--                                     <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-white rounded-full">Apache Spark</span> -->
+<!--                                     <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-white rounded-full">Hadoop</span> -->
+                                    <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-white rounded-full">Snowflake</span>
+<!--                                     <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-white rounded-full">Apache Airflow</span>  -->
+<!--                                     <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-white rounded-full">Docker</span> -->
+                                </div>
+                            </div>
+
+                            <!-- Statistics & Experimentation -->
+                            <div>
+                                <h4 class="font-semibold text-gray-700 dark:text-gray-200 mb-3">Statistics & Experimentation</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-white rounded-full">Statistical Modeling</span>
+                                    <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-white rounded-full">Hypothesis Testing</span>
+                                    <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-white rounded-full">A/B Testing</span>
+                                    <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-white rounded-full">Regression</span>
+                                    <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-white rounded-full">Classification</span>
+                                    <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-white rounded-full">Clustering</span>
+                                    <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-white rounded-full">Time Series Analysis</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Badges and Certifications -->
+    <section class="py-12 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20">
+        <div class="container mx-auto">
+            <h2 class="text-2xl font-bold text-center mb-8 text-gray-800 dark:text-white" data-aos="fade-up">Professional Certifications</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                <!-- IIM Masters Certification -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all transform hover:scale-105" 
+                     data-aos="fade-up" data-aos-duration="1000">
+                    <div class="flex items-center justify-center mb-4 h-24">
+                        <img src="assets/images/IIM Indore.png" 
+                             alt="IIM Indore" 
+                             class="w-24 h-24 object-contain dark:brightness-110 transform transition-transform hover:scale-110">
+                    </div>
+                    <h3 class="text-xl font-semibold text-center text-gray-800 dark:text-white mb-2">ACPBDA</h3>
+                    <p class="text-center text-gray-600 dark:text-gray-300">IIM Indore</p>
+                    <div class="mt-4 flex flex-col items-center space-y-3">
+                        <span class="px-4 py-2 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm transform transition-all hover:scale-105">
+                            <i class="fas fa-certificate mr-2"></i>Verified Achievement
+                        </span>
+                        <a href="assets/docs/Abhishek Gangadhar Harihar Final Certificates.pdf"
+                           target="_blank" 
+                           class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transform transition-all hover:translate-x-1">
+                            <i class="fas fa-external-link-alt mr-1"></i>View Certificate
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tredence Data Science for all Certification -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all transform hover:scale-105" 
+                     data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+                    <div class="flex items-center justify-center mb-4 h-24">
+                        <img src="assets/images/Tredence_Logo.jpg" 
+                             alt="Tredence" 
+                             class="w-24 h-24 object-contain dark:brightness-110 transform transition-transform hover:scale-110">
+                    </div>
+                    <h3 class="text-xl font-semibold text-center text-gray-800 dark:text-white mb-2">Data Science</h3>
+                    <p class="text-center text-gray-600 dark:text-gray-300">Tredence</p>
+                    <div class="mt-4 flex flex-col items-center space-y-3">
+                        <span class="px-4 py-2 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm transform transition-all hover:scale-105">
+                            <i class="fas fa-certificate mr-2"></i>Verified Achievement
+                        </span>
+                        <a href="assets/images/Data Science Certificate.png" 
+                           target="_blank" 
+                           class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transform transition-all hover:translate-x-1">
+                            <i class="fas fa-external-link-alt mr-1"></i>View Certificate
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Snowflake Masterclass Certification -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all transform hover:scale-105" 
+                     data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
+                    <div class="flex items-center justify-center mb-4 h-24">
+                        <img src="assets/images/udemy logo.png" 
+                             alt="Udemy" 
+                             class="w-24 h-24 object-contain dark:brightness-110 transform transition-transform hover:scale-110">
+                    </div>
+                    <h3 class="text-xl font-semibold text-center text-gray-800 dark:text-white mb-2">Snowflake Masterclass</h3>
+                    <p class="text-center text-gray-600 dark:text-gray-300">Udemy</p>
+                    <div class="mt-4 flex flex-col items-center space-y-3">
+                        <span class="px-4 py-2 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm transform transition-all hover:scale-105">
+                            <i class="fas fa-certificate mr-2"></i>Verified Achievement
+                        </span>
+                        <a href="assets/docs/Snowflake Masterclass - Udemy certificate.pdf" 
+                           target="_blank" 
+                           class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transform transition-all hover:translate-x-1">
+                            <i class="fas fa-external-link-alt mr-1"></i>View Certificate
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Udemy SQL Masterclass Certificate -->
+<div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all transform hover:scale-105" 
+     data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+    <div class="flex items-center justify-center mb-4 h-24">
+        <!-- IMPORTANT: Update this to the path of your Udemy logo -->
+        <img src="assets/images/udemy logo.png" 
+             alt="Udemy Logo" 
+             class="w-32 object-contain dark:invert dark:brightness-110 transform transition-transform hover:scale-110">
+    </div>
+    <h3 class="text-xl font-semibold text-center text-gray-800 dark:text-white mb-2">SQL Masterclass: SQL for Data Analytics</h3>
+    <p class="text-center text-gray-600 dark:text-gray-300">Udemy</p>
+    <div class="mt-4 flex flex-col items-center space-y-3">
+        <span class="px-4 py-2 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm transform transition-all hover:scale-105">
+            <i class="fas fa-certificate mr-2"></i>Verified Achievement
+        </span>
+        <!-- IMPORTANT: Update this to the path of your certificate image -->
+        <a href="assets/docs/SQL Masterclass certificate.pdf" 
+           target="_blank" 
+           class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transform transition-all hover:translate-x-1">
+            <i class="fas fa-external-link-alt mr-1"></i>View Certificate
+        </a>
+    </div>
+</div>
+
+<!-- EY Power BI (PL-300) Certificate -->
+<div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all transform hover:scale-105" 
+     data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
+    <div class="flex items-center justify-center mb-4 h-24">
+        <!-- IMPORTANT: Update this to the path of your EY logo -->
+        <img src="assets/images/ey logo.png" 
+             alt="Ernst & Young Logo" 
+             class="w-24 h-24 object-contain dark:invert dark:brightness-110 transform transition-transform hover:scale-110">
+    </div>
+    <h3 class="text-xl font-semibold text-center text-gray-800 dark:text-white mb-2">PL-300: Microsoft Power BI Data Analyst</h3>
+    <p class="text-center text-gray-600 dark:text-gray-300">Ernst & Young Associates LLP</p>
+    <div class="mt-4 flex flex-col items-center space-y-3">
+        <span class="px-4 py-2 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm transform transition-all hover:scale-105">
+            <i class="fas fa-certificate mr-2"></i>Verified Achievement
+        </span>
+        <!-- IMPORTANT: Update this to the path of your certificate image -->
+        <a href="assets/docs/Certificate of Participation POWER BI PL-300.pdf" 
+           target="_blank" 
+           class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transform transition-all hover:translate-x-1">
+            <i class="fas fa-external-link-alt mr-1"></i>View Certificate
+        </a>
+    </div>
+</div>
+
+<!-- Udemy Tableau A-Z Certificate -->
+<div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all transform hover:scale-105" 
+     data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
+    <div class="flex items-center justify-center mb-4 h-24">
+        <!-- IMPORTANT: Update this to the path of your Udemy logo -->
+        <img src="assets/images/udemy logo.png" 
+             alt="Udemy Logo" 
+             class="w-32 object-contain dark:invert dark:brightness-110 transform transition-transform hover:scale-110">
+    </div>
+    <h3 class="text-xl font-semibold text-center text-gray-800 dark:text-white mb-2">Tableau 2020 A-Z: Hands-On Training</h3>
+    <p class="text-center text-gray-600 dark:text-gray-300">Udemy</p>
+    <div class="mt-4 flex flex-col items-center space-y-3">
+        <span class="px-4 py-2 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm transform transition-all hover:scale-105">
+            <i class="fas fa-certificate mr-2"></i>Verified Achievement
+        </span>
+        <!-- IMPORTANT: Update this to the path of your certificate image -->
+        <a href="assets/docs/TABLEAU begineer certificate.pdf" 
+           target="_blank" 
+           class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transform transition-all hover:translate-x-1">
+            <i class="fas fa-external-link-alt mr-1"></i>View Certificate
+        </a>
+    </div>
+</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-20 bg-white dark:bg-gray-900">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-16 text-gray-800 dark:text-white" data-aos="fade-up">Education</h2>
+            <div class="space-y-8">
+                <!-- University at Buffalo -->
+<div class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300" data-aos="fade-up">
+    <div class="flex flex-col md:flex-row justify-between items-start mb-6">
+        <div class="flex-1">
+            <div class="flex items-center mb-4" data-aos="fade-right" data-aos-duration="1000">
+                <img src="assets/images/university-at-buffalo-logo-png_seeklogo-307211.png" alt="University at Buffalo Logo" class="w-24 h-24 object-contain mr-4 dark:brightness-110 transform transition-transform hover:scale-110">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 dark:text-white">MS in Business Analytics</h3>
+                    <p class="text-blue-600 dark:text-blue-400">STEM-Designated Program</p>
+                </div>
+            </div>
+            <div class="flex flex-col space-y-2" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+                <div class="flex items-center justify-between">
+                    <p class="text-gray-600 dark:text-gray-200">University at Buffalo, SUNY – School of Management</p>
+                    <a href="assets/docs/Masters Degree Certificate - Abhishek .pdf" 
+                       target="_blank" 
+                       class="px-4 py-2 text-base bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-white rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-600 dark:hover:text-blue-400 transition-all flex items-center font-medium shadow-sm hover:shadow-md transform hover:scale-105 hover:-translate-y-1">
+                        <i class="fas fa-award mr-2 text-blue-500 dark:text-blue-400 text-lg transition-transform group-hover:rotate-12"></i>
+                        View Credential
+                    </a>
+                </div>
+                <p class="text-gray-500 dark:text-gray-300">Aug 2024 – Jun 2025</p>
+                <div class="flex items-center">
+                    <span class="inline-flex items-center bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 px-3 py-1 rounded-full transform transition-all hover:scale-105 hover:shadow-md group">
+                        <i class="fas fa-star text-green-500 dark:text-green-400 mr-2 group-hover:rotate-12 transition-transform"></i>
+                        <span class="text-green-600 dark:text-green-400 font-medium whitespace-nowrap">GPA: 3.83/4.0</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Academic Focus Areas -->
+    <div class="mb-6" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
+        <h4 class="text-lg font-semibold text-gray-700 dark:text-gray-200 mb-4">Academic Focus Areas</h4>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="bg-yellow-50 dark:bg-yellow-900/20 rounded-lg p-4 transform transition-all hover:scale-105 hover:shadow-lg">
+                <p class="text-yellow-700 dark:text-yellow-300 font-semibold mb-2">Marketing & Web Analytics</p>
+                <p class="text-sm text-gray-600 dark:text-gray-300">Campaign Analysis, GA4, User Behavior</p>
+            </div>
+            <div class="bg-purple-50 dark:bg-purple-900/20 rounded-lg p-4 transform transition-all hover:scale-105 hover:shadow-lg">
+                <p class="text-purple-600 dark:text-purple-300 font-semibold mb-2">Predictive & Statistical Modeling</p>
+                <p class="text-sm text-gray-600 dark:text-gray-300">Regression, Classification, Forecasting</p>
+            </div>
+            <div class="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4 transform transition-all hover:scale-105 hover:shadow-lg">
+                <p class="text-blue-600 dark:text-blue-300 font-semibold mb-2">Data Visualization & Insights</p>
+                <p class="text-sm text-gray-600 dark:text-gray-300">Power BI, Tableau, Excel, Python</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Relevant Coursework -->
+    <div data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
+        <h4 class="text-lg font-semibold text-gray-700 dark:text-gray-200 mb-4">Relevant Coursework</h4>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+            <div class="flex items-center space-x-2 transform transition-all hover:translate-x-2">
+                <i class="fas fa-database text-blue-600 dark:text-blue-400"></i>
+                <span class="text-gray-600 dark:text-gray-300">Database Management Systems</span>
+            </div>
+            <div class="flex items-center space-x-2 transform transition-all hover:translate-x-2">
+                <i class="fas fa-chart-line text-blue-600 dark:text-blue-400"></i>
+                <span class="text-gray-600 dark:text-gray-300">Web & Marketing Analytics</span>
+            </div>
+            <div class="flex items-center space-x-2 transform transition-all hover:translate-x-2">
+                <i class="fas fa-project-diagram text-blue-600 dark:text-blue-400"></i>
+                <span class="text-gray-600 dark:text-gray-300">Predictive Analytics</span>
+            </div>
+            <div class="flex items-center space-x-2 transform transition-all hover:translate-x-2">
+                <i class="fas fa-sitemap text-blue-600 dark:text-blue-400"></i>
+                <span class="text-gray-600 dark:text-gray-300">Operations Research</span>
+            </div>
+            <div class="flex items-center space-x-2 transform transition-all hover:translate-x-2">
+                <i class="fas fa-search-dollar text-blue-600 dark:text-blue-400"></i>
+                <span class="text-gray-600 dark:text-gray-300">Market Research</span>
+            </div>
+            <div class="flex items-center space-x-2 transform transition-all hover:translate-x-2">
+                <i class="fas fa-users text-blue-600 dark:text-blue-400"></i>
+                <span class="text-gray-600 dark:text-gray-300">Consumer Behavior</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+                <!-- BMSCE -->
+<div class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="100">
+    <div class="flex flex-col md:flex-row justify-between items-start mb-6">
+        <div class="flex-1">
+            <div class="flex items-center mb-4" data-aos="fade-right" data-aos-duration="1000">
+                <img src="assets/images/BMSCE logo.jpeg" alt="BMS College of Engineering Logo" class="w-24 h-24 object-contain mr-4 dark:brightness-110 transform transition-transform hover:scale-110">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 dark:text-white">Bachelor of Engineering</h3>
+                    <p class="text-blue-600 dark:text-blue-400">Mechanical Engineering</p>
+                </div>
+            </div>
+            <div class="flex flex-col space-y-2" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+                <div class="flex items-center justify-between">
+                    <p class="text-gray-600 dark:text-gray-200">BMS College of Engineering, Bengaluru, India</p>
+                    <a href="assets/docs/Abhishek degree certificate.pdf" 
+                       target="_blank" 
+                       class="px-4 py-2 text-base bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-white rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-600 dark:hover:text-blue-400 transition-all flex items-center font-medium shadow-sm hover:shadow-md transform hover:scale-105 hover:-translate-y-1">
+                        <i class="fas fa-award mr-2 text-blue-500 dark:text-blue-400 text-lg transition-transform group-hover:rotate-12"></i>
+                        View Credential
+                    </a>
+                </div>
+                <p class="text-gray-500 dark:text-gray-300">Aug 2017 – Jun 2021</p>
+                <div class="flex items-center">
+                    <span class="inline-flex items-center bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 px-3 py-1 rounded-full transform transition-all hover:scale-105 hover:shadow-md group">
+                        <i class="fas fa-star text-green-500 dark:text-green-400 mr-2 group-hover:rotate-12 transition-transform"></i>
+                        <span class="text-green-600 dark:text-green-400 font-medium whitespace-nowrap">9.14/10.0 GPA</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BMSCE Academic Focus Areas -->
+    <div class="mb-6" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
+        <h4 class="text-lg font-semibold text-gray-700 dark:text-gray-200 mb-4">Academic Focus Areas</h4>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="bg-yellow-50 dark:bg-yellow-900/20 rounded-lg p-4 transform transition-all hover:scale-105 hover:shadow-lg">
+                <p class="text-yellow-700 dark:text-yellow-300 font-semibold mb-2">Thermal & Fluid Sciences</p>
+                <p class="text-sm text-gray-600 dark:text-gray-300">Heat Transfer, Thermodynamics, CFD</p>
+            </div>
+            <div class="bg-purple-50 dark:bg-purple-900/20 rounded-lg p-4 transform transition-all hover:scale-105 hover:shadow-lg">
+                <p class="text-purple-600 dark:text-purple-300 font-semibold mb-2">Design & Manufacturing</p>
+                <p class="text-sm text-gray-600 dark:text-gray-300">Machine Design, CAM, Materials</p>
+            </div>
+            <div class="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4 transform transition-all hover:scale-105 hover:shadow-lg">
+                <p class="text-blue-600 dark:text-blue-300 font-semibold mb-2">Automation & Simulation</p>
+                <p class="text-sm text-gray-600 dark:text-gray-300">Mechatronics, MATLAB, ANSYS</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- BMSCE Relevant Coursework -->
+    <div data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
+        <h4 class="text-lg font-semibold text-gray-700 dark:text-gray-200 mb-4">Relevant Coursework</h4>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+            <div class="flex items-center space-x-2 transform transition-all hover:translate-x-2">
+                <i class="fas fa-cogs text-blue-600 dark:text-blue-400"></i>
+                <span class="text-gray-600 dark:text-gray-300">Thermodynamics</span>
+            </div>
+            <div class="flex items-center space-x-2 transform transition-all hover:translate-x-2">
+                <i class="fas fa-drafting-compass text-blue-600 dark:text-blue-400"></i>
+                <span class="text-gray-600 dark:text-gray-300">Machine Design</span>
+            </div>
+            <div class="flex items-center space-x-2 transform transition-all hover:translate-x-2">
+                <i class="fas fa-industry text-blue-600 dark:text-blue-400"></i>
+                <span class="text-gray-600 dark:text-gray-300">Manufacturing Technology</span>
+            </div>
+            <div class="flex items-center space-x-2 transform transition-all hover:translate-x-2">
+                <i class="fas fa-project-diagram text-blue-600 dark:text-blue-400"></i>
+                <span class="text-gray-600 dark:text-gray-300">Fluid Mechanics</span>
+            </div>
+            <div class="flex items-center space-x-2 transform transition-all hover:translate-x-2">
+                <i class="fas fa-microscope text-blue-600 dark:text-blue-400"></i>
+                <span class="text-gray-600 dark:text-gray-300">Materials Science</span>
+            </div>
+            <div class="flex items-center space-x-2 transform transition-all hover:translate-x-2">
+                <i class="fas fa-robot text-blue-600 dark:text-blue-400"></i>
+                <span class="text-gray-600 dark:text-gray-300">Mechatronics</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-16 text-gray-800 dark:text-white" data-aos="fade-up">Work Experience</h2>
+            <div class="space-y-8">
+
+                <!-- UB SOM Teaching -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-duration="800">
+                    <div class="flex flex-col md:flex-row justify-between mb-6">
+                        <div>
+                            <div class="flex items-center mb-4" data-aos="fade-right" data-aos-duration="800" data-aos-delay="100">
+                                <img src="assets/images/university-at-buffalo-logo-png_seeklogo-307211.png" alt="University at Buffalo - School of Management" class="w-24 h-24 object-contain mr-4 transform transition-transform hover:scale-110">
+                                <div>
+                                    <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Graduate Teaching Assistant</h3>
+                                    <p class="text-blue-600 dark:text-blue-400">University at Buffalo - School of Management</p>
+                                    <p class="text-gray-500 dark:text-gray-400">Jan 2025 - May 2025 · Part-time</p>
+                                    <p class="text-gray-600 dark:text-gray-300 text-sm">Buffalo, New York, United States</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Teaching Impact -->
+                    <div class="mb-6" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
+                        <h4 class="text-lg font-semibold text-gray-700 dark:text-gray-200 mb-4">Teaching Impact</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-red-50 dark:bg-red-900/20 rounded-lg p-4 transform transition-all hover:scale-105 hover:shadow-lg">
+                                <p class="text-red-600 dark:text-red-300 font-semibold mb-2">Course Coverage</p>
+                                <p class="text-3xl font-bold text-red-700 dark:text-red-200">1</p>
+                                <p class="text-sm text-gray-600 dark:text-gray-300">Market Research</p>
+                            </div>
+                            <div class="bg-orange-50 dark:bg-orange-900/20 rounded-lg p-4 transform transition-all hover:scale-105 hover:shadow-lg">
+                                <p class="text-orange-600 dark:text-orange-300 font-semibold mb-2">Teaching Duration</p>
+                                <p class="text-3xl font-bold text-orange-700 dark:text-orange-200">5</p>
+                                <p class="text-sm text-gray-600 dark:text-gray-300">Months of Instruction</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Course Details -->
+<div class="space-y-6" data-aos="fade-up" data-aos-delay="300" data-aos-duration="800">
+    <!-- MGM 403 -->
+    <div class="mb-8">
+        <div class="flex items-center mb-4">
+            <i class="fas fa-graduation-cap text-red-600 dark:text-red-400 text-xl mr-3"></i>
+            <h5 class="text-lg font-semibold text-gray-700 dark:text-gray-200">MGM 403: Market Research</h5>
+        </div>
+        <p class="text-gray-500 dark:text-gray-400 mb-3 text-sm">Jan 2025 - May 2025 · Under Prof. Indranil Goswami</p>
+        <ul class="space-y-3 text-gray-600 dark:text-gray-300">
+            <li class="flex items-start experience-item">
+                <i class="fas fa-chart-pie text-red-600 dark:text-red-400 mt-1 mr-2"></i>
+                <span>Mentored students in applying statistical techniques including hypothesis testing, regression, and classification using Python, R, and SPSS.</span>
+            </li>
+            <li class="flex items-start experience-item">
+                <i class="fas fa-users text-red-600 dark:text-red-400 mt-1 mr-2"></i>
+                <span>Guided students in translating business problems into analytical frameworks for projects involving consumer behavior and market trends.</span>
+            </li>
+            <li class="flex items-start experience-item">
+                <i class="fas fa-lightbulb text-red-600 dark:text-red-400 mt-1 mr-2"></i>
+                <span>Helped students develop clear, impactful presentations by focusing on data storytelling, visualization, and insight communication.</span>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Expandable Details -->
+    <!-- [no changes made to the rest] -->
+</div>
+
+                </div>
+
+                <!-- UB Projects Clinic Internship -->
+<div class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-duration="800">
+    <div class="flex flex-col md:flex-row justify-between mb-6">
+        <div>
+            <div class="flex items-center mb-4" data-aos="fade-right" data-aos-duration="800" data-aos-delay="100">
+                <img src="assets/images/university-at-buffalo-logo-png_seeklogo-307211.png" alt="University at Buffalo Logo" class="w-24 h-24 object-contain mr-4 transform transition-transform hover:scale-110">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Graduate Student Intern – Projects Clinic Business Analyst</h3>
+                    <p class="text-blue-600 dark:text-blue-400">University at Buffalo - School of Management</p>
+                    <p class="text-gray-500 dark:text-gray-400">Aug 2024 - Dec 2024 · Part-time</p>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm">Buffalo, New York, United States</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Internship Highlights -->
+    <div class="mb-6" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
+        <h4 class="text-lg font-semibold text-gray-700 dark:text-gray-200 mb-4">Key Contributions</h4>
+        <ul class="list-disc list-inside space-y-2 text-sm md:text-base text-gray-700 dark:text-gray-300">
+            <li>Designed performance-tracking dashboards and optimized flat-fee structures for Kruger Law, boosting gross profit margins by 78%.</li>
+            <li>Created automated training efficiency reports for M&T Bank, reducing manual reporting by 80% and providing churn insights via KPI-based metrics.</li>
+            <li>Conducted market and competitor analysis for Chiavetta’s, helping reduce employee turnover by 70% through operational cost optimization.</li>
+        </ul>
+    </div>
+
+    <!-- Featured Work -->
+    <div class="mb-6" data-aos="fade-up" data-aos-delay="300" data-aos-duration="800">
+        <h4 class="text-lg font-semibold text-gray-700 dark:text-gray-200 mb-4">Featured in Buffalo Business Magazine</h4>
+        <a href="https://management.buffalo.edu/about/buffalo-business/2025spring/features/boosting-business-building-skills.html" 
+           target="_blank" 
+           class="inline-flex items-center px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-lg font-medium hover:bg-blue-200 dark:hover:bg-blue-800 transition-all shadow-sm hover:shadow-md transform hover:scale-105 hover:-translate-y-1">
+            <i class="fas fa-external-link-alt mr-2 text-blue-500 dark:text-blue-400"></i>
+            Read Full Article
+        </a>
+    </div>
+</div>
+
+
+                <!-- Tredence Analytics -->
+<div class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-duration="1000">
+    <div class="flex flex-col md:flex-row justify-between mb-6">
+        <div>
+            <div class="flex items-center mb-4" data-aos="fade-right" data-aos-duration="1000">
+                <img src="assets/images/Tredence_Logo.jpg" alt="Tredence Logo" class="w-24 h-24 object-contain mr-4 dark:brightness-110 transform transition-transform hover:scale-110">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Data Analyst Consultant – Marketing, Web & Financial Analytics</h3>
+                    <p class="text-blue-600 dark:text-blue-400">Tredence Analytics</p>
+                    <p class="text-gray-500 dark:text-gray-400">Jul 2021 - Jul 2024 · Full-time</p>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm">Bengaluru, Karnataka, India</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Key Metrics -->
+    <div class="mb-6" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
+        <h4 class="text-lg font-semibold text-gray-700 dark:text-gray-200 mb-4">Impact Metrics</h4>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="bg-green-50 dark:bg-green-900/20 rounded-lg p-4 transform transition-all hover:scale-105 hover:shadow-lg">
+                <p class="text-green-600 dark:text-green-300 font-semibold mb-2">Reporting Cost Savings</p>
+                <p class="text-3xl font-bold text-green-700 dark:text-green-200">$160K</p>
+                <p class="text-sm text-gray-600 dark:text-gray-300">Annual Reduction via Process Optimization</p>
+            </div>
+            <div class="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4 transform transition-all hover:scale-105 hover:shadow-lg">
+                <p class="text-blue-600 dark:text-blue-300 font-semibold mb-2">E-Com Retention</p>
+                <p class="text-3xl font-bold text-blue-700 dark:text-blue-200">↑ CTR & LTV</p>
+                <p class="text-sm text-gray-600 dark:text-gray-300">Improved via GA4 Campaigns</p>
+            </div>
+            <div class="bg-purple-50 dark:bg-purple-900/20 rounded-lg p-4 transform transition-all hover:scale-105 hover:shadow-lg">
+                <p class="text-purple-600 dark:text-purple-300 font-semibold mb-2">Monthly Sales Tracked</p>
+                <p class="text-3xl font-bold text-purple-700 dark:text-purple-200">$18M+</p>
+                <p class="text-sm text-gray-600 dark:text-gray-300">Through Automated Reporting Dashboards</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Core Achievements -->
+    <div class="space-y-4">
+        <div class="text-gray-600 dark:text-gray-300">
+            <h4 class="text-lg font-semibold text-gray-700 dark:text-gray-200 mb-4">Key Achievements</h4>
+            <ul class="space-y-3 mb-4">
+                <li class="flex items-start experience-item">
+                    <i class="fas fa-bullhorn text-green-600 dark:text-green-400 mt-1 mr-2"></i>
+                    <span>Led marketing analytics initiatives for Tailored Brands, reducing syndicated reporting costs by $160K/year through automation and streamlined workflows.</span>
+                </li>
+                <li class="flex items-start experience-item">
+                    <i class="fas fa-chart-line text-green-600 dark:text-green-400 mt-1 mr-2"></i>
+                    <span>Improved customer retention and engagement by enhancing re-marketing strategies using GA4-based e-commerce insights and behavior segmentation.</span>
+                </li>
+                <li class="flex items-start experience-item">
+                    <i class="fas fa-wallet text-green-600 dark:text-green-400 mt-1 mr-2"></i>
+                    <span>Developed financial and inventory dashboards for FabFitFun’s portfolio worth $18M/month, increasing forecasting accuracy and operational efficiency.</span>
+                </li>
+            </ul>
+
+            <!-- Expandable Details -->
+            <div class="collapse-content hidden">
+                <div class="space-y-6">
+                    <!-- Automation & Visualization -->
+                    <div>
+                        <h5 class="text-md font-semibold text-gray-700 dark:text-gray-200 mb-3">Automation & Dashboarding</h5>
+                        <ul class="space-y-3">
+                            <li class="flex items-start experience-item">
+                                <i class="fas fa-cogs text-green-600 dark:text-green-400 mt-1 mr-2"></i>
+                                <span>Automated multi-source reporting pipelines using SQL, Excel macros, and Looker, cutting turnaround time by 60% for executive dashboards.</span>
+                            </li>
+                            <li class="flex items-start experience-item">
+                                <i class="fas fa-chart-bar text-green-600 dark:text-green-400 mt-1 mr-2"></i>
+                                <span>Created visually intuitive Power BI and Tableau dashboards for C-level stakeholders, enabling data-driven decisions across product, finance, and marketing teams.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Cross-functional Collaboration -->
+                    <div>
+                        <h5 class="text-md font-semibold text-gray-700 dark:text-gray-200 mb-3">Business Impact & Recognition</h5>
+                        <ul class="space-y-3">
+                            <li class="flex items-start experience-item">
+                                <i class="fas fa-users text-green-600 dark:text-green-400 mt-1 mr-2"></i>
+                                <span>Collaborated with marketing strategists, engineers, and client teams to deliver granular insights through customer segmentation and funnel analytics.</span>
+                            </li>
+                            <li class="flex items-start experience-item">
+                                <i class="fas fa-award text-green-600 dark:text-green-400 mt-1 mr-2"></i>
+                                <span>Received multiple “Pat on the Back” awards and client appreciation for excellence in delivery and high-impact results during the GA3 to GA4 migration project.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <button class="text-green-600 dark:text-green-400 hover:text-green-700 dark:hover:text-green-300 mt-6 flex items-center toggle-content group">
+                <i class="fas fa-plus-circle mr-2 group-hover:transform group-hover:scale-110 transition-transform"></i>
+                <span class="font-medium">View Detailed Impact</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+
+                <!-- Blitz Jobs Internship -->
+<div class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-duration="1000">
+    <div class="flex flex-col md:flex-row justify-between mb-6">
+        <div>
+            <div class="flex items-center mb-4" data-aos="fade-right" data-aos-duration="1000">
+                <img src="assets/images/Blitz jobs.jpeg" alt="Blitz Jobs Logo" class="w-24 h-24 object-contain mr-4 dark:brightness-110 transform transition-transform hover:scale-110">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Summer Intern – Data Operations & Insights</h3>
+                    <p class="text-blue-600 dark:text-blue-400">Blitz Jobs</p>
+                    <p class="text-gray-500 dark:text-gray-400">Jun 2020 - Jul 2020 · 2 months</p>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm">Bengaluru, Karnataka, India</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Summary -->
+    <div class="mb-6 text-gray-700 dark:text-gray-300 text-sm md:text-base" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
+        Contributed to streamlining business operations by building Excel-based dashboards, cleaning datasets, and developing performance reports. Supported cross-functional teams with custom data insights and helped migrate key business data to modern platforms.
+    </div>
+
+    <!-- KPI Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+        <div class="bg-green-50 dark:bg-green-900/20 rounded-lg p-4 transform transition-all hover:scale-105 hover:shadow-lg">
+            <p class="text-green-600 dark:text-green-300 font-semibold mb-2">Reports Automated</p>
+            <p class="text-3xl font-bold text-green-700 dark:text-green-200">10+</p>
+            <p class="text-sm text-gray-600 dark:text-gray-300">Operational & KPI Dashboards</p>
+        </div>
+        <div class="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4 transform transition-all hover:scale-105 hover:shadow-lg">
+            <p class="text-blue-600 dark:text-blue-300 font-semibold mb-2">Data Accuracy</p>
+            <p class="text-3xl font-bold text-blue-700 dark:text-blue-200">99.5%</p>
+            <p class="text-sm text-gray-600 dark:text-gray-300">Achieved Post-Audit</p>
+        </div>
+        <div class="bg-yellow-50 dark:bg-yellow-900/20 rounded-lg p-4 transform transition-all hover:scale-105 hover:shadow-lg">
+            <p class="text-yellow-600 dark:text-yellow-300 font-semibold mb-2">Migration Success</p>
+            <p class="text-3xl font-bold text-yellow-700 dark:text-yellow-200">100%</p>
+            <p class="text-sm text-gray-600 dark:text-gray-300">Legacy to Modern Systems</p>
+        </div>
+    </div>
+</div>
+
+<!-- Goma Engineering Internship -->
+<div class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-duration="1000">
+    <div class="flex flex-col md:flex-row justify-between mb-6">
+        <div>
+            <div class="flex items-center mb-4" data-aos="fade-right" data-aos-duration="1000">
+                <img src="assets/images/goma engg logo.jpeg" alt="Goma Engineering Logo" class="w-24 h-24 object-contain mr-4 dark:brightness-110 transform transition-transform hover:scale-110">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Summer Intern – Production & Quality Engineering</h3>
+                    <p class="text-blue-600 dark:text-blue-400">Goma Engineering Pvt. Ltd.</p>
+                    <p class="text-gray-500 dark:text-gray-400">Jun 2019 - Jul 2019 · 2 months</p>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm">Thane, Maharashtra, India · On-site</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Summary -->
+    <div class="mb-6 text-gray-700 dark:text-gray-300 text-sm md:text-base" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
+        Assisted in production and quality control tasks across multiple manufacturing lines. Applied principles of GD&T, CNC machining, and process optimization while gaining hands-on experience with industrial machinery and equipment.
+    </div>
+
+    <!-- KPI Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+        <div class="bg-red-50 dark:bg-red-900/20 rounded-lg p-4 transform transition-all hover:scale-105 hover:shadow-lg">
+            <p class="text-red-600 dark:text-red-300 font-semibold mb-2">Machines Worked On</p>
+            <p class="text-3xl font-bold text-red-700 dark:text-red-200">5+</p>
+            <p class="text-sm text-gray-600 dark:text-gray-300">Heat Exchangers, Pumps, Fillers</p>
+        </div>
+        <div class="bg-green-50 dark:bg-green-900/20 rounded-lg p-4 transform transition-all hover:scale-105 hover:shadow-lg">
+            <p class="text-green-600 dark:text-green-300 font-semibold mb-2">Process Enhancements</p>
+            <p class="text-3xl font-bold text-green-700 dark:text-green-200">3</p>
+            <p class="text-sm text-gray-600 dark:text-gray-300">Suggested for Production Line</p>
+        </div>
+        <div class="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4 transform transition-all hover:scale-105 hover:shadow-lg">
+            <p class="text-blue-600 dark:text-blue-300 font-semibold mb-2">Engineering Tools Used</p>
+            <p class="text-3xl font-bold text-blue-700 dark:text-blue-200">GD&T, CNC</p>
+            <p class="text-sm text-gray-600 dark:text-gray-300">Applied in Live Projects</p>
+        </div>
+    </div>
+</div>
+
+                            <button class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 mt-6 flex items-center toggle-content group">
+                                <i class="fas fa-plus-circle mr-2 group-hover:transform group-hover:scale-110 transition-transform"></i>
+                                <span class="font-medium">View Technical Details</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+   
+    </section>
+
+    <!-- =======================================================
+     Featured Projects Section
+======================================================== -->
+<section id="all-projects" class="py-20 bg-white dark:bg-gray-900">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12 text-gray-800 dark:text-white" data-aos="fade-up">Projects</h2>
+        
+        <!-- Filter Bar -->
+        <div class="relative mb-8" data-aos="fade-up">
+            <div class="filter-bar-container">
+                <div class="filter-bar">
+                    <button class="filter-btn active whitespace-nowrap px-4 py-2 rounded-full bg-blue-600 text-white hover:bg-blue-700 transition-all" data-filter="all">Show All</button>
+                    <button class="filter-btn whitespace-nowrap px-4 py-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition-all" data-filter="ai">Gen AI & LLMs</button>
+                    <button class="filter-btn whitespace-nowrap px-4 py-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition-all" data-filter="ml">Machine Learning</button>
+                    <button class="filter-btn whitespace-nowrap px-4 py-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition-all" data-filter="visualization">Data Visualization</button>
+                    <button class="filter-btn whitespace-nowrap px-4 py-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition-all" data-filter="web">Web Analytics</button>
+                    <button class="filter-btn whitespace-nowrap px-4 py-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition-all" data-filter="healthcare">Healthcare Analytics</button>
+                    <button class="filter-btn whitespace-nowrap px-4 py-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition-all" data-filter="marketing">Marketing Strategy</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Projects Grid -->
+        <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- ==================================
+                 START: INDIVIDUAL PROJECT CARDS
+                 ================================== -->
+
+            <!-- RAG Project -->
+            <div class="project-card" data-tags="ai" data-aos="fade-up">
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all transform hover:scale-105 h-full flex flex-col">
+                    <div class="flex-shrink-0 flex items-center justify-center mb-4 h-24">
+                        <img src="assets/images/AI brain.png" alt="Generative AI" class="w-24 h-24 object-contain dark:brightness-110">
+                    </div>
+                    <div class="flex-grow">
+                        <h3 class="text-xl font-semibold text-center text-gray-800 dark:text-white mb-2">Multi-Modal RAG for PDF Document Analysis</h3>
+                        <p class="text-center text-gray-600 dark:text-gray-300 mb-4">Generative AI Project</p>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm">
+                            Developed an advanced Retrieval-Augmented Generation (RAG) system to query the "Attention Is All You Need" research paper, using a multi-modal approach with Llama-3.1 for text and Gemini-1.5-Flash for images, all indexed in a ChromaDB vector store via a Multi-Vector Retriever.
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700 flex flex-col items-center space-y-3">
+                        <div class="flex flex-wrap gap-2 justify-center mb-4">
+                            <span class="px-3 py-1 bg-yellow-100 dark:bg-yellow-900 text-yellow-700 dark:text-yellow-300 rounded-full text-xs font-semibold">RAG</span>
+                            <span class="px-3 py-1 bg-yellow-100 dark:bg-yellow-900 text-yellow-700 dark:text-yellow-300 rounded-full text-xs font-semibold">LLMs</span>
+                            <span class="px-3 py-1 bg-yellow-100 dark:bg-yellow-900 text-yellow-700 dark:text-yellow-300 rounded-full text-xs font-semibold">LangChain</span>
+                        </div>
+                        <!-- <a href="#" target="_blank" class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center"><i class="fab fa-github mr-2"></i> View on GitHub</a> -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Raymond Corp Practicum Project -->
+            <div class="project-card" data-tags="ml,web-analytics" data-aos="fade-up">
+                 <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all transform hover:scale-105 h-full flex flex-col">
+                    <div class="flex-shrink-0 flex items-center justify-center mb-4 h-24">
+                        <img src="assets/images/university-at-buffalo-logo-png_seeklogo-307211.png" alt="University at Buffalo" class="w-24 h-24 object-contain">
+                    </div>
+                    <div class="flex-grow">
+                        <h3 class="text-xl font-semibold text-center text-gray-800 dark:text-white mb-2">Industry Demand Forecasting Practicum</h3>
+                        <p class="text-center text-gray-600 dark:text-gray-300 mb-4">MS Practicum Project</p>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm">
+                            A 3-credit capstone project to forecast demand for an industrial manufacturer. Used <strong>Time Series models (SARIMA)</strong> to predict macroeconomic indicators, then used those as inputs for a final <strong>Multiple Regression model</strong> to predict unit demand, enabling informed production planning.
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700 flex flex-col items-center space-y-3">
+                        <div class="flex flex-wrap gap-2 justify-center mb-4">
+                             <span class="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 rounded-full text-xs font-semibold">Predictive Modeling</span>
+                             <span class="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 rounded-full text-xs font-semibold">Time Series</span>
+                             <span class="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 rounded-full text-xs font-semibold">Python</span>
+                        </div>
+                        <!-- <span class="text-gray-500 dark:text-gray-400 cursor-not-allowed flex items-center" title="Project materials are confidential"><i class="fas fa-lock mr-2"></i>Confidential Project</span> -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Healthcare Analytics Project -->
+            <div class="project-card" data-tags="ml,healthcare" data-aos="fade-up">
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all transform hover:scale-105 h-full flex flex-col">
+                    <div class="flex-shrink-0 flex items-center justify-center mb-4 h-24">
+                        <img src="assets/images/healthcare analytics.png" alt="University at Buffalo" class="w-24 h-24 object-contain">
+                    </div>
+                    <div class="flex-grow">
+                        <h3 class="text-xl font-semibold text-center text-gray-800 dark:text-white mb-2">Explanatory Modeling of Inpatient Cost Trends</h3>
+                        <p class="text-center text-gray-600 dark:text-gray-300 mb-4">Healthcare Analytics Project</p>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm">
+                            Explanatory modeling project on 10,000+ inpatient claims to identify healthcare cost drivers. Used a <strong>Random Forest</strong> for feature importance and a <strong>Generalized Linear Model (GLM)</strong> to quantify the impact of clinical factors, providing insights for cost control strategies.
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700 flex flex-col items-center space-y-3">
+                         <div class="flex flex-wrap gap-2 justify-center mb-4">
+                            <span class="px-3 py-1 bg-teal-100 dark:bg-teal-900 text-teal-700 dark:text-teal-300 rounded-full text-xs font-semibold">Python</span>
+                            <span class="px-3 py-1 bg-teal-100 dark:bg-teal-900 text-teal-700 dark:text-teal-300 rounded-full text-xs font-semibold">Statsmodels</span>
+                            <span class="px-3 py-1 bg-teal-100 dark:bg-teal-900 text-teal-700 dark:text-teal-300 rounded-full text-xs font-semibold">Explanatory Modeling</span>
+                        </div>
+                        <!-- <a href="#" target="_blank" class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center"><i class="fab fa-github mr-2"></i> View on GitHub</a> -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Visualization Project -->
+            <div class="project-card" data-tags="visualization" data-aos="fade-up">
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all transform hover:scale-105 h-full flex flex-col">
+                     <div class="flex-shrink-0 flex items-center justify-center mb-4 h-24">
+                        <img src="assets/images/data visualisation.png" alt="University at Buffalo" class="w-24 h-24 object-contain">
+                    </div>
+                    <div class="flex-grow">
+                        <h3 class="text-xl font-semibold text-center text-gray-800 dark:text-white mb-2">California Wildfire Damage Analysis</h3>
+                        <p class="text-center text-gray-600 dark:text-gray-300 mb-4">Data Visualization Project</p>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm">
+                            A comprehensive data visualization project analyzing California wildfire incidents. Created an interactive <strong>Tableau dashboard</strong> to uncover geospatial hotspots, damage severity by county, and the correlation between building materials and fire resilience for stakeholders.
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700 flex flex-col items-center space-y-3">
+                         <div class="flex flex-wrap gap-2 justify-center mb-4">
+                            <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-300 rounded-full text-xs font-semibold">Tableau</span>
+                            <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-300 rounded-full text-xs font-semibold">Dashboarding</span>
+                            <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-300 rounded-full text-xs font-semibold">Geospatial Analysis</span>
+                        </div>
+                        <!-- <a href="#" target="_blank" title="View the interactive dashboard" class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center"><i class="fas fa-chart-bar mr-2"></i>View Dashboard</a> -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Visa Fintech Project -->
+            <div class="project-card" data-tags="web,marketing" data-aos="fade-up">
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all transform hover:scale-105 h-full flex flex-col">
+                    <div class="flex-shrink-0 flex items-center justify-center mb-4 h-24">
+                        <img src="assets/images/visa fintech.jpeg" alt="Visa Logo" class="w-24 h-24 object-contain">
+                    </div>
+                    <div class="flex-grow">
+                        <h3 class="text-xl font-semibold text-center text-gray-800 dark:text-white mb-2">Visa: Fintech Product Diagnostic Plan</h3>
+                        <p class="text-center text-gray-600 dark:text-gray-300 mb-4">Client Consulting Project</p>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm">
+                            A strategic consulting project for Visa to diagnose product performance issues. Used the <strong>Hierarchy of Effects (H.O.E.)</strong> framework to identify funnel drop-offs and developed a two-phase testing strategy incorporating <strong>biometric analysis, usability testing, and A/B testing</strong>.
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700 flex flex-col items-center space-y-3">
+                         <div class="flex flex-wrap gap-2 justify-center mb-4">
+                            <span class="px-3 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 rounded-full text-xs font-semibold">Marketing Analytics</span>
+                            <span class="px-3 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 rounded-full text-xs font-semibold">A/B Testing</span>
+                            <span class="px-3 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 rounded-full text-xs font-semibold">CX/UX Analytics</span>
+                        </div>
+                        <!-- <span class="text-gray-500 dark:text-gray-400 cursor-not-allowed flex items-center" title="Project materials are confidential"><i class="fas fa-lock mr-2"></i>Confidential Project</span> -->
+                    </div>
+                </div>
+            </div>
+
+             <!-- Upside Foods Marketing Strategy Project -->
+            <div class="project-card" data-tags="marketing" data-aos="fade-up">
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all transform hover:scale-105 h-full flex flex-col">
+                    <div class="flex-shrink-0 flex items-center justify-center mb-4 h-24">
+                        <img src="assets/images/consumer behavior.png" alt="Upside Foods" class="w-24 h-24 object-contain">
+                    </div>
+                    <div class="flex-grow">
+                        <h3 class="text-xl font-semibold text-center text-gray-800 dark:text-white mb-2">Marketing Strategy for Upside Foods</h3>
+                        <p class="text-center text-gray-600 dark:text-gray-300 mb-4">Consumer Behavior & Marketing Strategy Project</p>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm">
+                            Developed a go-to-market strategy for Upside Foods to drive adoption of cultivated meat. The project involved a full <strong>STP (Segmentation, Targeting, Positioning)</strong> analysis and a <strong>4Ps (Product, Price, Place, Promotion)</strong> marketing mix to build trust and highlight its unique value proposition.
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700 flex flex-col items-center space-y-3">
+                        <div class="flex flex-wrap gap-2 justify-center mb-4">
+                            <span class="px-3 py-1 bg-orange-100 dark:bg-orange-900 text-orange-700 dark:text-orange-300 rounded-full text-xs font-semibold">Marketing Strategy</span>
+                            <span class="px-3 py-1 bg-orange-100 dark:bg-orange-900 text-orange-700 dark:text-orange-300 rounded-full text-xs font-semibold">STP Analysis</span>
+                            <span class="px-3 py-1 bg-orange-100 dark:bg-orange-900 text-orange-700 dark:text-orange-300 rounded-full text-xs font-semibold">4Ps Marketing Mix</span>
+                        </div>
+                        <!-- <span class="text-gray-500 dark:text-gray-400 cursor-not-allowed flex items-center" title="Project materials are confidential"><i class="fas fa-lock mr-2"></i>Confidential Project</span> -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- ==================================
+                 END: INDIVIDUAL PROJECT CARDS
+                 ================================== -->
+
+        </div>
+    </div>
+</section>
+
+<!-- =======================================================
+     CSS & JavaScript for Filtering
+======================================================== -->
+<style>
+    .filter-bar-container {
+        position: relative;
+        overflow: hidden;
+    }
+    .filter-bar {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+        display: flex;
+        justify-content: center;
+        gap: 0.75rem; /* 12px */
+        padding-bottom: 1rem;
+    }
+    .filter-bar::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, and Opera */
+    }
+    
+    @media (max-width: 1024px) {
+        .filter-bar-container::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: 50px;
+            background: linear-gradient(to left, rgb(17 24 39), transparent);
+            pointer-events: none;
+        }
+        .dark .filter-bar-container::after {
+            background: linear-gradient(to left, rgb(17 24 39), transparent);
+        }
+        html:not(.dark) .filter-bar-container::after {
+            background: linear-gradient(to left, white, transparent);
+        }
+        .filter-bar {
+            justify-content: flex-start;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+    }
+    .project-card {
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .project-card.fade-in {
+        animation: fadeIn 0.4s ease-out forwards;
+    }
+    .project-card.fade-out {
+        animation: fadeOut 0.3s ease-in forwards;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeOut {
+        from { opacity: 1; transform: translateY(0); }
+        to { opacity: 0; transform: translateY(10px); }
+    }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Update button styles
+            filterButtons.forEach(btn => {
+                btn.classList.remove('active', 'bg-blue-600', 'text-white');
+                btn.classList.add('bg-gray-200', 'dark:bg-gray-700', 'text-gray-700', 'dark:text-gray-300');
+            });
+            button.classList.add('active', 'bg-blue-600', 'text-white');
+            button.classList.remove('bg-gray-200', 'dark:bg-gray-700', 'text-gray-700', 'dark:text-gray-300');
+            
+            const filter = button.getAttribute('data-filter');
+            
+            projectCards.forEach(card => {
+                const tags = card.getAttribute('data-tags').split(',');
+                
+                // Determine if the card should be visible
+                const shouldShow = (filter === 'all' || tags.includes(filter));
+                
+                if (shouldShow) {
+                    if (card.style.display === 'none') {
+                        card.classList.remove('fade-out');
+                        card.classList.add('fade-in');
+                        card.style.display = 'block';
+                    }
+                } else {
+                    if (card.style.display !== 'none') {
+                        card.classList.add('fade-out');
+                        card.classList.remove('fade-in');
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300); // Match animation duration
+                    }
+                }
+            });
+        });
+    });
+});
+</script>
+
+    <!-- =======================================================
+     Research/Case Study Section
+======================================================== -->
+<section id="research-papers" class="py-20 bg-gray-50 dark:bg-gray-800">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12 text-gray-800 dark:text-white" data-aos="fade-up">Case Studies</h2>
+        
+        <!-- Filter Bar -->
+        <div class="relative mb-8" data-aos="fade-up">
+            <div class="filter-bar-container">
+                <div class="filter-bar-papers">
+                    <button class="filter-paper-btn active whitespace-nowrap px-4 py-2 rounded-full bg-blue-600 text-white hover:bg-blue-700 transition-all" data-filter="all">Show All</button>
+                    <button class="filter-paper-btn whitespace-nowrap px-4 py-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition-all" data-filter="consumer-behavior">Consumer Behavior</button>
+                    <button class="filter-paper-btn whitespace-nowrap px-4 py-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition-all" data-filter="market-research">Market Research</button>
+                    <button class="filter-paper-btn whitespace-nowrap px-4 py-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition-all" data-filter="web-analytics">Web Analytics</button>
+                    <button class="filter-paper-btn whitespace-nowrap px-4 py-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition-all" data-filter="healthcare-analytics">Healthcare Analytics</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Papers Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- ==================================
+                 START: INDIVIDUAL CASE STUDY CARDS
+                 ================================== -->
+                 
+            <!-- Aspire Food Group Case Study Card -->
+<div class="paper-card bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105" 
+     data-aos="fade-up"
+     data-tags="marketing-strategy,new-product-introduction,consumer-behavior,food-beverage,branding">
+    <div class="p-6">
+        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-3">Aspire Food Group: Marketing a Cricket Protein Brand</h3>
+        <p class="text-gray-600 dark:text-gray-300 mb-4">
+            Analyzes the marketing challenges of introducing a novel food product—cricket protein—to Western markets. Explores consumer segmentation, brand positioning, and overcoming the "ick" factor in food innovation.
+        </p>
+        <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Marketing Strategy</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">New Product Introduction</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Consumer Behavior</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Food & Beverage</span>
+        </div>
+        <div class="flex flex-col space-y-4">
+            <!-- <button class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center read-abstract-btn" onclick="toggleAbstract(this)">
+                <i class="fas fa-plus-circle mr-2 transition-transform duration-300"></i>
+                <span>Read Abstract</span>
+            </button> -->
+            <div class="hidden abstract-content overflow-hidden transition-all duration-300">
+                <p class="text-gray-600 dark:text-gray-300 text-sm bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg">
+                    This case follows Mohammed Ashour, CEO of Aspire Food Group, after acquiring Exo, a cricket-based protein bar company. It delves into the strategic dilemma of identifying the right target market for edible insects. Key considerations include marketing to athletes, eco-conscious consumers, Paleo dieters, or even children, and how to position the brand to drive mainstream acceptance for a sustainable but unconventional protein source.
+                </p>
+            </div>
+            <!-- IMPORTANT: Replace '#' with the link to your case analysis file -->
+            <!-- <a href="#" target="_blank" class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center">
+                <i class="fas fa-external-link-alt mr-2"></i> View My Analysis -->
+            </a>
+        </div>
+    </div>
+</div>
+
+                <!-- Gillette Case Study Card -->
+<div class="paper-card bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105" 
+     data-aos="fade-up"
+     data-tags="brand-activism,advertising,public-relations,consumer-psychology,brand-management,consumer-behavior">
+    <div class="p-6">
+        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-3">Gillette: Navigating Brand Activism and Modern Masculinity</h3>
+        <p class="text-gray-600 dark:text-gray-300 mb-4">
+            Examines Gillette's controversial "The Best Men Can Be" campaign. The case explores the complexities and risks of brand activism, its impact on consumer perception, and the challenge of evolving a legacy brand's identity.
+        </p>
+        <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Brand Activism</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Advertising</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Consumer Psychology</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Brand Management</span>
+        </div>
+        <div class="flex flex-col space-y-4">
+            <!-- <button class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center read-abstract-btn" onclick="toggleAbstract(this)">
+                <i class="fas fa-plus-circle mr-2 transition-transform duration-300"></i>
+                <span>Read Abstract</span>
+            </button> -->
+            <div class="hidden abstract-content overflow-hidden transition-all duration-300">
+                <p class="text-gray-600 dark:text-gray-300 text-sm bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg">
+                    In 2019, Gillette, a brand historically synonymous with traditional masculinity, launched a provocative ad campaign challenging bullying, harassment, and the "boys will be boys" attitude. This case details the intense public reaction, forcing Gillette to navigate the fine line between empowering customers and alienating its core base. It serves as an analysis of purpose-driven marketing in the #MeToo era and its impact on brand equity.
+                </p>
+            </div>
+            <!-- IMPORTANT: Replace '#' with the link to your case analysis file -->
+            <!-- <a href="#" target="_blank" class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center">
+                <i class="fas fa-external-link-alt mr-2"></i> View My Analysis -->
+            </a>
+        </div>
+    </div>
+</div>
+
+                <!-- Just Inc. Case Study Card -->
+<div class="paper-card bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105" 
+     data-aos="fade-up"
+     data-tags="branding,market-positioning,sustainability,food-innovation,consumer-identity,consumer-behavior">
+    <div class="p-6">
+        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-3">Just Inc.: Positioning Plant-Based Foods for the Mainstream Market</h3>
+        <p class="text-gray-600 dark:text-gray-300 mb-4">
+            Chronicles the journey of Just Inc. in its mission to create sustainable, plant-based food. The case focuses on the strategic challenges of branding, market positioning against established giants, and navigating consumer identity.
+        </p>
+        <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Branding</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Market Positioning</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Sustainability</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Consumer Identity</span>
+        </div>
+        <div class="flex flex-col space-y-4">
+            <!-- <button class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center read-abstract-btn" onclick="toggleAbstract(this)">
+                <i class="fas fa-plus-circle mr-2 transition-transform duration-300"></i>
+                <span>Read Abstract</span>
+            </button> -->
+            <div class="hidden abstract-content overflow-hidden transition-all duration-300">
+                <p class="text-gray-600 dark:text-gray-300 text-sm bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg">
+                    Just CEO Josh Tetrick aims to disrupt the conventional food system by making plant-based products that are high-quality, accessible, and affordable. The case highlights the brand's core dilemma: should it market itself as a "vegan" product, or as a superior mainstream alternative? It covers the crucial marketing decisions made to avoid "trapdoors" that would limit its appeal to a niche audience, focusing on the broader goal of systemic change.
+                </p>
+            </div>
+            <!-- IMPORTANT: Replace '#' with the link to your case analysis file -->
+            <!-- <a href="#" target="_blank" class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center">
+                <i class="fas fa-external-link-alt mr-2"></i> View My Analysis -->
+            </a>
+        </div>
+    </div>
+</div>
+
+                <!-- Margiotta Food & Wine Case Study Card -->
+<div class="paper-card bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105" 
+     data-aos="fade-up"
+     data-tags="customer-experience,retail-innovation,ai-automation,human-computer-interaction,service-management,consumer-behavior">
+    <div class="p-6">
+        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-3">Margiotta Food & Wine: The Human-Robot Interaction in Customer Service</h3>
+        <p class="text-gray-600 dark:text-gray-300 mb-4">
+            Investigates the implementation of "Fabio," a service robot, in a Scottish supermarket, analyzing customer resistance, employee attachment, and the failures of integrating AI into a high-touch retail environment.
+        </p>
+        <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Customer Experience</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Retail Innovation</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">AI & Automation</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Service Management</span>
+        </div>
+        <div class="flex flex-col space-y-4">
+            <!-- <button class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center read-abstract-btn" onclick="toggleAbstract(this)">
+                <i class="fas fa-plus-circle mr-2 transition-transform duration-300"></i>
+                <span>Read Abstract</span>
+            </button> -->
+            <div class="hidden abstract-content overflow-hidden transition-all duration-300">
+                <p class="text-gray-600 dark:text-gray-300 text-sm bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg">
+                    Margiotta Food & Wine, a family-owned supermarket known for personalized service, trialed a humanoid robot named Fabio to assist customers. The experiment quickly revealed the robot's shortcomings, leading to customer avoidance and, surprisingly, the emotional attachment formed by employees. The case poses critical questions about the role of automation, the value of human interaction, and the cultural readiness for robots in service roles.
+                </p>
+            </div>
+            <!-- IMPORTANT: Replace '#' with the link to your case analysis file -->
+            <!-- <a href="#" target="_blank" class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center">
+                <i class="fas fa-external-link-alt mr-2"></i> View My Analysis -->
+            </a>
+        </div>
+    </div>
+</div>
+
+                <!-- McDonald's Case Study Card -->
+<div class="paper-card bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105" 
+     data-aos="fade-up"
+     data-tags="automation,customer-experience,future-of-work,brand-strategy,qsr-industry,consumer-behavior">
+    <div class="p-6">
+        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-3">McDonald's: Balancing Automation and the Human Touch</h3>
+        <p class="text-gray-600 dark:text-gray-300 mb-4">
+            Explores McDonald's test of a mostly automated restaurant, sparking a debate on the future of fast food. Examines consumer reactions, the role of human interaction, and the strategic implications for a global brand.
+        </p>
+        <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Automation</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Customer Experience</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Future of Work</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">QSR Industry</span>
+        </div>
+        <div class="flex flex-col space-y-4">
+            <!-- <button class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center read-abstract-btn" onclick="toggleAbstract(this)">
+                <i class="fas fa-plus-circle mr-2 transition-transform duration-300"></i>
+                <span>Read Abstract</span>
+            </button> -->
+            <div class="hidden abstract-content overflow-hidden transition-all duration-300">
+                <p class="text-gray-600 dark:text-gray-300 text-sm bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg">
+                    In late 2022, McDonald's opened a highly automated store with conveyor belts and kiosks, minimizing human interaction. This case study captures the polarized public response, from consumers praising efficiency to those lamenting the loss of jobs and human connection. It frames the strategic decision facing leadership: pursue full automation for speed and accuracy, or preserve the human element of its service model?
+                </p>
+            </div>
+            <!-- IMPORTANT: Replace '#' with the link to your case analysis file -->
+            <!-- <a href="#" target="_blank" class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center">
+                <i class="fas fa-external-link-alt mr-2"></i> View My Analysis -->
+            </a>
+        </div>
+    </div>
+</div>
+
+                <!-- Longchamp Case Study Card -->
+<div class="paper-card bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105" 
+     data-aos="fade-up"
+     data-tags="brand-management,luxury-goods,product-strategy,international-marketing,brand-extension,consumer-behavior">
+    <div class="p-6">
+        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-3">Longchamp: Managing an Iconic Product and Navigating the Luxury Market</h3>
+        <p class="text-gray-600 dark:text-gray-300 mb-4">
+            A deep dive into the strategic challenges faced by French luxury brand Longchamp, focusing on managing its accessible "Le Pliage" bag while elevating its position in the high-end leather goods market.
+        </p>
+        <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Brand Management</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Luxury Goods</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Product Strategy</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Brand Extension</span>
+        </div>
+        <div class="flex flex-col space-y-4">
+            <!-- <button class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center read-abstract-btn" onclick="toggleAbstract(this)">
+                <i class="fas fa-plus-circle mr-2 transition-transform duration-300"></i>
+                <span>Read Abstract</span>
+            </button> -->
+            <div class="hidden abstract-content overflow-hidden transition-all duration-300">
+                <p class="text-gray-600 dark:text-gray-300 text-sm bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg">
+                    Longchamp, a family-owned luxury company, grapples with the success of its iconic Le Pliage nylon tote. While the bag drives significant sales and brand awareness, its accessibility and lower price point create a "paradox of luxury" that complicates the brand's ambition to compete with higher-end brands. The case explores dilemmas in brand extension, distribution, and marketing as leadership decides how to grow without diluting its heritage.
+                </p>
+            </div>
+            <!-- IMPORTANT: Replace '#' with the link to your case analysis file -->
+            <!-- <a href="#" target="_blank" class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center">
+                <i class="fas fa-external-link-alt mr-2"></i> View My Analysis -->
+            </a>
+        </div>
+    </div>
+</div>
+
+                <!-- Shein Case Study Card -->
+<div class="paper-card bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105" 
+     data-aos="fade-up"
+     data-tags="digital-strategy,e-commerce,supply-chain-management,fast-fashion,business-ethics,consumer-behavior">
+    <div class="p-6">
+        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-3">Shein: The Digital Strategy of an Ultra-Fast-Fashion Juggernaut</h3>
+        <p class="text-gray-600 dark:text-gray-300 mb-4">
+            Unpacks the business model of Shein, the controversial ultra-fast-fashion retailer. The analysis centers on its agile supply chain, data-driven design process, and aggressive digital marketing strategies.
+        </p>
+        <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Digital Strategy</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">E-commerce</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Supply Chain</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Business Ethics</span>
+        </div>
+        <div class="flex flex-col space-y-4">
+            <!-- <button class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center read-abstract-btn" onclick="toggleAbstract(this)">
+                <i class="fas fa-plus-circle mr-2 transition-transform duration-300"></i>
+                <span>Read Abstract</span>
+            </button> -->
+            <div class="hidden abstract-content overflow-hidden transition-all duration-300">
+                <p class="text-gray-600 dark:text-gray-300 text-sm bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg">
+                    Shein rose to become one of the world's largest fashion retailers by leveraging a unique, real-time business model. This case examines the core pillars of its success: a highly digitized supply chain that enables rapid production of small batches, data analytics to predict trends, and a relentless social media and influencer marketing machine. It also addresses the significant controversies surrounding the brand, including ethical, sustainability, and IP issues, posing the question of its long-term viability.
+                </p>
+            </div>
+            <!-- IMPORTANT: Replace '#' with the link to your case analysis file -->
+            <!-- <a href="#" target="_blank" class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center">
+                <i class="fas fa-external-link-alt mr-2"></i> View My Analysis -->
+            </a>
+        </div>
+    </div>
+</div>
+
+                <!-- Pillsbury Cookie Challenge Case Study Card -->
+<div class="paper-card bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105" 
+     data-aos="fade-up"
+     data-tags="market-research,consumer-insights,qualitative-research,ethnography,branding">
+    <div class="p-6">
+        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-3">Pillsbury Cookie Challenge: Uncovering the 'Why' Behind the Buy</h3>
+        <p class="text-gray-600 dark:text-gray-300 mb-4">
+            An analysis of Pillsbury's underperforming refrigerated cookie dough in Canada. This case demonstrates using a mix of quantitative (U&A) and qualitative (ethnography) research to diagnose a market problem.
+        </p>
+        <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Market Research</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Consumer Insights</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Qualitative Research</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Branding</span>
+        </div>
+        <div class="flex flex-col space-y-4">
+            <!-- <button class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center read-abstract-btn" onclick="toggleAbstract(this)">
+                <i class="fas fa-plus-circle mr-2 transition-transform duration-300"></i>
+                <span>Read Abstract</span>
+            </button> -->
+            <div class="hidden abstract-content overflow-hidden transition-all duration-300">
+                <p class="text-gray-600 dark:text-gray-300 text-sm bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg">
+                    Faced with flat sales and falling household penetration in Canada, Pillsbury's marketing manager, Ivan Guillen, must devise a new strategy. The case details a comprehensive market research initiative, starting with a Usage & Attitude study that reveals key differences with the U.S. market, notably a strong preference for scratch baking. Deeper insights are then uncovered through in-home ethnographic studies, revealing the core emotional drivers: the warmth of baking, the joy of sharing, and a mother's sense of ingenuity in providing for her family. The challenge is to translate these powerful qualitative insights into a new, effective brand message.
+                </p>
+            </div>
+            <!-- IMPORTANT: Replace '#' with the link to your case analysis file -->
+            <!-- <a href="#" target="_blank" class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center">
+                <i class="fas fa-external-link-alt mr-2"></i> View My Analysis -->
+            </a>
+        </div>
+    </div>
+</div>
+
+                <!-- Crescent Pure Case Study Card -->
+<div class="paper-card bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105" 
+     data-aos="fade-up"
+     data-tags="market-research,product-positioning,focus-groups,perceptual-mapping,market-analysis">
+    <div class="p-6">
+        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-3">Crescent Pure: Positioning a New Organic Beverage</h3>
+        <p class="text-gray-600 dark:text-gray-300 mb-4">
+            A classic positioning dilemma where a new organic beverage could be launched as either a sports drink or an energy drink. This case applies market data, focus groups, and perceptual mapping to inform a critical launch decision.
+        </p>
+        <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Market Research</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Product Positioning</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Focus Groups</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Perceptual Mapping</span>
+        </div>
+        <div class="flex flex-col space-y-4">
+            <!-- <button class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center read-abstract-btn" onclick="toggleAbstract(this)">
+                <i class="fas fa-plus-circle mr-2 transition-transform duration-300"></i>
+                <span>Read Abstract</span>
+            </button> -->
+            <div class="hidden abstract-content overflow-hidden transition-all duration-300">
+                <p class="text-gray-600 dark:text-gray-300 text-sm bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg">
+                    Sarah Ryan, VP of Marketing, must recommend a positioning strategy for Crescent Pure, a new functional beverage. The case provides a rich dataset including secondary market data (market size, growth, threats), primary consumer survey data, and qualitative insights from focus groups. Using tools like perceptual maps, the analysis requires evaluating the pros and cons of entering the large, competitive sports drink market versus the smaller, but potentially more aligned, energy drink market. The final decision rests on interpreting this mixed-method research to balance market opportunity with brand-fit.
+                </p>
+            </div>
+            <!-- IMPORTANT: Replace '#' with the link to your case analysis file -->
+            <!-- <a href="#" target="_blank" class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center">
+                <i class="fas fa-external-link-alt mr-2"></i> View My Analysis -->
+            </a>
+        </div>
+    </div>
+</div>
+
+                <!-- Springfield Nor'easters Case Study Card -->
+<div class="paper-card bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105" 
+     data-aos="fade-up"
+     data-tags="quantitative-analysis,pricing-strategy,survey-research,revenue-maximization,sports-marketing,market-research">
+    <div class="p-6">
+        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-3">The Springfield Nor'easters: Maximizing Revenues in the Minor Leagues</h3>
+        <p class="text-gray-600 dark:text-gray-300 mb-4">
+            A quantitative case focused on revenue maximization for a minor league sports team. It requires analyzing consumer survey data to determine optimal pricing strategies for various ticket packages and conduct a break-even analysis.
+        </p>
+        <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Quantitative Analysis</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Pricing Strategy</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Sports Marketing</span>
+        </div>
+        <div class="flex flex-col space-y-4">
+            <!-- <button class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center read-abstract-btn" onclick="toggleAbstract(this)">
+                <i class="fas fa-plus-circle mr-2 transition-transform duration-300"></i>
+                <span>Read Abstract</span>
+            </button> -->
+            <div class="hidden abstract-content overflow-hidden transition-all duration-300">
+                <p class="text-gray-600 dark:text-gray-300 text-sm bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg">
+                    Tasked with reaching a first-year financial goal, the new owner of the Springfield Nor'easters must develop a viable business plan. The core of this case is a pricing problem that must be solved using consumer survey data. The analysis involves segmenting the target audience, building a pricing matrix based on willingness-to-buy for different ticket bundles (single-game, 5-game, half/full-season), and calculating expected revenue to find the optimal price for each offering. The exercise culminates in a sensitivity analysis and break-even calculation, providing a hands-on application of survey data analysis for strategic decision-making.
+                </p>
+            </div>
+            <!-- IMPORTANT: Replace '#' with the link to your case analysis file -->
+            <!-- <a href="#" target="_blank" class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center">
+                <i class="fas fa-external-link-alt mr-2"></i> View My Analysis -->
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Shiva Tourist Dhaba Case Study Card -->
+<div class="paper-card bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105" 
+     data-aos="fade-up"
+     data-tags="customer-loyalty,positioning-strategy,quantitative-analysis,service-marketing,hospitality,web-analytics">
+    <div class="p-6">
+        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-3">Shiva Tourist Dhaba: Managing Customer Loyalty</h3>
+        <p class="text-gray-600 dark:text-gray-300 mb-4">
+            A case study on developing a positioning strategy for a highway restaurant in India to enhance customer loyalty. This project uses survey data and customer segmentation to identify key drivers of loyalty and inform marketing decisions.
+        </p>
+        <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Customer Loyalty</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Positioning Strategy</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Service Marketing</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Hospitality</span>
+        </div>
+        <div class="flex flex-col space-y-4">
+            <!-- <button class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center read-abstract-btn" onclick="toggleAbstract(this)">
+                <i class="fas fa-plus-circle mr-2 transition-transform duration-300"></i>
+                <span>Read Abstract</span>
+            </button> -->
+            <div class="hidden abstract-content overflow-hidden transition-all duration-300">
+                <p class="text-gray-600 dark:text-gray-300 text-sm bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg">
+                    Mama Yadav, owner of the successful Shiva Tourist Dhaba, faces intensifying competition and must decide how to position his restaurant to foster greater customer loyalty. A market research survey was conducted to gather data on customer perceptions across various attributes (price, quality, service, etc.) and segment them by loyalty level (low, medium, high). The challenge is to analyze this data to understand what attributes are most valued by high-loyalty customers and how to improve perceptions among low- and medium-loyalty groups to encourage repeat visits.
+                </p>
+            </div>
+            <!-- IMPORTANT: Replace '#' with the link to your case analysis file -->
+            <!-- <a href="#" target="_blank" class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center">
+                <i class="fas fa-external-link-alt mr-2"></i> View My Analysis -->
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- VaycayNation Case Study Card -->
+<div class="paper-card bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105" 
+     data-aos="fade-up"
+     data-tags="web-analytics,regression-analysis,marketing-attribution,advertising-effectiveness,second-screen-effect">
+    <div class="p-6">
+        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-3">VaycayNation: Measuring the "Second-Screen Effect" of TV Ads</h3>
+        <p class="text-gray-600 dark:text-gray-300 mb-4">
+            An analysis of how TV advertising drives website traffic, using regression to measure the 'second-screen effect' and optimize marketing spend for an online travel agency.
+        </p>
+        <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Web Analytics</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Regression Analysis</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Marketing Attribution</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Advertising Effectiveness</span>
+        </div>
+        <div class="flex flex-col space-y-4">
+            <!-- <button class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center read-abstract-btn" onclick="toggleAbstract(this)">
+                <i class="fas fa-plus-circle mr-2 transition-transform duration-300"></i>
+                <span>Read Abstract</span>
+            </button> -->
+            <div class="hidden abstract-content overflow-hidden transition-all duration-300">
+                <p class="text-gray-600 dark:text-gray-300 text-sm bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg">
+                    VaycayNation, an online travel portal, is investing heavily in a TV advertising campaign to increase low brand awareness. However, past campaigns based on intuition have failed. The new CMO, Lisa Weber, is tasked with using data analytics to understand which ad spots drive the most website traffic. This case involves analyzing a dataset of TV commercial airings and corresponding website visit data to measure the "lift" from each spot. The core challenge is to use regression analysis to disentangle the impact of various factors (creative content, channel, time of day, position in break) to provide actionable recommendations for optimizing the upcoming ad spend.
+                </p>
+            </div>
+            <!-- IMPORTANT: Replace '#' with the link to your case analysis file -->
+            <!-- <a href="#" target="_blank" class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center">
+                <i class="fas fa-external-link-alt mr-2"></i> View My Analysis -->
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Danielle Marcoux at AdNet2Win Case Study Card -->
+<div class="paper-card bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105" 
+     data-aos="fade-up"
+     data-tags="team-management,project-management,organizational-behavior,conflict-resolution,technology-leadership,web-analytics">
+    <div class="p-6">
+        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-3">Danielle Marcoux at AdNet2Win: Managing Team Dynamics in a Tech Project</h3>
+        <p class="text-gray-600 dark:text-gray-300 mb-4">
+            Examines the challenges of team leadership and conflict resolution during a critical software upgrade for a customer loyalty analytics platform. This case focuses on navigating dysfunctional team dynamics to achieve project goals.
+        </p>
+        <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Team Management</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Conflict Resolution</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Project Management</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Technology Leadership</span>
+        </div>
+        <div classs="flex flex-col space-y-4">
+            <!-- <button class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center read-abstract-btn" onclick="toggleAbstract(this)">
+                <i class="fas fa-plus-circle mr-2 transition-transform duration-300"></i>
+                <span>Read Abstract</span>
+            </button> -->
+            <div class="hidden abstract-content overflow-hidden transition-all duration-300">
+                <p class="text-gray-600 dark:text-gray-300 text-sm bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg">
+                    Danielle Marcoux, a director of web design, is part of a key team tasked with upgrading her company's flagship customer loyalty platform. The project is being stifled by the team lead, Charles Davide, who avoids constructive conflict, controls conversations, and is resistant to new ideas. This case study explores the interpersonal and organizational challenges of innovation within a tech company. The central problem is how Danielle can address the counterproductive leadership style to foster a collaborative environment, leverage the team's expertise, and ensure the project's ultimate success.
+                </p>
+            </div>
+            <!-- IMPORTANT: Replace '#' with the link to your case analysis file -->
+            <!-- <a href="#" target="_blank" class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center">
+                <i class="fas fa-external-link-alt mr-2"></i> View My Analysis -->
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Chirpin' Tavern Case Study Card -->
+<div class="paper-card bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105" 
+     data-aos="fade-up"
+     data-tags="promotional-analytics,roi-analysis,quantitative-modeling,a-b-testing,restaurant-analytics,web-analytics">
+    <div class="p-6">
+        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-3">Chirpin' Tavern: Analyzing the Profitability of a Coupon Promotion</h3>
+        <p class="text-gray-600 dark:text-gray-300 mb-4">
+            A quantitative analysis to determine the true impact of a digital coupon promotion on a restaurant's sales and profitability, disentangling promotional lift from organic growth using time-series data.
+        </p>
+        <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Promotional Analytics</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">ROI Analysis</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Quantitative Modeling</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">A/B Testing</span>
+        </div>
+        <div class="flex flex-col space-y-4">
+            <!-- <button class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center read-abstract-btn" onclick="toggleAbstract(this)">
+                <i class="fas fa-plus-circle mr-2 transition-transform duration-300"></i>
+                <span>Read Abstract</span>
+            </button> -->
+            <div class="hidden abstract-content overflow-hidden transition-all duration-300">
+                <p class="text-gray-600 dark:text-gray-300 text-sm bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg">
+                    The owner of Chirpin' Tavern, a successful Harlem restaurant, is unsure if her steeply discounted coupon promotion on a "deals website" is truly profitable. While sales are up, it's unclear if the increase is due to the promotion or a general revitalization of the neighborhood. The case provides 34 months of sales data, with a variable indicating whether a promotion was active. The assignment is to build a statistical model to measure the incremental sales lift directly attributable to the coupon sales. This provides a practical application of regression analysis with dummy variables to assess marketing ROI and make a data-informed business decision.
+                </p>
+            </div>
+            <!-- IMPORTANT: Replace '#' with the link to your case analysis file -->
+            <!-- <a href="#" target="_blank" class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center">
+                <i class="fas fa-external-link-alt mr-2"></i> View My Analysis -->
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- EveryDay Medical Case Study Card -->
+<div class="paper-card bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105" 
+     data-aos="fade-up"
+     data-tags="sem,ppc,keyword-bidding,optimization,digital-advertising,web-analytics">
+    <div class="p-6">
+        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-3">EveryDay Medical: Keyword Bidding Optimization for SEM</h3>
+        <p class="text-gray-600 dark:text-gray-300 mb-4">
+            A case focused on maximizing profit from a Search Engine Marketing (SEM) campaign by optimizing keyword bids for a medical supply company.
+        </p>
+        <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">SEM & PPC</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Keyword Bidding</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Optimization</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Digital Advertising</span>
+        </div>
+        <div class="flex flex-col space-y-4">
+            <!-- <button class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center read-abstract-btn" onclick="toggleAbstract(this)">
+                <i class="fas fa-plus-circle mr-2 transition-transform duration-300"></i>
+                <span>Read Abstract</span>
+            </button> -->
+            <div class="hidden abstract-content overflow-hidden transition-all duration-300">
+                <p class="text-gray-600 dark:text-gray-300 text-sm bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg">
+                    EveryDay Medical (EDM) wants to optimize its AdWords budget to maximize profitability. The case provides historical campaign data and traffic estimator tool data for key wheelchair-related keywords. The challenge is to model the relationship between the bid amount, the resulting number of clicks, and the cost-per-click (CPC). The ultimate goal is to formulate and solve an optimization problem to determine the optimal bid for each keyword that maximizes total profit, both with and without a budget constraint. This project demonstrates a core skill in performance marketing: using data to make profit-maximizing bidding decisions.
+                </p>
+            </div>
+            <!-- IMPORTANT: Replace '#' with the link to your case analysis file -->
+            <!-- <a href="#" target="_blank" class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center">
+                <i class="fas fa-external-link-alt mr-2"></i> View My Analysis -->
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Quality Alloys Case Study Card -->
+<div class="paper-card bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105" 
+     data-aos="fade-up"
+     data-tags="b2b-analytics,roi-analysis,time-series-analysis,descriptive-statistics,correlation,web-analytics">
+    <div class="p-6">
+        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-3">Web Analytics at Quality Alloys, Inc. (B2B)</h3>
+        <p class="text-gray-600 dark:text-gray-300 mb-4">
+            Analyzing the effectiveness of a new B2B website and a direct mail promotion for an industrial alloy distributor. This case uses descriptive statistics, correlation, and time-series analysis to measure business value.
+        </p>
+        <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">B2B Analytics</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">ROI Analysis</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Time-Series Analysis</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Descriptive Statistics</span>
+        </div>
+        <div class="flex flex-col space-y-4">
+            <!-- <button class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center read-abstract-btn" onclick="toggleAbstract(this)">
+                <i class="fas fa-plus-circle mr-2 transition-transform duration-300"></i>
+                <span>Read Abstract</span>
+            </button> -->
+            <div class="hidden abstract-content overflow-hidden transition-all duration-300">
+                <p class="text-gray-600 dark:text-gray-300 text-sm bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg">
+                    Quality Alloys, a B2B distributor, has launched a new website and executed a direct mail promotion, but needs to assess their value. Unlike B2C e-commerce, sales are not made directly on the site. The case provides weekly data on website visits, unique visits, revenue, profit, and pounds sold over a 65-week period divided into four phases (initial, pre-promotion, promotion, post-promotion). The task is to use descriptive statistics and correlation analysis to understand the impact of the website and the promotion on key business metrics, and to make recommendations for future marketing investments.
+                </p>
+            </div>
+            <!-- IMPORTANT: Replace '#' with the link to your case analysis file -->
+            <!-- <a href="#" target="_blank" class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center">
+                <i class="fas fa-external-link-alt mr-2"></i> View My Analysis -->
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Hubble Contact Lenses Case Study Card -->
+<div class="paper-card bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105" 
+     data-aos="fade-up"
+     data-tags="dtc-marketing,customer-acquisition,ltv-cac,a-b-testing,attribution,web-analytics">
+    <div class="p-6">
+        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-3">Hubble Contact Lenses: Data-Driven Direct-to-Consumer Marketing</h3>
+        <p class="text-gray-600 dark:text-gray-300 mb-4">
+            An in-depth look at the customer acquisition strategy of a direct-to-consumer (DTC) startup. This case explores marketing channel analysis, the LTV-to-CAC ratio, and the challenges of media mix attribution.
+        </p>
+        <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">DTC Marketing</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Customer Acquisition</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">LTV:CAC Analysis</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Attribution Modeling</span>
+        </div>
+        <div class="flex flex-col space-y-4">
+            <!-- <button class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center read-abstract-btn" onclick="toggleAbstract(this)">
+                <i class="fas fa-plus-circle mr-2 transition-transform duration-300"></i>
+                <span>Read Abstract</span>
+            </button> -->
+            <div class="hidden abstract-content overflow-hidden transition-all duration-300">
+                <p class="text-gray-600 dark:text-gray-300 text-sm bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg">
+                    Hubble, a DTC subscription service for contact lenses, has achieved rapid growth through aggressive, data-driven marketing, primarily on Facebook. Now, as they seek new funding and plan for scale, they face critical decisions about their marketing strategy. The case examines the complexities of measuring marketing effectiveness across multiple channels (digital and offline). Key challenges include reconciling conflicting attribution data, evaluating the ROI of brand-building vs. performance marketing, and deciding on future strategic paths like product extensions, new distribution channels, or geographic expansion, all while managing the crucial LTV-to-CAC ratio.
+                </p>
+            </div>
+            <!-- IMPORTANT: Replace '#' with the link to your case analysis file -->
+            <!-- <a href="#" target="_blank" class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center">
+                <i class="fas fa-external-link-alt mr-2"></i> View My Analysis -->
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Uber Express POOL Case Study Card -->
+<div class="paper-card bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105" 
+     data-aos="fade-up"
+     data-tags="a-b-testing,experimentation,product-management,data-driven-decisions,tech-industry,web-analytics">
+    <div class="p-6">
+        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-3">Innovation at Uber: The Launch of Express POOL</h3>
+        <p class="text-gray-600 dark:text-gray-300 mb-4">
+            A case on data-driven product development at Uber, focusing on the use of experimentation (A/B testing, switchbacks) to make critical decisions about the launch and features of a new ride-sharing product.
+        </p>
+        <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">A/B Testing</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Experimentation</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Product Management</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Data-Driven Decisions</span>
+        </div>
+        <div class="flex flex-col space-y-4">
+            <!-- <button class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center read-abstract-btn" onclick="toggleAbstract(this)">
+                <i class="fas fa-plus-circle mr-2 transition-transform duration-300"></i>
+                <span>Read Abstract</span>
+            </button> -->
+            <div class="hidden abstract-content overflow-hidden transition-all duration-300">
+                <p class="text-gray-600 dark:text-gray-300 text-sm bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg">
+                    Uber's data science team is testing a new product, Express POOL, which offers cheaper fares in exchange for riders waiting and walking to a pickup point. The case revolves around a critical decision: should they increase the maximum wait time from two minutes to five? The decision must be made by interpreting the results of a "switchback" experiment run in Boston, which shows that longer waits reduce cost-per-ride but increase cancellation rates. This study highlights the tensions between data-driven decision-making and product management intuition, showcasing how a tech giant uses rigorous experimentation to navigate the trade-offs between user experience and operational efficiency.
+                </p>
+            </div>
+            <!-- IMPORTANT: Replace '#' with the link to your case analysis file -->
+            <!-- <a href="#" target="_blank" class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center">
+                <i class="fas fa-external-link-alt mr-2"></i> View My Analysis -->
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Thunderbird Case Study Card -->
+<div class="paper-card bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105" 
+     data-aos="fade-up"
+     data-tags="web-analytics,kpi-analysis,lead-generation,conversion-optimization,higher-education">
+    <div class="p-6">
+        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-3">Thunderbird: Improving the Online Experience via Web Analytics</h3>
+        <p class="text-gray-600 dark:text-gray-300 mb-4">
+            Analysis of the Thunderbird School of Global Management's website performance after a major redesign. The project focuses on using Google Analytics data to measure success against lead generation and conversion goals.
+        </p>
+        <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Web Analytics</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">KPI Analysis</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Lead Generation</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Conversion Optimization</span>
+        </div>
+        <div class="flex flex-col space-y-4">
+            <!-- <button class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center read-abstract-btn" onclick="toggleAbstract(this)">
+                <i class="fas fa-plus-circle mr-2 transition-transform duration-300"></i>
+                <span>Read Abstract</span>
+            </button> -->
+            <div class="hidden abstract-content overflow-hidden transition-all duration-300">
+                <p class="text-gray-600 dark:text-gray-300 text-sm bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg">
+                    Following a six-month website redesign, the marketing team at Thunderbird School of Global Management needs to evaluate its effectiveness. The primary goal is demand generation for its MBA programs. The case provides a rich Google Analytics dataset covering four months of traffic data, including metrics like visits, bounce rate, and goal completions, segmented by source and region. The core task is to define and analyze Key Performance Indicators (KPIs) to assess the website's performance, understand visitor behavior, and provide actionable recommendations to improve lead generation and conversion for a global academic institution.
+                </p>
+            </div>
+            <!-- IMPORTANT: Replace '#' with the link to your case analysis file -->
+            <!-- <a href="#" target="_blank" class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center">
+                <i class="fas fa-external-link-alt mr-2"></i> View My Analysis -->
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Economics of Healthcare Case Study Card -->
+<div class="paper-card bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105" 
+     data-aos="fade-up"
+     data-tags="health-economics,market-failures,moral-hazard,adverse-selection,asymmetric-information,healthcare-analytics">
+    <div class="p-6">
+        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-3">Core Economic Principles in the U.S. Healthcare Market</h3>
+        <p class="text-gray-600 dark:text-gray-300 mb-4">
+            A foundational analysis of the unique economic characteristics of the healthcare market, focusing on the core market failures—including moral hazard, adverse selection, and externalities—that differentiate it from standard markets.
+        </p>
+        <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Health Economics</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Market Failures</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Moral Hazard</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Adverse Selection</span>
+        </div>
+        <div class="flex flex-col space-y-4">
+            <!-- <button class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center read-abstract-btn" onclick="toggleAbstract(this)">
+                <i class="fas fa-plus-circle mr-2 transition-transform duration-300"></i>
+                <span>Read Abstract</span>
+            </button> -->
+            <div class="hidden abstract-content overflow-hidden transition-all duration-300">
+                <p class="text-gray-600 dark:text-gray-300 text-sm bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg">
+                    This analysis examines the fundamental economic principles that govern the U.S. healthcare market. It deconstructs why standard supply-and-demand models are insufficient, focusing on several key market imperfections. These include: <strong>Externalities</strong>, where individual actions like vaccination have public benefits; <strong>Asymmetric Information</strong>, where providers know more than patients; <strong>Moral Hazard</strong>, where insurance coverage may lead to overuse of services; and <strong>Adverse Selection</strong>, where sicker individuals are more likely to seek insurance, driving up premiums for everyone. Understanding these core concepts is critical for analyzing healthcare policy, system performance, and the rationale behind government and private insurer interventions.
+                </p>
+            </div>
+            <!-- IMPORTANT: Replace '#' with the link to your case analysis file -->
+            <!-- <a href="#" target="_blank" class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center">
+                <i class="fas fa-external-link-alt mr-2"></i> View My Analysis -->
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- The Triple Aim Case Study Card -->
+<div class="paper-card bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105" 
+     data-aos="fade-up"
+     data-tags="healthcare-analytics,population-health,health-economics,system-design,value-based-care">
+    <div class="p-6">
+        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-3">The Triple Aim: A Framework for Healthcare Transformation</h3>
+        <p class="text-gray-600 dark:text-gray-300 mb-4">
+            An analysis of the Institute for Healthcare Improvement's (IHI) "Triple Aim" framework, examining its theoretical basis and the practical lessons from its first seven years of implementation.
+        </p>
+        <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Healthcare Analytics</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Population Health</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">System Design</span>
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">Value-Based Care</span>
+        </div>
+        <div class="flex flex-col space-y-4">
+            <!-- <button class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center read-abstract-btn" onclick="toggleAbstract(this)">
+                <i class="fas fa-plus-circle mr-2 transition-transform duration-300"></i>
+                <span>Read Abstract</span>
+            </button> -->
+            <div class="hidden abstract-content overflow-hidden transition-all duration-300">
+                <p class="text-gray-600 dark:text-gray-300 text-sm bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg">
+                    This analysis deconstructs the Triple Aim framework, a strategic model for optimizing health system performance by simultaneously pursuing three goals: improving the patient experience of care, improving the health of populations, and reducing the per capita cost of care. The initial paper by Berwick, Nolan, and Whittington outlines the theory, addressing the fragmented nature of the U.S. system and the misaligned incentives that hinder value. The follow-up paper, "Pursuing the Triple Aim: The First 7 Years," provides an applied analysis of how 141 organizations attempted to implement this framework. It identifies key success factors, such as defining a target population, establishing a robust governance structure, and creating a portfolio of projects to manage services at scale.
+                </p>
+            </div>
+            <!-- IMPORTANT: Replace '#' with the link to your case analysis file -->
+            <!-- <a href="#" target="_blank" class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center">
+                <i class="fas fa-external-link-alt mr-2"></i> View My Analysis -->
+            </a>
+        </div>
+    </div>
+</div>
+            
+            <!-- ADD MORE CASE STUDY CARDS HERE -->
+
+        </div>
+    </div>
+</section>
+
+<!-- =======================================================
+     CSS & JavaScript for Filtering and Abstract Toggle
+======================================================== -->
+<style>
+    .filter-bar-container {
+        position: relative;
+        overflow: hidden;
+    }
+    .filter-bar-papers {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+        display: flex;
+        justify-content: center;
+        gap: 0.75rem;
+        padding-bottom: 1rem;
+    }
+    .filter-bar-papers::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, and Opera */
+    }
+    
+    @media (max-width: 1024px) {
+        .filter-bar-container::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: 50px;
+            background: linear-gradient(to left, rgb(249 250 251), transparent);
+            pointer-events: none;
+        }
+        .dark .filter-bar-container::after {
+             background: linear-gradient(to left, rgb(31 41 55), transparent);
+        }
+        .filter-bar-papers {
+            justify-content: flex-start;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+    }
+
+    .paper-card {
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .paper-card.fade-in {
+        animation: fadeIn 0.4s ease-out forwards;
+    }
+    .paper-card.fade-out {
+        animation: fadeOut 0.3s ease-in forwards;
+    }
+    .abstract-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-out;
+    }
+    .read-abstract-btn i {
+        transition: transform 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeOut {
+        from { opacity: 1; transform: translateY(0); }
+        to { opacity: 0; transform: translateY(10px); }
+    }
+</style>
+
+<script>
+    function toggleAbstract(button) {
+        const content = button.nextElementSibling;
+        const icon = button.querySelector('i');
+        
+        if (content.style.maxHeight) {
+            content.style.maxHeight = null;
+            icon.style.transform = 'rotate(0deg)';
+        } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+            icon.style.transform = 'rotate(45deg)';
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const filterButtons = document.querySelectorAll('.filter-paper-btn');
+        const papers = document.querySelectorAll('.paper-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Update button styles
+                filterButtons.forEach(btn => {
+                    btn.classList.remove('active', 'bg-blue-600', 'text-white');
+                    btn.classList.add('bg-gray-200', 'dark:bg-gray-700', 'text-gray-700', 'dark:text-gray-300');
+                });
+                button.classList.add('active', 'bg-blue-600', 'text-white');
+                button.classList.remove('bg-gray-200', 'dark:bg-gray-700', 'text-gray-700', 'dark:text-gray-300');
+                
+                const filter = button.getAttribute('data-filter');
+                
+                papers.forEach(paper => {
+                    const tags = paper.getAttribute('data-tags').split(',');
+                    const shouldShow = (filter === 'all' || tags.includes(filter));
+                    
+                    if (shouldShow) {
+                        if (paper.style.display === 'none') {
+                            paper.classList.remove('fade-out');
+                            paper.style.display = 'block';
+                            setTimeout(() => paper.classList.add('fade-in'), 10);
+                        }
+                    } else {
+                        if (paper.style.display !== 'none') {
+                            paper.classList.add('fade-out');
+                            paper.classList.remove('fade-in');
+                            setTimeout(() => {
+                                paper.style.display = 'none';
+                            }, 300);
+                        }
+                    }
+                });
+            });
+        });
+    });
+</script>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white dark:bg-gray-900">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-16 text-gray-800 dark:text-white" data-aos="fade-up">Let's Connect</h2>
+            
+            <div class="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                <!-- Contact Information -->
+                <div class="space-y-8" data-aos="fade-right">
+                    <p class="text-gray-600 dark:text-gray-300 text-justify">
+                        Actively seeking full-time opportunities as a Data Analyst, Business Analyst, Marketing Analyst, or Data Engineer. Whether you're building innovative systems or solving real-world problems with data, I'd love to be a part of it. Let's chat about how I can help your team move faster with intelligent, scalable solutions.
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <a href="mailto:abhishekgangadharharihar@gmail.com" class="flex items-center text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">
+                            <i class="fas fa-envelope text-xl mr-3 w-8"></i>
+                            <span>abhishekgangadharharihar@gmail.com</span>
+                        </a>
+                        <a href="tel:+17162567276" class="flex items-center text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">
+                            <i class="fas fa-phone text-xl mr-3 w-8"></i>
+                            <span>+1 (716) 256-7276</span>
+                        </a>
+                        <a href="https://linkedin.com/in/abhishek-harihar" target="_blank" class="flex items-center text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">
+                            <i class="fab fa-linkedin text-xl mr-3 w-8"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="https://github.com/abhishek-harihar" target="_blank" class="flex items-center text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">
+                            <i class="fab fa-github text-xl mr-3 w-8"></i>
+                            <span>GitHub</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg" data-aos="fade-left">
+                    <form action="https://formspree.io/f/mldnbogk" method="POST" class="space-y-6" id="contact-form">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Full Name</label>
+                            <input type="text" id="name" name="name" required
+                                   class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
+                                   placeholder="Your name">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email Address</label>
+                            <input type="email" id="email" name="email" required
+                                   class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
+                                   placeholder="your.email@example.com">
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Message</label>
+                            <textarea id="message" name="message" rows="4" required
+                                      class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
+                                      placeholder="Your message"></textarea>
+                        </div>
+                        
+                        <button type="submit" 
+                                class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors duration-300 flex items-center justify-center space-x-2">
+                            <span>Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 dark:bg-black text-white py-8">
+        <div class="container mx-auto text-center">
+            <p>© 2025 Abhishek Gangadhar Harihar. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="assets/js/script.js"></script>
+    <style>
+        /* Hover animation styles */
+        .transform.hover\:translate-x-2:hover {
+            transform: translateX(0.5rem);
+        }
+        .transition-all {
+            transition-property: all;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 300ms;
+        }
+        /* Ensure AOS animations work with hover */
+        [data-aos] {
+            pointer-events: none;
+        }
+        [data-aos].aos-animate {
+            pointer-events: auto;
+        }
+    </style>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            disable: true,  // Disable all animations
+            duration: 1000,
+            once: true,
+            offset: 100,
+            easing: 'ease-in-out'
+        });
+        
+    function toggleAbstract(button) {
+        const abstract = button.nextElementSibling;
+        const icon = button.querySelector('i');
+        if (abstract.classList.contains('hidden')) {
+            abstract.classList.remove('hidden');
+            icon.classList.remove('fa-plus-circle');
+            icon.classList.add('fa-minus-circle');
+            button.innerHTML = button.innerHTML.replace('Read Abstract', 'Hide Abstract');
+        } else {
+            abstract.classList.add('hidden');
+            icon.classList.remove('fa-minus-circle');
+            icon.classList.add('fa-plus-circle');
+            button.innerHTML = button.innerHTML.replace('Hide Abstract', 'Read Abstract');
+        }
+    }
+
+        // Form validation and handling
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form elements
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const messageInput = document.getElementById('message');
+            const submitButton = this.querySelector('button[type="submit"]');
+            
+            // Basic validation
+            if (!nameInput.value.trim()) {
+                showError(nameInput, 'Please enter your name');
+                return;
+            }
+            
+            if (!emailInput.value.trim()) {
+                showError(emailInput, 'Please enter your email');
+                return;
+            }
+            
+            if (!isValidEmail(emailInput.value)) {
+                showError(emailInput, 'Please enter a valid email address');
+                return;
+            }
+            
+            if (!messageInput.value.trim()) {
+                showError(messageInput, 'Please enter your message');
+                return;
+            }
+            
+            // Disable submit button and show loading state
+            submitButton.disabled = true;
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            
+            // Submit form using Formspree
+            const formData = new FormData(this);
+            fetch(this.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.ok) {
+                    // Show success message
+                    this.reset();
+                    showSuccess('Message sent successfully! I will get back to you soon.');
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            })
+            .catch(error => {
+                showError(null, 'Sorry, there was an error sending your message. Please try again.');
+            })
+            .finally(() => {
+                // Re-enable submit button
+                submitButton.disabled = false;
+                submitButton.innerHTML = '<span>Send Message</span><i class="fas fa-paper-plane"></i>';
+            });
+        });
+
+        function isValidEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+
+        function showError(element, message) {
+            // Remove any existing error messages
+            const existingError = element?.parentElement.querySelector('.error-message');
+            if (existingError) {
+                existingError.remove();
+            }
+            
+            // Create and show new error message
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'error-message text-red-500 text-sm mt-1';
+            errorDiv.textContent = message;
+            
+            if (element) {
+                element.parentElement.appendChild(errorDiv);
+                element.classList.add('border-red-500');
+                
+                // Remove error styling after 5 seconds
+                setTimeout(() => {
+                    errorDiv.remove();
+                    element.classList.remove('border-red-500');
+                }, 5000);
+            } else {
+                // Show global error message
+                const form = document.getElementById('contact-form');
+                form.insertBefore(errorDiv, form.firstChild);
+                
+                setTimeout(() => {
+                    errorDiv.remove();
+                }, 5000);
+            }
+        }
+
+        function showSuccess(message) {
+            const successDiv = document.createElement('div');
+            successDiv.className = 'success-message bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4';
+            successDiv.innerHTML = `
+                <span class="block sm:inline">${message}</span>
+                <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+                    <i class="fas fa-check"></i>
+                </span>
+            `;
+            
+            const form = document.getElementById('contact-form');
+            form.insertBefore(successDiv, form.firstChild);
+            
+            setTimeout(() => {
+                successDiv.remove();
+            }, 5000);
+    }
+    </script>
 </body>
-</html>
+</html> 
