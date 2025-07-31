@@ -172,6 +172,7 @@
 
   <!-- =================== EDUCATION SECTION =================== -->
 
+<!-- =================== EDUCATION SECTION =================== -->
 <section id="education" class="py-20 bg-white dark:bg-gray-900">
   <div class="container mx-auto px-4">
     <h2 class="text-3xl font-bold text-center mb-12 text-gray-800 dark:text-white" data-aos="fade-up">
@@ -179,7 +180,7 @@
     </h2>
 
     <!-- Tabs Wrapper -->
-    <div x-data="{ activeTab: 'ub' }" class="max-w-4xl mx-auto">
+    <div x-data="{ activeTab: 'ub' }" class="max-w-5xl mx-auto">
       
       <!-- Tab Buttons -->
       <div class="flex justify-center space-x-6 mb-8">
@@ -201,80 +202,98 @@
       <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8" data-aos="fade-up">
         
         <!-- UB Content -->
-        <div x-show="activeTab === 'ub'" class="space-y-4">
-          <div class="flex items-center mb-6">
-            <img src="assets/images/UB Logo.png" alt="University at Buffalo Logo"
-              class="w-20 h-20 object-contain mr-6 dark:brightness-110">
-            <div>
-              <h3 class="text-xl font-bold text-gray-800 dark:text-white">
-                Master of Business Administration
-              </h3>
-              <p class="text-blue-600 dark:text-blue-400">STEM Designated</p>
-              <p class="text-gray-600 dark:text-gray-300">University at Buffalo, SUNY – School of Management</p>
-              <p class="text-gray-500 dark:text-gray-400">Aug 2023 – Jun 2025</p>
-              <p class="mt-2 inline-block bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-400 px-3 py-1 rounded-full text-sm font-medium">
-                GPA: 3.96/4.0
-              </p>
-              <!-- View Credential -->
-              <div class="mt-3">
-                <a href="assets/documents/CeDiploma.pdf" target="_blank"
-                   class="inline-flex items-center px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-white rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-600 dark:hover:text-blue-400 transition">
-                  <i class="fas fa-award mr-2 text-blue-500 dark:text-blue-400"></i>
-                  View Credential
-                </a>
+        <div x-show="activeTab === 'ub'" class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          
+          <!-- Left Column: Degree Info -->
+          <div>
+            <div class="flex items-center mb-6">
+              <img src="assets/images/UB Logo.png" alt="University at Buffalo Logo"
+                class="w-20 h-20 object-contain mr-6 dark:brightness-110">
+              <div>
+                <h3 class="text-xl font-bold text-gray-800 dark:text-white">
+                  Master of Business Administration
+                </h3>
+                <p class="text-blue-600 dark:text-blue-400">STEM Designated</p>
+                <p class="text-gray-600 dark:text-gray-300">University at Buffalo, SUNY – School of Management</p>
+                <p class="text-gray-500 dark:text-gray-400">Aug 2023 – Jun 2025</p>
               </div>
             </div>
+            <p class="mt-2 inline-block bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-400 px-3 py-1 rounded-full text-sm font-medium">
+              GPA: 3.96/4.0
+            </p>
+            <!-- View Credential -->
+            <div class="mt-4">
+              <a href="assets/documents/CeDiploma.pdf" target="_blank"
+                 class="inline-flex items-center px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-white rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-600 dark:hover:text-blue-400 transition">
+                <i class="fas fa-award mr-2 text-blue-500 dark:text-blue-400"></i>
+                View Credential
+              </a>
+            </div>
+            <!-- View More Details -->
+            <div class="mt-6">
+              <a href="education-details.html"
+                 class="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition">
+                View More Details
+              </a>
+            </div>
           </div>
-          <h4 class="font-semibold text-gray-700 dark:text-gray-200">Academic Focus Areas</h4>
-          <div class="flex flex-wrap gap-3">
-            <span class="px-4 py-2 bg-pink-100 text-pink-700 dark:bg-pink-800 dark:text-pink-200 rounded-full text-sm font-medium">Data Analytics</span>
-            <span class="px-4 py-2 bg-green-100 text-green-700 dark:bg-green-800 dark:text-green-200 rounded-full text-sm font-medium">Information Systems</span>
-            <span class="px-4 py-2 bg-blue-100 text-blue-700 dark:bg-blue-800 dark:text-blue-200 rounded-full text-sm font-medium">Data Visualization</span>
-          </div>
-          <div class="mt-6">
-            <a href="education-details.html"
-               class="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition">
-              View More Details
-            </a>
+
+          <!-- Right Column: Academic Focus Areas -->
+          <div>
+            <h4 class="font-semibold text-gray-700 dark:text-gray-200 mb-4">Academic Focus Areas</h4>
+            <div class="flex flex-wrap gap-3">
+              <span class="px-4 py-2 bg-pink-100 text-pink-700 dark:bg-pink-800 dark:text-pink-200 rounded-full text-sm font-medium">Data Analytics</span>
+              <span class="px-4 py-2 bg-green-100 text-green-700 dark:bg-green-800 dark:text-green-200 rounded-full text-sm font-medium">Information Systems</span>
+              <span class="px-4 py-2 bg-blue-100 text-blue-700 dark:bg-blue-800 dark:text-blue-200 rounded-full text-sm font-medium">Data Visualization</span>
+            </div>
           </div>
         </div>
 
         <!-- MIT Content -->
-        <div x-show="activeTab === 'mit'" class="space-y-4">
-          <div class="flex items-center mb-6">
-            <img src="assets/images/mit-shillong-logo.jpg" alt="MIT University Shillong Logo"
-              class="w-20 h-20 object-contain mr-6 dark:brightness-110">
-            <div>
-              <h3 class="text-xl font-bold text-gray-800 dark:text-white">
-                Bachelor of Technology
-              </h3>
-              <p class="text-blue-600 dark:text-blue-400">Computer Science and Engineering</p>
-              <p class="text-gray-600 dark:text-gray-300">MIT University, Shillong, India</p>
-              <p class="text-gray-500 dark:text-gray-400">Aug 2014 – Jun 2018</p>
-              <p class="mt-2 inline-block bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-400 px-3 py-1 rounded-full text-sm font-medium">
-                GPA: 2.72/4.0
-              </p>
-              <!-- View Credential -->
-              <div class="mt-3">
-                <a href="assets/docs/Abhishek degree certificate.pdf" target="_blank"
-                   class="inline-flex items-center px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-white rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-600 dark:hover:text-blue-400 transition">
-                  <i class="fas fa-award mr-2 text-blue-500 dark:text-blue-400"></i>
-                  View Credential
-                </a>
+        <div x-show="activeTab === 'mit'" class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          
+          <!-- Left Column: Degree Info -->
+          <div>
+            <div class="flex items-center mb-6">
+              <img src="assets/images/mit-shillong-logo.jpg" alt="MIT University Shillong Logo"
+                class="w-20 h-20 object-contain mr-6 dark:brightness-110">
+              <div>
+                <h3 class="text-xl font-bold text-gray-800 dark:text-white">
+                  Bachelor of Technology
+                </h3>
+                <p class="text-blue-600 dark:text-blue-400">Computer Science and Engineering</p>
+                <p class="text-gray-600 dark:text-gray-300">MIT University, Shillong, India</p>
+                <p class="text-gray-500 dark:text-gray-400">Aug 2014 – Jun 2018</p>
               </div>
             </div>
+            <p class="mt-2 inline-block bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-400 px-3 py-1 rounded-full text-sm font-medium">
+              GPA: 2.72/4.0
+            </p>
+            <!-- View Credential -->
+            <div class="mt-4">
+              <a href="assets/docs/Abhishek degree certificate.pdf" target="_blank"
+                 class="inline-flex items-center px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-white rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-600 dark:hover:text-blue-400 transition">
+                <i class="fas fa-award mr-2 text-blue-500 dark:text-blue-400"></i>
+                View Credential
+              </a>
+            </div>
+            <!-- View More Details -->
+            <div class="mt-6">
+              <a href="education-details.html"
+                 class="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition">
+                View More Details
+              </a>
+            </div>
           </div>
-          <h4 class="font-semibold text-gray-700 dark:text-gray-200">Academic Focus Areas</h4>
-          <div class="flex flex-wrap gap-3">
-            <span class="px-4 py-2 bg-yellow-100 text-yellow-700 dark:bg-yellow-800 dark:text-yellow-200 rounded-full text-sm font-medium">Programming</span>
-            <span class="px-4 py-2 bg-purple-100 text-purple-700 dark:bg-purple-800 dark:text-purple-200 rounded-full text-sm font-medium">Database Management</span>
-            <span class="px-4 py-2 bg-blue-100 text-blue-700 dark:bg-blue-800 dark:text-blue-200 rounded-full text-sm font-medium">Project Management</span>
-          </div>
-          <div class="mt-6">
-            <a href="education-details.html"
-               class="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition">
-              View More Details
-            </a>
+
+          <!-- Right Column: Academic Focus Areas -->
+          <div>
+            <h4 class="font-semibold text-gray-700 dark:text-gray-200 mb-4">Academic Focus Areas</h4>
+            <div class="flex flex-wrap gap-3">
+              <span class="px-4 py-2 bg-yellow-100 text-yellow-700 dark:bg-yellow-800 dark:text-yellow-200 rounded-full text-sm font-medium">Programming</span>
+              <span class="px-4 py-2 bg-purple-100 text-purple-700 dark:bg-purple-800 dark:text-purple-200 rounded-full text-sm font-medium">Database Management</span>
+              <span class="px-4 py-2 bg-blue-100 text-blue-700 dark:bg-blue-800 dark:text-blue-200 rounded-full text-sm font-medium">Project Management</span>
+            </div>
           </div>
         </div>
 
