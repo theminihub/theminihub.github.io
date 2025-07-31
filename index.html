@@ -154,101 +154,89 @@
 <!-- =======================================================
                  About Section 
 ======================================================= -->   
-  <section id="about" class="py-20 bg-gray-50 dark:bg-gray-800">
-  <div class="container mx-auto">
-    <h2 class="text-3xl font-bold text-center mb-16 text-gray-800 dark:text-white" data-aos="fade-up">
-      About Me
-    </h2>
+ <section id="about" class="py-20 bg-gray-50 dark:bg-gray-900">
+  <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
 
-    <!-- Flex Container for 50-50 split -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+    <!-- Quick Background Box -->
+    <div class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+      <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-6">Quick Background</h2>
+      <p class="text-gray-600 dark:text-gray-300 mb-4 text-justify">
+        I’m a product-obsessed & data-focused MBA graduate from the University at Buffalo 
+        with a strong foundation in project management, process improvement, cross-functional 
+        leadership, and tech-driven innovation. With experience spanning startups and enterprises, 
+        I enjoy solving problems that sit at the intersection of business and technology.
+      </p>
+      <p class="text-gray-600 dark:text-gray-300 text-justify">
+        I've also recently served as the President of Product@UB (a graduate club for product 
+        enthusiasts at UB) and a Dean's Ambassador for UB School of Management, helping build 
+        the next generation of product leaders.
+      </p>
+      <div class="flex gap-4 mt-8">
+        <a href="#all-projects" class="px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition flex items-center">
+          <i class="fas fa-project-diagram mr-2"></i> View Projects
+        </a>
+        <a href="#research-papers" class="px-6 py-3 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white rounded-full hover:bg-gray-300 dark:hover:bg-gray-600 transition flex items-center">
+          <i class="fas fa-file-alt mr-2"></i> View Case Studies
+        </a>
+      </div>
+    </div>
+
+    <!-- Skills Box -->
+    <div class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+      <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-6">Skills</h2>
       
-      <!-- Left: About Text -->
-      <div data-aos="fade-right">
-       <h3 class="text-2xl font-bold mb-8 text-gray-800 dark:text-white">Quick Background</h3>
-        <p class="text-lg text-gray-600 dark:text-gray-400 mb-6 leading-relaxed text-justify">
-          I’m a product-obsessed & data-focused MBA graduate from the University at Buffalo 
-          with a strong foundation in project management, process improvement, cross-functional 
-          leadership, and tech-driven innovation. With experience spanning startups and enterprises, 
-          I enjoy solving problems that sit at the intersection of business and technology.
-        </p>
-        <p class="text-lg text-gray-600 dark:text-gray-400 mb-6 leading-relaxed text-justify">
-          I've also recently served as the President of Product@UB (a graduate club for product 
-          enthusiasts at UB) and a Dean's Ambassador for UB School of Management, helping build 
-          the next generation of product leaders.
-        </p>
-        
-        <div class="flex flex-wrap gap-4 mt-8">
-          <a href="#all-projects" 
-             class="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition">
-            <i class="fas fa-project-diagram mr-2"></i> View Projects
-          </a>
-          <a href="#research-papers" 
-             class="inline-flex items-center px-6 py-3 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white rounded-full hover:bg-gray-300 dark:hover:bg-gray-600 transition">
-            <i class="fas fa-file-alt mr-2"></i> View Case Studies
-          </a>
+      <!-- Product Management -->
+      <div class="mb-6">
+        <h3 class="text-lg font-semibold text-indigo-600 dark:text-indigo-400 mb-4">Product Management</h3>
+        <div class="flex flex-wrap gap-3">
+          <span class="px-4 py-2 rounded-full bg-indigo-100 text-indigo-700 dark:bg-indigo-800 dark:text-indigo-200 text-sm font-medium">Roadmapping</span>
+          <span class="px-4 py-2 rounded-full bg-indigo-100 text-indigo-700 dark:bg-indigo-800 dark:text-indigo-200 text-sm font-medium">Stakeholder Management</span>
+          <span class="px-4 py-2 rounded-full bg-indigo-100 text-indigo-700 dark:bg-indigo-800 dark:text-indigo-200 text-sm font-medium">Agile & Scrum</span>
+          <span class="px-4 py-2 rounded-full bg-indigo-100 text-indigo-700 dark:bg-indigo-800 dark:text-indigo-200 text-sm font-medium">Release Planning</span>
+          <span class="px-4 py-2 rounded-full bg-indigo-100 text-indigo-700 dark:bg-indigo-800 dark:text-indigo-200 text-sm font-medium">User-Centered Design</span>
         </div>
       </div>
-      
-      <!-- Right: Skills -->
-      <div data-aos="fade-left">
-        <h3 class="text-2xl font-bold mb-8 text-gray-800 dark:text-white">Skills</h3>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
-          <!-- Product Management -->
-          <div>
-            <h4 class="text-lg font-semibold mb-4 text-indigo-600 dark:text-indigo-400">Product Management</h4>
-            <div class="flex flex-wrap gap-2">
-              <span class="px-4 py-2 rounded-full bg-indigo-100 text-indigo-700 text-sm font-medium">Roadmapping</span>
-              <span class="px-4 py-2 rounded-full bg-indigo-100 text-indigo-700 text-sm font-medium">Stakeholder Management</span>
-              <span class="px-4 py-2 rounded-full bg-indigo-100 text-indigo-700 text-sm font-medium">Agile & Scrum</span>
-              <span class="px-4 py-2 rounded-full bg-indigo-100 text-indigo-700 text-sm font-medium">Release Planning</span>
-              <span class="px-4 py-2 rounded-full bg-indigo-100 text-indigo-700 text-sm font-medium">User-Centered Design</span>
-            </div>
-          </div>
+      <!-- Analytics & Data -->
+      <div class="mb-6">
+        <h3 class="text-lg font-semibold text-purple-600 dark:text-purple-400 mb-4">Analytics & Data</h3>
+        <div class="flex flex-wrap gap-3">
+          <span class="px-4 py-2 rounded-full bg-purple-100 text-purple-700 dark:bg-purple-800 dark:text-purple-200 text-sm font-medium">SQL</span>
+          <span class="px-4 py-2 rounded-full bg-purple-100 text-purple-700 dark:bg-purple-800 dark:text-purple-200 text-sm font-medium">R</span>
+          <span class="px-4 py-2 rounded-full bg-purple-100 text-purple-700 dark:bg-purple-800 dark:text-purple-200 text-sm font-medium">Python</span>
+          <span class="px-4 py-2 rounded-full bg-purple-100 text-purple-700 dark:bg-purple-800 dark:text-purple-200 text-sm font-medium">Tableau</span>
+          <span class="px-4 py-2 rounded-full bg-purple-100 text-purple-700 dark:bg-purple-800 dark:text-purple-200 text-sm font-medium">GA4 Analytics</span>
+        </div>
+      </div>
 
-          <!-- Analytics & Data -->
-          <div>
-            <h4 class="text-lg font-semibold mb-4 text-purple-600 dark:text-purple-400">Analytics & Data</h4>
-            <div class="flex flex-wrap gap-2">
-              <span class="px-4 py-2 rounded-full bg-purple-100 text-purple-700 text-sm font-medium">SQL</span>
-              <span class="px-4 py-2 rounded-full bg-purple-100 text-purple-700 text-sm font-medium">R</span>
-              <span class="px-4 py-2 rounded-full bg-purple-100 text-purple-700 text-sm font-medium">Python</span>
-              <span class="px-4 py-2 rounded-full bg-purple-100 text-purple-700 text-sm font-medium">Tableau</span>
-              <span class="px-4 py-2 rounded-full bg-purple-100 text-purple-700 text-sm font-medium">GA4 Analytics</span>
-            </div>
-          </div>
+      <!-- Tools & Technology -->
+      <div class="mb-6">
+        <h3 class="text-lg font-semibold text-green-600 dark:text-green-400 mb-4">Tools & Technology</h3>
+        <div class="flex flex-wrap gap-3">
+          <span class="px-4 py-2 rounded-full bg-green-100 text-green-700 dark:bg-green-800 dark:text-green-200 text-sm font-medium">Jira</span>
+          <span class="px-4 py-2 rounded-full bg-green-100 text-green-700 dark:bg-green-800 dark:text-green-200 text-sm font-medium">Confluence</span>
+          <span class="px-4 py-2 rounded-full bg-green-100 text-green-700 dark:bg-green-800 dark:text-green-200 text-sm font-medium">Power BI</span>
+          <span class="px-4 py-2 rounded-full bg-green-100 text-green-700 dark:bg-green-800 dark:text-green-200 text-sm font-medium">Planisware</span>
+          <span class="px-4 py-2 rounded-full bg-green-100 text-green-700 dark:bg-green-800 dark:text-green-200 text-sm font-medium">Power Automate</span>
+        </div>
+      </div>
 
-          <!-- Tools & Technology -->
-          <div>
-            <h4 class="text-lg font-semibold mb-4 text-green-600 dark:text-green-400">Tools & Technology</h4>
-            <div class="flex flex-wrap gap-2">
-              <span class="px-4 py-2 rounded-full bg-green-100 text-green-700 text-sm font-medium">Jira</span>
-              <span class="px-4 py-2 rounded-full bg-green-100 text-green-700 text-sm font-medium">Confluence</span>
-              <span class="px-4 py-2 rounded-full bg-green-100 text-green-700 text-sm font-medium">Power BI</span>
-              <span class="px-4 py-2 rounded-full bg-green-100 text-green-700 text-sm font-medium">Planisware</span>
-              <span class="px-4 py-2 rounded-full bg-green-100 text-green-700 text-sm font-medium">Power Automate</span>
-            </div>
-          </div>
-
-          <!-- Leadership & Collaboration -->
-          <div>
-            <h4 class="text-lg font-semibold mb-4 text-pink-600 dark:text-pink-400">Leadership & Collaboration</h4>
-            <div class="flex flex-wrap gap-2">
-              <span class="px-4 py-2 rounded-full bg-pink-100 text-pink-700 text-sm font-medium">Team Leadership</span>
-              <span class="px-4 py-2 rounded-full bg-pink-100 text-pink-700 text-sm font-medium">Cross-Functional Collaboration</span>
-              <span class="px-4 py-2 rounded-full bg-pink-100 text-pink-700 text-sm font-medium">Mentorship</span>
-              <span class="px-4 py-2 rounded-full bg-pink-100 text-pink-700 text-sm font-medium">Public Speaking</span>
-              <span class="px-4 py-2 rounded-full bg-pink-100 text-pink-700 text-sm font-medium">Stakeholder Communication</span>
-            </div>
-          </div>
-          
+      <!-- Leadership & Collaboration -->
+      <div>
+        <h3 class="text-lg font-semibold text-pink-600 dark:text-pink-400 mb-4">Leadership & Collaboration</h3>
+        <div class="flex flex-wrap gap-3">
+          <span class="px-4 py-2 rounded-full bg-pink-100 text-pink-700 dark:bg-pink-800 dark:text-pink-200 text-sm font-medium">Team Leadership</span>
+          <span class="px-4 py-2 rounded-full bg-pink-100 text-pink-700 dark:bg-pink-800 dark:text-pink-200 text-sm font-medium">Cross-Functional Collaboration</span>
+          <span class="px-4 py-2 rounded-full bg-pink-100 text-pink-700 dark:bg-pink-800 dark:text-pink-200 text-sm font-medium">Mentorship</span>
+          <span class="px-4 py-2 rounded-full bg-pink-100 text-pink-700 dark:bg-pink-800 dark:text-pink-200 text-sm font-medium">Public Speaking</span>
+          <span class="px-4 py-2 rounded-full bg-pink-100 text-pink-700 dark:bg-pink-800 dark:text-pink-200 text-sm font-medium">Stakeholder Communication</span>
         </div>
       </div>
     </div>
+
   </div>
 </section>
+
 
 <!-- =======================================================
                  Product Impact Section 
