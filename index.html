@@ -385,243 +385,137 @@
               Education Section 
 ============================================== -->
 <section id="education" class="py-20 bg-white dark:bg-gray-900">
-  <div class="container mx-auto">
-    <h2
-      class="text-3xl font-bold text-center mb-16 text-gray-800 dark:text-white"
-      data-aos="fade-up"
-    >
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-12 text-gray-800 dark:text-white" data-aos="fade-up">
       Education
     </h2>
 
-    <!-- Grid: 1 col on mobile, 2 cols on md+ -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <!-- Tabs Wrapper -->
+    <div x-data="{ activeTab: 'ub' }" class="max-w-5xl mx-auto">
+      
+      <!-- Tab Buttons -->
+      <div class="flex justify-center space-x-6 mb-8">
+        <button 
+          @click="activeTab = 'ub'"
+          :class="activeTab === 'ub' ? 'bg-blue-600 text-white' : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300'"
+          class="px-6 py-2 rounded-full font-medium transition-all">
+          Master's
+        </button>
+        <button 
+          @click="activeTab = 'mit'"
+          :class="activeTab === 'mit' ? 'bg-blue-600 text-white' : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300'"
+          class="px-6 py-2 rounded-full font-medium transition-all">
+          Bachelor's
+        </button>
+      </div>
+        
+        <!-- UB Education Tab  -->
+<div x-show="activeTab === 'ub'" class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8" data-aos="fade-up">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
 
-      <!-- University at Buffalo -->
-      <div
-        class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
-        data-aos="fade-up"
-      >
-        <div class="flex flex-col md:flex-row justify-between items-start mb-6">
-          <div class="flex-1">
-            <div
-              class="flex items-center mb-4"
-              data-aos="fade-right"
-              data-aos-duration="1000"
-            >
-              <img
-                src="assets/images/UB Logo.png"
-                alt="University at Buffalo Logo"
-                class="w-24 h-24 object-contain mr-4 dark:brightness-110 transform transition-transform hover:scale-110"
-              >
-              <div>
-                <h3 class="text-xl font-bold text-gray-800 dark:text-white">
-                  Master of Business Administration
-                </h3>
-                <p class="text-blue-600 dark:text-blue-400">STEM Designated</p>
-              </div>
-            </div>
-            <div
-              class="flex flex-col space-y-2"
-              data-aos="fade-up"
-              data-aos-delay="200"
-              data-aos-duration="1000"
-            >
-              <div class="flex items-center justify-between">
-                <p class="text-gray-600 dark:text-gray-200">
-                  University at Buffalo, SUNY – School of Management
-                </p>
-                <a
-                  href="assets/documents/CeDiploma.pdf"
-                  target="_blank"
-                  class="px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-white rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-600 dark:hover:text-blue-400 transition-all flex items-center font-medium shadow-sm hover:shadow-md transform hover:scale-105 hover:-translate-y-1"
-                >
-                  <i
-                    class="fas fa-award mr-2 text-blue-500 dark:text-blue-400 text-lg transition-transform group-hover:rotate-12"
-                  ></i>
-                  View Credential
-                </a>
-              </div>
-              <p class="text-gray-500 dark:text-gray-300">Aug 2023 – Jun 2025</p>
-              <div class="flex items-center">
-                <span
-                  class="inline-flex items-center bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 px-3 py-1 rounded-full transform transition-all hover:scale-105 hover:shadow-md group"
-                >
-                  <i
-                    class="fas fa-star text-green-500 dark:text-green-400 mr-2 group-hover:rotate-12 transition-transform"
-                  ></i>
-                  <span class="text-green-600 dark:text-green-400 font-medium whitespace-nowrap">
-                    GPA: 3.96/4.0
-                  </span>
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Academic Focus Areas -->
-        <div
-          class="mb-6"
-          data-aos="fade-up"
-          data-aos-delay="300"
-          data-aos-duration="1000"
-        >
-          <h4 class="text-lg font-semibold text-gray-700 dark:text-gray-200 mb-4">
-            Academic Focus Areas
-          </h4>
-          <div class="grid grid-cols-3 gap-4">
-              <div
-            class="bg-pink-50 dark:bg-pink-900/20 rounded-lg p-4 transform transition-all hover:scale-105 hover:shadow-lg"
-            >
-             <p class="text-pink-700 dark:text-pink-300 font-semibold mb-2 break-words whitespace-normal">
-             Information Systems
-             </p>
-            </div>
-                <div
-            class="bg-green-50 dark:bg-green-900/20 rounded-lg p-4 transform transition-all hover:scale-105 hover:shadow-lg"
-            >
-             <p class="text-green-700 dark:text-green-300 font-semibold mb-2 break-words whitespace-normal">
-              Data Analytics
-             </p>
-            </div>
-               <div
-            class="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4 transform transition-all hover:scale-105 hover:shadow-lg"
-            >
-             <p class="text-blue-700 dark:text-blue-300 font-semibold mb-2 break-words whitespace-normal">
-              Data Vizualization
-             </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- View More Details Button -->
-        <div class="mt-4">
-          <a
-            href="education-details.html"
-            class="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition"
-          >
-            View More Details
-          </a>
+    <!-- Left Side: Degree Info -->
+    <div>
+      <div class="flex items-center mb-4">
+        <img src="assets/images/UB Logo.png" alt="University at Buffalo Logo"
+          class="w-20 h-20 object-contain mr-6 dark:brightness-110">
+        <div>
+          <h3 class="text-xl font-bold text-gray-800 dark:text-white">
+            Master of Business Administration
+          </h3>
+          <p class="text-blue-600 dark:text-blue-400">STEM Designated</p>
+          <p class="text-gray-600 dark:text-gray-300">
+            University at Buffalo, SUNY – School of Management
+          </p>
+          <p class="text-gray-500 dark:text-gray-400">Aug 2023 – Jun 2025</p>
         </div>
       </div>
-      <!-- End Buffalo Card -->
 
-      <!-- MIT University -->
-      <div
-        class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
-        data-aos="fade-up"
-        data-aos-delay="100"
-      >
-        <div class="flex flex-col md:flex-row justify-between items-start mb-6">
-          <div class="flex-1">
-            <div
-              class="flex items-center mb-4"
-              data-aos="fade-right"
-              data-aos-duration="1000"
-            >
-              <img
-                src="assets/images/mit-shillong-logo.jpg"
-                alt="MIT University Shillong Logo"
-                class="w-24 h-24 object-contain mr-4 dark:brightness-110 transform transition-transform hover:scale-110"
-              >
-              <div>
-                <h3 class="text-xl font-bold text-gray-800 dark:text-white">
-                  Bachelor of Technology
-                </h3>
-                <p class="text-blue-600 dark:text-blue-400">
-                  Computer Science and Engineering
-                </p>
-              </div>
-            </div>
-            <div
-              class="flex flex-col space-y-2"
-              data-aos="fade-up"
-              data-aos-delay="200"
-              data-aos-duration="1000"
-            >
-              <div class="flex items-center justify-between">
-                <p class="text-gray-600 dark:text-gray-200">
-                  MIT University, Shillong, India
-                </p>
-                <a
-                  href="assets/docs/Abhishek degree certificate.pdf"
-                  target="_blank"
-                  class="px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-white rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-600 dark:hover:text-blue-400 transition-all flex items-center font-medium shadow-sm hover:shadow-md transform hover:scale-105 hover:-translate-y-1"
-                >
-                  <i
-                    class="fas fa-award mr-2 text-blue-500 dark:text-blue-400 text-lg transition-transform group-hover:rotate-12"
-                  ></i>
-                  View Credential
-                </a>
-              </div>
-              <p class="text-gray-500 dark:text-gray-300">
-                Aug 2014 – Jun 2018
-              </p>
-              <div class="flex items-center">
-                <span
-                  class="inline-flex items-center bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 px-3 py-1 rounded-full transform transition-all hover:scale-105 hover:shadow-md group"
-                >
-                  <i
-                    class="fas fa-star text-green-500 dark:text-green-400 mr-2 group-hover:rotate-12 transition-transform"
-                  ></i>
-                  <span class="text-green-600 dark:text-green-400 font-medium whitespace-nowrap">
-                    GPA: 2.72/4.0
-                  </span>
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-       <!-- Academic Focus Areas -->
-        <div
-          class="mb-6"
-          data-aos="fade-up"
-          data-aos-delay="300"
-          data-aos-duration="1000"
-        >
-          <h4 class="text-lg font-semibold text-gray-700 dark:text-gray-200 mb-4">
-            Academic Focus Areas
-          </h4>
-          <div class="grid grid-cols-3 gap-4">
-              <div
-            class="bg-pink-50 dark:bg-pink-900/20 rounded-lg p-4 transform transition-all hover:scale-105 hover:shadow-lg"
-            >
-             <p class="text-pink-700 dark:text-pink-300 font-semibold mb-2 break-words whitespace-normal">
-             Programming
-             </p>
-            </div>
-                <div
-            class="bg-green-50 dark:bg-green-900/20 rounded-lg p-4 transform transition-all hover:scale-105 hover:shadow-lg"
-            >
-             <p class="text-green-700 dark:text-green-300 font-semibold mb-2 break-words whitespace-normal">
-              Database Management
-             </p>
-            </div>
-               <div
-            class="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4 transform transition-all hover:scale-105 hover:shadow-lg"
-            >
-             <p class="text-blue-700 dark:text-blue-300 font-semibold mb-2 break-words whitespace-normal">
-              Project Management
-             </p>
-            </div>
-          </div>
-        </div>
-        <!-- View More Details Button -->
-        <div class="mt-4">
-          <a
-            href="education-details.html"
-            class="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition"
-          >
-            View More Details
-          </a>
-        </div>
+      <!-- GPA -->
+      <p class="inline-block bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-400 px-3 py-1 rounded-full text-sm font-medium mb-4">
+        GPA: 3.96/4.0
+      </p>
+
+      <!-- Buttons Row -->
+      <div class="flex flex-wrap gap-4">
+        <a href="assets/documents/CeDiploma.pdf" target="_blank"
+           class="inline-flex items-center px-5 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-white rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-600 dark:hover:text-blue-400 transition">
+          <i class="fas fa-award mr-2 text-blue-500 dark:text-blue-400"></i>
+          View Credential
+        </a>
+        <a href="education-details.html"
+           class="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition">
+          View More Details
+        </a>
       </div>
-      <!-- End MIT Card -->
-
     </div>
-    <!-- end grid -->
+
+    <!-- Right Side: Focus Area Tiles -->
+    <div class="flex flex-wrap gap-2 md:justify-end">
+      <span class="px-4 py-2 bg-pink-100 text-pink-700 dark:bg-pink-800 dark:text-pink-200 rounded-full text-sm font-medium">Data Analytics</span>
+      <span class="px-4 py-2 bg-green-100 text-green-700 dark:bg-green-800 dark:text-green-200 rounded-full text-sm font-medium">Information Systems</span>
+      <span class="px-4 py-2 bg-blue-100 text-blue-700 dark:bg-blue-800 dark:text-blue-200 rounded-full text-sm font-medium">Data Visualization</span>
+    </div>
+
   </div>
-  <!-- end container -->
+</div>
+
+            <!-- MIT Tab  -->
+<div x-show="activeTab === 'mit'" class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8" data-aos="fade-up">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+
+    <!-- Left Side: Degree Info -->
+    <div>
+      <div class="flex items-center mb-4">
+        <img src="assets/images/UB Logo.png" alt="University at Buffalo Logo"
+          class="w-20 h-20 object-contain mr-6 dark:brightness-110">
+        <div>
+          <h3 class="text-xl font-bold text-gray-800 dark:text-white">
+            Bachelor of Technology
+          </h3>
+          <p class="text-blue-600 dark:text-blue-400">Computer Science and Engineering</p>
+          <p class="text-gray-600 dark:text-gray-300">
+            MIT University, Shillong, India
+          </p>
+          <p class="text-gray-500 dark:text-gray-400">Aug 2014 – Jun 2018</p>
+        </div>
+      </div>
+
+      <!-- GPA -->
+      <p class="inline-block bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-400 px-3 py-1 rounded-full text-sm font-medium mb-4">
+        GPA: 2.70/4.0
+      </p>
+
+      <!-- Buttons Row -->
+      <div class="flex flex-wrap gap-4">
+        <a href="assets/documents/CeDiploma.pdf" target="_blank"
+           class="inline-flex items-center px-5 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-white rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-600 dark:hover:text-blue-400 transition">
+          <i class="fas fa-award mr-2 text-blue-500 dark:text-blue-400"></i>
+          View Credential
+        </a>
+        <a href="education-details.html"
+           class="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition">
+          View More Details
+        </a>
+      </div>
+    </div>
+
+    <!-- Right Side: Focus Area Tiles -->
+    <div class="flex flex-wrap gap-2 md:justify-end">
+      <span class="px-4 py-2 bg-pink-100 text-pink-700 dark:bg-pink-800 dark:text-pink-200 rounded-full text-sm font-medium">Programming</span>
+      <span class="px-4 py-2 bg-green-100 text-green-700 dark:bg-green-800 dark:text-green-200 rounded-full text-sm font-medium">Database Management</span>
+      <span class="px-4 py-2 bg-blue-100 text-blue-700 dark:bg-blue-800 dark:text-blue-200 rounded-full text-sm font-medium">Project Management</span>
+    </div>
+
+  </div>
+</div>
+
+      </div>
+    </div>
+  </div>
 </section>
+
+<!-- Alpine.js for Tabs -->
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 <!-- =======================================================
                   Experience Section 
 ======================================================== -->
@@ -1179,3 +1073,4 @@ document.addEventListener('DOMContentLoaded', function() {
     </script>
 </body>
 </html> 
+
