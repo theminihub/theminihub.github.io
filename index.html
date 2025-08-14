@@ -328,59 +328,89 @@
               Certificates & Badges Section 
 ============================================== -->
 
-<!-- Certifications & Badges Section -->
-<section id="certifications" class="py-20 bg-gradient-to-r from-pink-50 to-purple-50 dark:from-pink-900/20 dark:to-purple-900/20">
-  <div class="container mx-auto px-6">
-    <h2 class="text-3xl font-bold text-center mb-12 text-gray-800 dark:text-white" data-aos="fade-up">
+<section id="certifications" class="py-12 bg-white dark:bg-gray-900">
+  <div class="container mx-auto px-4">
+    <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 text-gray-800 dark:text-white">
       Certifications & Badges
     </h2>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      
-      <!-- Example Card -->
-      <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
-        <div class="flex justify-center mb-4 h-24">
-          <img src="assets/images/udemy logo.png" alt="Udemy Logo" class="w-24 object-contain dark:brightness-110">
-        </div>
-        <h3 class="text-lg font-semibold text-center text-gray-800 dark:text-white mb-2">
-          SQL Masterclass: SQL for Data Analytics
-        </h3>
-        <p class="text-center text-gray-600 dark:text-gray-300">Udemy</p>
-        <div class="mt-4 flex flex-col items-center space-y-3">
-          <span class="px-4 py-2 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">
-            <i class="fas fa-certificate mr-2"></i>Verified Achievement
-          </span>
-          <a href="assets/docs/SQL Masterclass certificate.pdf" target="_blank" 
-             class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center transition-all">
-            <i class="fas fa-external-link-alt mr-2"></i>View Certificate
-          </a>
-        </div>
+    <!-- Chip list wrapper -->
+    <div x-data="{ showAll: false }" class="max-w-5xl mx-auto">
+      <!-- Chips
+           - Mobile: wraps nicely and stays compact
+           - Desktop: neat, airy spacing
+           - The max-height keeps it tight until expanded
+      -->
+      <div
+        class="flex flex-wrap gap-2 md:gap-3 justify-center transition-all duration-300 overflow-hidden"
+        :class="showAll ? 'max-h-[9999px]' : 'max-h-[96px]'"
+        aria-live="polite"
+      >
+        <!-- IIM ACPBDA -->
+        <a href="assets/docs/Abhishek Gangadhar Harihar Final Certificates.pdf" target="_blank"
+           class="px-3 py-1.5 rounded-full text-xs md:text-sm font-medium bg-blue-50 text-blue-700 dark:bg-blue-900/20 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/40 transition"
+           aria-label="View ACPBDA IIM Indore credential (opens in new tab)">
+          🎓 ACPBDA — IIM Indore
+        </a>
+
+        <!-- Tredence Data Science -->
+        <a href="assets/images/Data Science Certificate.png" target="_blank"
+           class="px-3 py-1.5 rounded-full text-xs md:text-sm font-medium bg-indigo-50 text-indigo-700 dark:bg-indigo-900/20 dark:text-indigo-300 hover:bg-indigo-100 dark:hover:bg-indigo-900/40 transition"
+           aria-label="View Data Science credential from Tredence (opens in new tab)">
+          📘 Data Science — Tredence
+        </a>
+
+        <!-- Snowflake Masterclass -->
+        <a href="assets/docs/Snowflake Masterclass - Udemy certificate.pdf" target="_blank"
+           class="px-3 py-1.5 rounded-full text-xs md:text-sm font-medium bg-cyan-50 text-cyan-700 dark:bg-cyan-900/20 dark:text-cyan-300 hover:bg-cyan-100 dark:hover:bg-cyan-900/40 transition"
+           aria-label="View Snowflake Masterclass credential (opens in new tab)">
+          ❄️ Snowflake Masterclass — Udemy
+        </a>
+
+        <!-- SQL Masterclass -->
+        <a href="assets/docs/SQL Masterclass certificate.pdf" target="_blank"
+           class="px-3 py-1.5 rounded-full text-xs md:text-sm font-medium bg-purple-50 text-purple-700 dark:bg-purple-900/20 dark:text-purple-300 hover:bg-purple-100 dark:hover:bg-purple-900/40 transition"
+           aria-label="View SQL Masterclass credential (opens in new tab)">
+          🗄️ SQL Masterclass — Udemy
+        </a>
+
+        <!-- PL-300 -->
+        <a href="assets/docs/Certificate of Participation POWER BI PL-300.pdf" target="_blank"
+           class="px-3 py-1.5 rounded-full text-xs md:text-sm font-medium bg-amber-50 text-amber-700 dark:bg-amber-900/20 dark:text-amber-300 hover:bg-amber-100 dark:hover:bg-amber-900/40 transition"
+           aria-label="View PL-300 Microsoft Power BI credential (opens in new tab)">
+          📊 PL-300: Power BI — EY
+        </a>
+
+        <!-- Tableau A-Z -->
+        <a href="assets/docs/TABLEAU beginner certificate.pdf" target="_blank"
+           class="px-3 py-1.5 rounded-full text-xs md:text-sm font-medium bg-pink-50 text-pink-700 dark:bg-pink-900/20 dark:text-pink-300 hover:bg-pink-100 dark:hover:bg-pink-900/40 transition"
+           aria-label="View Tableau A-Z credential (opens in new tab)">
+          📈 Tableau A-Z — Udemy
+        </a>
+
+        <!-- Add more chips here if you like -->
       </div>
 
-      <!-- Repeat for each certification -->
-      <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
-        <div class="flex justify-center mb-4 h-24">
-          <img src="assets/images/ey logo.png" alt="EY Logo" class="w-24 object-contain dark:brightness-110">
-        </div>
-        <h3 class="text-lg font-semibold text-center text-gray-800 dark:text-white mb-2">
-          PL-300: Microsoft Power BI Data Analyst
-        </h3>
-        <p class="text-center text-gray-600 dark:text-gray-300">Ernst & Young Associates LLP</p>
-        <div class="mt-4 flex flex-col items-center space-y-3">
-          <span class="px-4 py-2 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">
-            <i class="fas fa-certificate mr-2"></i>Verified Achievement
-          </span>
-          <a href="assets/docs/Certificate of Participation POWER BI PL-300.pdf" target="_blank" 
-             class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center transition-all">
-            <i class="fas fa-external-link-alt mr-2"></i>View Certificate
-          </a>
-        </div>
+      <!-- Show more / less -->
+      <div class="mt-6 flex justify-center">
+        <button
+          @click="showAll = !showAll"
+          class="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition"
+          :aria-expanded="showAll.toString()"
+          aria-controls="certifications"
+        >
+          <span x-show="!showAll">Show more</span>
+          <span x-show="showAll">Show less</span>
+          <i class="fas fa-chevron-down ml-2 transition-transform"
+             :class="showAll ? 'rotate-180' : ''"></i>
+        </button>
       </div>
-
-      <!-- Add more cards as needed -->
     </div>
   </div>
 </section>
+
+<!-- Alpine.js (remove if you’re already loading it globally) -->
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 <!-- =============================================
               Education Section 
 ============================================== -->
@@ -1073,4 +1103,5 @@ document.addEventListener('DOMContentLoaded', function() {
     </script>
 </body>
 </html> 
+
 
