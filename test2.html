@@ -134,42 +134,108 @@
   </section>
 
   <!-- =================== ABOUT SECTION =================== -->
-  <section id="about" class="py-16 bg-gray-50 dark:bg-gray-900">
-    <div class="container mx-auto px-4">
+  <section id="about" class="py-20 bg-gray-50 dark:bg-gray-900">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-12 text-gray-800 dark:text-white" data-aos="fade-up">
+      About Me
+    </h2>
 
-      <!-- Heading -->
-      <h2 class="text-3xl font-bold text-center mb-10 text-gray-800 dark:text-white" data-aos="fade-up">About Me</h2>
+    <!-- Split card -->
+    <div class="relative bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden">
+      <div class="grid grid-cols-1 md:grid-cols-2">
 
-      <!-- 2-column grid for Background and Skills -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Left: Story -->
+        <div class="p-8 md:p-10">
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">My Story</h3>
 
-        <!-- Quick Background -->
-        <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg" data-aos="fade-up">
-          <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-4">Quick Background</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4 text-justify leading-relaxed">
-            I’m a product-obsessed & data-focused MBA graduate from the University at Buffalo with a strong foundation in
-            project management, process improvement, cross-functional leadership, and tech-driven innovation.
+          <p class="text-gray-600 dark:text-gray-300 mb-4 text-justify">
+            My journey started in software project management where I spent over five years leading cross functional teams and shipping products at scale. I learned how to balance deadlines, align stakeholders, and keep teams moving forward, but what excited me most was understanding why we were building something, how customers would use it, and how data could show us whether we got it right.
           </p>
-          <p class="text-gray-600 dark:text-gray-300 text-justify leading-relaxed">
-            I've recently served as the President of Product@UB and as a Dean's Ambassador for the UB School of Management.
-          </p>
-        </div>
 
-        <!-- Skills -->
-        <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg" data-aos="fade-up">
-          <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-4">Skills</h3>
-          <div class="flex flex-wrap gap-3">
-            <span class="px-4 py-2 rounded-full bg-indigo-100 text-indigo-700 text-sm">Roadmapping</span>
-            <span class="px-4 py-2 rounded-full bg-purple-100 text-purple-700 text-sm">SQL</span>
-            <span class="px-4 py-2 rounded-full bg-green-100 text-green-700 text-sm">Power BI</span>
-            <span class="px-4 py-2 rounded-full bg-pink-100 text-pink-700 text-sm">Team Leadership</span>
+          <p class="text-gray-600 dark:text-gray-300 mb-4 text-justify">
+            Curiosity led me to an MBA in Information Systems and Analytics at the University at Buffalo where I went deeper into data driven decision making, product design, and customer centric strategy. From attribution models in R to data warehouses and product concepts, I found myself at the intersection of technology, data, and user experience.
+          </p>
+
+          <p class="text-gray-600 dark:text-gray-300 text-justify">
+            Now I want to bring that mix of execution, analytics, and customer empathy into product roles because the most impactful products are born when customer obsession meets data driven insight.
+          </p>
+
+          <!-- CTAs -->
+          <div class="flex flex-wrap gap-4 mt-8">
+            <a href="#all-projects" class="px-6 py-3 bg-pink-600 text-white rounded-full hover:bg-pink-700 transition flex items-center">
+              <i class="fas fa-project-diagram mr-2"></i> View Projects
+            </a>
+            <a href="#experience" class="px-6 py-3 bg-teal-600 text-white rounded-full hover:bg-teal-700 transition flex items-center">
+              <i class="fas fa-file-alt mr-2"></i> View Experience
+            </a>
+            <a href="assets/documents/Meenakshi_Resume_2025.pdf" target="_blank" rel="noopener"
+               class="px-6 py-3 bg-indigo-600 text-white rounded-full hover:bg-indigo-700 transition flex items-center shadow-lg">
+              <i class="fas fa-file-pdf mr-2"></i> View Resume
+            </a>
           </div>
         </div>
 
+        <!-- Right: Core Competencies -->
+        <div class="p-8 md:p-10 bg-gray-50 dark:bg-gray-900/40">
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Core Competencies</h3>
+
+          <!-- Product Management -->
+          <div class="mb-6">
+            <h4 class="text-sm font-semibold tracking-wide text-indigo-600 dark:text-indigo-400 mb-3 uppercase">Product Management</h4>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1.5 rounded-full bg-indigo-100 text-indigo-700 dark:bg-indigo-800 dark:text-indigo-200 text-xs md:text-sm">Roadmapping</span>
+              <span class="px-3 py-1.5 rounded-full bg-indigo-100 text-indigo-700 dark:bg-indigo-800 dark:text-indigo-200 text-xs md:text-sm">Stakeholder Management</span>
+              <span class="px-3 py-1.5 rounded-full bg-indigo-100 text-indigo-700 dark:bg-indigo-800 dark:text-indigo-200 text-xs md:text-sm">Agile and Scrum</span>
+              <span class="px-3 py-1.5 rounded-full bg-indigo-100 text-indigo-700 dark:bg-indigo-800 dark:text-indigo-200 text-xs md:text-sm">Release Planning</span>
+              <span class="px-3 py-1.5 rounded-full bg-indigo-100 text-indigo-700 dark:bg-indigo-800 dark:text-indigo-200 text-xs md:text-sm">User Centered Design</span>
+            </div>
+          </div>
+
+          <!-- Analytics and Data -->
+          <div class="mb-6">
+            <h4 class="text-sm font-semibold tracking-wide text-purple-600 dark:text-purple-400 mb-3 uppercase">Analytics and Data</h4>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1.5 rounded-full bg-purple-100 text-purple-700 dark:bg-purple-800 dark:text-purple-200 text-xs md:text-sm">SQL</span>
+              <span class="px-3 py-1.5 rounded-full bg-purple-100 text-purple-700 dark:bg-purple-800 dark:text-purple-200 text-xs md:text-sm">R</span>
+              <span class="px-3 py-1.5 rounded-full bg-purple-100 text-purple-700 dark:bg-purple-800 dark:text-purple-200 text-xs md:text-sm">Python</span>
+              <span class="px-3 py-1.5 rounded-full bg-purple-100 text-purple-700 dark:bg-purple-800 dark:text-purple-200 text-xs md:text-sm">Tableau</span>
+              <span class="px-3 py-1.5 rounded-full bg-purple-100 text-purple-700 dark:bg-purple-800 dark:text-purple-200 text-xs md:text-sm">GA4</span>
+            </div>
+          </div>
+
+          <!-- Tools and Technology -->
+          <div class="mb-6">
+            <h4 class="text-sm font-semibold tracking-wide text-green-600 dark:text-green-400 mb-3 uppercase">Tools and Technology</h4>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1.5 rounded-full bg-green-100 text-green-700 dark:bg-green-800 dark:text-green-200 text-xs md:text-sm">Jira</span>
+              <span class="px-3 py-1.5 rounded-full bg-green-100 text-green-700 dark:bg-green-800 dark:text-green-200 text-xs md:text-sm">Confluence</span>
+              <span class="px-3 py-1.5 rounded-full bg-green-100 text-green-700 dark:bg-green-800 dark:text-green-200 text-xs md:text-sm">Power BI</span>
+              <span class="px-3 py-1.5 rounded-full bg-green-100 text-green-700 dark:bg-green-800 dark:text-green-200 text-xs md:text-sm">Planisware</span>
+              <span class="px-3 py-1.5 rounded-full bg-green-100 text-green-700 dark:bg-green-800 dark:text-green-200 text-xs md:text-sm">Power Automate</span>
+            </div>
+          </div>
+
+          <!-- Leadership and Collaboration -->
+          <div>
+            <h4 class="text-sm font-semibold tracking-wide text-pink-600 dark:text-pink-400 mb-3 uppercase">Leadership and Collaboration</h4>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1.5 rounded-full bg-pink-100 text-pink-700 dark:bg-pink-800 dark:text-pink-200 text-xs md:text-sm">Team Leadership</span>
+              <span class="px-3 py-1.5 rounded-full bg-pink-100 text-pink-700 dark:bg-pink-800 dark:text-pink-200 text-xs md:text-sm">Cross Functional Collaboration</span>
+              <span class="px-3 py-1.5 rounded-full bg-pink-100 text-pink-700 dark:bg-pink-800 dark:text-pink-200 text-xs md:text-sm">Mentorship</span>
+              <span class="px-3 py-1.5 rounded-full bg-pink-100 text-pink-700 dark:bg-pink-800 dark:text-pink-200 text-xs md:text-sm">Public Speaking</span>
+              <span class="px-3 py-1.5 rounded-full bg-pink-100 text-pink-700 dark:bg-pink-800 dark:text-pink-200 text-xs md:text-sm">Stakeholder Communication</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vertical gradient divider appears only on md and up -->
+      <div class="hidden md:block absolute inset-y-0 left-1/2 w-px -translate-x-1/2">
+        <div class="h-full bg-gradient-to-b from-pink-500 via-purple-500 to-indigo-500 opacity-70"></div>
       </div>
     </div>
-  </section>
-
+  </div>
+</section>
   <!-- =================== EDUCATION SECTION =================== -->
 <section id="education" class="py-20 bg-white dark:bg-gray-900">
   <div class="container mx-auto px-4">
