@@ -1,15 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meenakshi - Portfolio</title>
-  <link rel="stylesheet" href="assets/css/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Meenakshi • Portfolio</title>
 
-  <!-- Tailwind CSS -->
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    // Configure Tailwind for dark mode and responsive containers
     tailwind.config = {
       darkMode: 'class',
       theme: {
@@ -17,449 +15,341 @@
           container: {
             center: true,
             padding: {
-              DEFAULT: '1rem', // Padding for mobile
-              sm: '1.5rem',
-              md: '2rem',
-              lg: '3rem',
-              xl: '4rem',
-              '2xl': '5rem',
+              DEFAULT: '1.5rem',
+              sm: '2rem',
+              md: '2.5rem',
+              lg: '4rem',
+              xl: '5rem',
+              '2xl': '6rem',
             },
-          },
-        },
-      },
+            screens: {
+              sm: '640px',
+              md: '768px',
+              lg: '1024px',
+              xl: '1280px',
+              '2xl': '1536px',
+            },
+          }
+        }
+      }
     }
   </script>
 
-  <!-- AOS Animation Library -->
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  <!-- AOS once -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- Fonts and icons -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
-  <style>
-    /* Custom styles for hover effects in experience */
-    .experience-item {
-      position: relative;
-      padding: 10px;
-      border-radius: 8px;
-      transition: all 0.3s ease;
-      word-break: break-word; /* Ensures text wraps properly */
-    }
-    .experience-item:hover {
-      transform: translateX(10px);
-      background-color: rgba(59, 130, 246, 0.05);
-    }
-    .dark .experience-item:hover {
-      background-color: rgba(59, 130, 246, 0.1);
-    }
-    .experience-item::before {
-      content: '';
-      position: absolute;
-      left: -10px;
-      top: 50%;
-      width: 3px;
-      height: 0;
-      background-color: #3B82F6;
-      transition: height 0.3s ease, transform 0.3s ease;
-      transform: translateY(-50%);
-    }
-    .experience-item:hover::before {
-      height: 70%;
-    }
-  </style>
+  <!-- Your site styles. Keep one stylesheet only -->
+  <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <!-- Prevent theme flash -->
   <script>
-    // Load dark mode preference from localStorage
-    if (localStorage.getItem('darkMode') === 'true') {
+    const stored = localStorage.getItem('darkMode');
+    if (stored === 'true') {
       document.documentElement.classList.add('dark');
     }
   </script>
+
+  <!-- Preload hero image for faster LCP -->
+  <link rel="preload" as="image" href="assets/images/meenakshi.jpg" imagesrcset="assets/images/meenakshi.jpg 1x" />
+  <style>
+    /* Motion preference */
+    @media (prefers-reduced-motion: reduce) {
+      * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+    }
+    /* Timeline hover line */
+    .experience-item { position: relative; padding: 10px; border-radius: 8px; transition: all .3s ease; }
+    .experience-item:hover { transform: translateX(12px); background-color: rgba(59,130,246,.06); }
+    .dark .experience-item:hover { background-color: rgba(59,130,246,.12); }
+    .experience-item::before { content: ''; position: absolute; left: -10px; top: 50%; width: 3px; height: 0; background-color: #3B82F6; transform: translateY(-50%); transition: height .3s ease; }
+    .experience-item:hover::before { height: 70%; }
+
+    /* Projects filter transitions */
+    .project-card { transition: opacity .3s ease, transform .3s ease; }
+    @keyframes fadeIn { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes fadeOut{ from{opacity:1;transform:translateY(0)} to{opacity:0;transform:translateY(10px)} }
+    .fade-in{ animation: fadeIn .4s ease-out forwards; }
+    .fade-out{ animation: fadeOut .3s ease-in forwards; }
+  </style>
 </head>
-<body class="bg-white dark:bg-gray-900 transition-colors duration-200">
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 antialiased">
+  <!-- Navigation -->
+  <nav class="fixed inset-x-0 top-0 z-50 bg-white/90 dark:bg-gray-800/90 backdrop-blur shadow-sm">
+    <div class="container mx-auto">
+      <div class="flex items-center justify-between py-4">
+        <a href="#hero" class="text-2xl font-bold text-gray-800 dark:text-white">Portfolio</a>
 
-  <!-- =================== NAVIGATION =================== -->
-  <nav class="fixed w-full bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm shadow-sm z-50">
-    <div class="container mx-auto px-4">
-      <div class="flex items-center justify-between py-3">
-        <!-- Logo / Name -->
-        <a href="#" class="text-xl sm:text-2xl font-bold text-gray-800 dark:text-white">Portfolio</a>
-
-        <!-- Nav Items -->
-        <div class="flex items-center space-x-4 sm:space-x-6">
-          <!-- Dark Mode Toggle -->
-          <button id="darkModeToggle" class="p-2 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition">
-            <i class="fas fa-moon text-lg sm:text-xl"></i>
-            <i class="fas fa-sun text-lg sm:text-xl hidden"></i>
+        <div class="flex items-center gap-4">
+          <button id="darkModeToggle"
+                  class="p-2 rounded-full text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                  aria-label="Toggle dark mode">
+            <i class="fas fa-moon text-lg block dark:hidden"></i>
+            <i class="fas fa-sun text-lg hidden dark:block"></i>
           </button>
 
-          <!-- Menu Items for Desktop -->
-          <div class="hidden md:flex space-x-4 sm:space-x-6">
-            <a href="#about" class="text-gray-600 dark:text-gray-300 hover:text-blue-600">About</a>
-            <a href="#education" class="text-gray-600 dark:text-gray-300 hover:text-blue-600">Education</a>
-            <a href="#experience" class="text-gray-600 dark:text-gray-300 hover:text-blue-600">Experience</a>
-            <a href="#all-projects" class="text-gray-600 dark:text-gray-300 hover:text-blue-600">Projects</a>
-            <a href="#certifications" class="text-gray-600 dark:text-gray-300 hover:text-blue-600">Certifications</a>
-            <a href="#contact" class="text-gray-600 dark:text-gray-300 hover:text-blue-600">Contact</a>
+          <div class="hidden md:flex gap-6">
+            <a href="#about" class="hover:text-blue-600 dark:hover:text-blue-400">About</a>
+            <a href="#product-impact" class="hover:text-blue-600 dark:hover:text-blue-400">Product Impact</a>
+            <a href="#certifications" class="hover:text-blue-600 dark:hover:text-blue-400">Certifications</a>
+            <a href="#experience" class="hover:text-blue-600 dark:hover:text-blue-400">Experience</a>
+            <a href="#projects" class="hover:text-blue-600 dark:hover:text-blue-400">Projects</a>
+            <a href="#education" class="hover:text-blue-600 dark:hover:text-blue-400">Education</a>
+            <a href="#contact" class="hover:text-blue-600 dark:hover:text-blue-400">Contact</a>
           </div>
         </div>
       </div>
     </div>
   </nav>
-
-  <!-- =================== HERO SECTION =================== -->
-  <section id="hero" class="pt-28 pb-16 bg-white dark:bg-gray-900 relative overflow-hidden">
-    <div class="container mx-auto px-4 sm:px-6">
-      <div class="flex flex-col md:flex-row items-center justify-between">
-        <!-- Text -->
-        <div class="md:w-1/2 text-center md:text-left" data-aos="fade-right">
-          <h1 class="text-3xl sm:text-5xl font-bold text-gray-800 dark:text-white mb-4">Hi! I'm Meenakshi</h1>
-          <h2 class="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 mb-6">
-            A Customer-Obsessed, Data-Driven Product Leader
+  <!-- Hero Section -->
+  <section id="hero" class="pt-32 pb-20 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-r from-pink-50/80 to-purple-50/80 dark:from-pink-900/40 dark:to-purple-900/40"></div>
+    <div class="container relative">
+      <div class="grid md:grid-cols-2 items-center gap-12">
+        <div data-aos="fade-right">
+          <h1 class="text-4xl md:text-6xl font-bold mb-4">Hi, I am Meenakshi</h1>
+          <h2 class="text-2xl md:text-3xl text-gray-600 dark:text-gray-300 mb-6">
+            Product leader focused on customers and powered by data
           </h2>
-          <a href="#contact" class="px-6 py-3 border-2 border-blue-600 dark:border-blue-500 text-blue-600 dark:text-blue-400 rounded-full hover:bg-blue-600 hover:text-white transition">
+          <a href="#contact" class="inline-block px-8 py-3 border-2 border-blue-600 dark:border-blue-500 text-blue-600 dark:text-blue-400 rounded-full hover:bg-blue-600 hover:text-white transition">
             Contact Me
           </a>
         </div>
-
-        <!-- Profile Image -->
-        <div class="md:w-1/2 mt-10 md:mt-0 relative flex justify-center" data-aos="fade-left">
-          <div class="relative w-48 h-48 sm:w-72 sm:h-72">
-            <div class="absolute -inset-3 bg-gradient-to-r from-pink-600/20 to-purple-600/20 rounded-full blur-2xl opacity-50 animate-pulse"></div>
+        <div class="relative" data-aos="fade-left">
+          <div class="relative w-72 h-72 mx-auto">
+            <div class="absolute -inset-4 bg-gradient-to-r from-pink-600/20 to-purple-600/20 rounded-full blur-2xl opacity-50 animate-pulse"></div>
             <div class="relative w-full h-full rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-2xl">
-              <img src="assets/images/meenakshi.jpg" alt="Meenakshi" class="w-full h-full object-cover">
+              <img src="assets/images/meenakshi.jpg"
+                   alt="Portrait of Meenakshi"
+                   width="288" height="288"
+                   loading="eager"
+                   class="w-full h-full object-cover" />
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
+  <!-- About Section -->	
+  <section id="about" class="py-12">
+    <div class="container">
+      <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">About Me</h2>
 
-  <!-- =================== ABOUT SECTION =================== -->
-  <section id="about" class="py-20 bg-gray-50 dark:bg-gray-900">
-  <div class="container mx-auto px-4">
-    <h2 class="text-3xl font-bold text-center mb-12 text-gray-800 dark:text-white" data-aos="fade-up">
-      About Me
-    </h2>
+      <div class="relative bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden">
+        <div class="grid grid-cols-1 md:grid-cols-2">
+          <!-- Story -->
+          <div class="p-8 md:p-10">
+            <h3 class="text-2xl font-bold mb-6">My Story</h3>
 
-    <!-- Split card -->
-    <div class="relative bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden">
-      <div class="grid grid-cols-1 md:grid-cols-2">
+            <p class="text-gray-700 dark:text-gray-300 mb-4 text-justify">
+              I started in software project management and spent over five years leading cross functional teams and shipping products at scale. I learned to balance timelines, stakeholder needs, and global delivery while keeping focus on customers and measurable impact.
+            </p>
 
-        <!-- Left: Story -->
-        <div class="p-8 md:p-10">
-          <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">My Story</h3>
+            <p class="text-gray-700 dark:text-gray-300 mb-4 text-justify">
+              I pursued an MBA in Information Systems and Analytics at the University at Buffalo to go deeper into data informed decisions, product design, and customer first strategy. I built attribution models in R, designed data warehouses, and explored product concepts that join user value with outcomes.
+            </p>
 
-          <p class="text-gray-600 dark:text-gray-300 mb-4 text-justify">
-  My journey started in 
-  <span class="inline-flex items-center gap-1 font-semibold text-pink-600 dark:text-pink-400">
-    <i class="fas fa-tasks"></i> software project management
-  </span>, 
-  where I spent over 
-  <span class="inline-flex items-center gap-1 font-semibold text-indigo-600 dark:text-indigo-400">
-    <i class="fas fa-clock"></i> five years
-  </span> 
-  leading 
-  <span class="inline-flex items-center gap-1 font-semibold text-teal-600 dark:text-teal-400">
-    <i class="fas fa-users"></i> cross-functional teams
-  </span> 
-  and shipping products at scale. Along the way, I learned how to balance 
-  <span class="font-semibold text-purple-600 dark:text-purple-400">deadlines</span>, 
-  <span class="font-semibold text-purple-600 dark:text-purple-400">stakeholders</span>, 
-  and <span class="font-semibold text-pink-600 dark:text-pink-400">global delivery</span>. 
-  But what excited me most wasn’t just delivery; it was why we were building something, how customers would use it and how data could show us if we got it right</span>.
-</p>
+            <p class="text-gray-700 dark:text-gray-300 text-justify">
+              I bring execution, analytics, and empathy to product work. I care about who we serve, how we measure success, and how to scale solutions that work in the real world.
+            </p>
 
-<p class="text-gray-600 dark:text-gray-300 mb-4 text-justify">
-  That curiosity pushed me to pursue my 
-  <span class="inline-flex items-center gap-1 font-semibold text-indigo-600 dark:text-indigo-400">
-    <i class="fas fa-graduation-cap"></i> MBA in Information Systems & Analytics
-  </span> 
-  at the 
-  <span class="font-semibold text-pink-600 dark:text-pink-400">University at Buffalo</span>, 
-  where I dove deeper into data-driven decision making, product design, and customer-centric strategy. 
-  From building 
-  <span class="inline-flex items-center gap-1 font-semibold text-purple-600 dark:text-purple-400">
-    <i class="fas fa-chart-line"></i> attribution models in R
-  </span> 
-  to designing 
-  <span class="inline-flex items-center gap-1 font-semibold text-purple-600 dark:text-purple-400">
-    <i class="fas fa-database"></i> data warehouses
-  </span> 
-  and exploring 
-  <span class="inline-flex items-center gap-1 font-semibold text-teal-600 dark:text-teal-400">
-    <i class="fas fa-lightbulb"></i> product concepts
-  </span>, 
-  I found myself gravitating toward the intersection of technology, data, and user experience.
-</p>
-
-<p class="text-gray-600 dark:text-gray-300 text-justify">
-  Now I want to bring that mix of 
-  <span class="font-semibold text-pink-600 dark:text-pink-400">execution</span>, 
-  <span class="inline-flex items-center gap-1 font-semibold text-indigo-600 dark:text-indigo-400">
-    <i class="fas fa-chart-pie"></i> analytics
-  </span>, 
-  and customer empathy into product roles, because I believe the most impactful products are born when customer obsession meets data-driven insight.
-</p>
-          <!-- CTAs -->
-          <div class="flex flex-wrap gap-4 mt-8">
-            <a href="#all-projects" class="px-6 py-3 bg-pink-600 text-white rounded-full hover:bg-pink-700 transition flex items-center">
-              <i class="fas fa-project-diagram mr-2"></i> View Projects
-            </a>
-            <a href="#experience" class="px-6 py-3 bg-teal-600 text-white rounded-full hover:bg-teal-700 transition flex items-center">
-              <i class="fas fa-file-alt mr-2"></i> View Experience
-            </a>
-            <a href="assets/documents/Meenakshi_Resume_2025.pdf" target="_blank" rel="noopener"
-               class="px-6 py-3 bg-indigo-600 text-white rounded-full hover:bg-indigo-700 transition flex items-center shadow-lg">
-              <i class="fas fa-file-pdf mr-2"></i> View Resume
-            </a>
-          </div>
-        </div>
-
-        <!-- Right: Core Competencies -->
-        <div class="p-8 md:p-10 bg-gray-50 dark:bg-gray-900/40">
-          <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Core Competencies</h3>
-
-          <!-- Product Management -->
-          <div class="mb-6">
-            <h4 class="text-sm font-semibold tracking-wide text-indigo-600 dark:text-indigo-400 mb-3 uppercase">Product Management</h4>
-            <div class="flex flex-wrap gap-2">
-              <span class="px-3 py-1.5 rounded-full bg-indigo-100 text-indigo-700 dark:bg-indigo-800 dark:text-indigo-200 text-xs md:text-sm">Roadmapping</span>
-              <span class="px-3 py-1.5 rounded-full bg-indigo-100 text-indigo-700 dark:bg-indigo-800 dark:text-indigo-200 text-xs md:text-sm">Stakeholder Management</span>
-              <span class="px-3 py-1.5 rounded-full bg-indigo-100 text-indigo-700 dark:bg-indigo-800 dark:text-indigo-200 text-xs md:text-sm">Agile and Scrum</span>
-              <span class="px-3 py-1.5 rounded-full bg-indigo-100 text-indigo-700 dark:bg-indigo-800 dark:text-indigo-200 text-xs md:text-sm">Release Planning</span>
-              <span class="px-3 py-1.5 rounded-full bg-indigo-100 text-indigo-700 dark:bg-indigo-800 dark:text-indigo-200 text-xs md:text-sm">User Centered Design</span>
+            <div class="flex flex-wrap gap-4 mt-8">
+              <a href="#projects" class="px-6 py-3 bg-pink-600 text-white rounded-full hover:bg-pink-700 transition flex items-center">
+                <i class="fas fa-project-diagram mr-2"></i> View Projects
+              </a>
+              <a href="#experience" class="px-6 py-3 bg-teal-600 text-white rounded-full hover:bg-teal-700 transition flex items-center">
+                <i class="fas fa-file-alt mr-2"></i> View Experience
+              </a>
+              <a href="assets/documents/Meenakshi_Resume_2025.pdf" target="_blank" rel="noopener"
+                 class="px-6 py-3 bg-indigo-600 text-white rounded-full hover:bg-indigo-700 transition flex items-center shadow-lg">
+                <i class="fas fa-file-pdf mr-2"></i> View Resume
+              </a>
             </div>
           </div>
 
-          <!-- Analytics and Data -->
-          <div class="mb-6">
-            <h4 class="text-sm font-semibold tracking-wide text-purple-600 dark:text-purple-400 mb-3 uppercase">Analytics and Data</h4>
-            <div class="flex flex-wrap gap-2">
-              <span class="px-3 py-1.5 rounded-full bg-purple-100 text-purple-700 dark:bg-purple-800 dark:text-purple-200 text-xs md:text-sm">SQL</span>
-              <span class="px-3 py-1.5 rounded-full bg-purple-100 text-purple-700 dark:bg-purple-800 dark:text-purple-200 text-xs md:text-sm">R</span>
-              <span class="px-3 py-1.5 rounded-full bg-purple-100 text-purple-700 dark:bg-purple-800 dark:text-purple-200 text-xs md:text-sm">Python</span>
-              <span class="px-3 py-1.5 rounded-full bg-purple-100 text-purple-700 dark:bg-purple-800 dark:text-purple-200 text-xs md:text-sm">Tableau</span>
-              <span class="px-3 py-1.5 rounded-full bg-purple-100 text-purple-700 dark:bg-purple-800 dark:text-purple-200 text-xs md:text-sm">GA4</span>
-            </div>
-          </div>
+          <!-- Core competencies -->
+          <div class="p-8 md:p-10 bg-white dark:bg-gray-800">
+            <h3 class="text-2xl font-bold mb-6">Core Competencies</h3>
 
-          <!-- Tools and Technology -->
-          <div class="mb-6">
-            <h4 class="text-sm font-semibold tracking-wide text-green-600 dark:text-green-400 mb-3 uppercase">Tools and Technology</h4>
-            <div class="flex flex-wrap gap-2">
-              <span class="px-3 py-1.5 rounded-full bg-green-100 text-green-700 dark:bg-green-800 dark:text-green-200 text-xs md:text-sm">Jira</span>
-              <span class="px-3 py-1.5 rounded-full bg-green-100 text-green-700 dark:bg-green-800 dark:text-green-200 text-xs md:text-sm">Confluence</span>
-              <span class="px-3 py-1.5 rounded-full bg-green-100 text-green-700 dark:bg-green-800 dark:text-green-200 text-xs md:text-sm">Power BI</span>
-              <span class="px-3 py-1.5 rounded-full bg-green-100 text-green-700 dark:bg-green-800 dark:text-green-200 text-xs md:text-sm">Planisware</span>
-              <span class="px-3 py-1.5 rounded-full bg-green-100 text-green-700 dark:bg-green-800 dark:text-green-200 text-xs md:text-sm">Power Automate</span>
+            <div class="mb-6">
+              <h4 class="text-xs font-semibold tracking-wide text-indigo-600 dark:text-indigo-400 mb-3 uppercase">Product Management</h4>
+              <div class="flex flex-wrap gap-2">
+                <span class="chip">Roadmapping</span>
+                <span class="chip">Stakeholder Management</span>
+                <span class="chip">Agile and Scrum</span>
+                <span class="chip">Release Planning</span>
+                <span class="chip">User Centered Design</span>
+              </div>
             </div>
-          </div>
 
-          <!-- Leadership and Collaboration -->
-          <div>
-            <h4 class="text-sm font-semibold tracking-wide text-pink-600 dark:text-pink-400 mb-3 uppercase">Leadership and Collaboration</h4>
-            <div class="flex flex-wrap gap-2">
-              <span class="px-3 py-1.5 rounded-full bg-pink-100 text-pink-700 dark:bg-pink-800 dark:text-pink-200 text-xs md:text-sm">Team Leadership</span>
-              <span class="px-3 py-1.5 rounded-full bg-pink-100 text-pink-700 dark:bg-pink-800 dark:text-pink-200 text-xs md:text-sm">Cross Functional Collaboration</span>
-              <span class="px-3 py-1.5 rounded-full bg-pink-100 text-pink-700 dark:bg-pink-800 dark:text-pink-200 text-xs md:text-sm">Mentorship</span>
-              <span class="px-3 py-1.5 rounded-full bg-pink-100 text-pink-700 dark:bg-pink-800 dark:text-pink-200 text-xs md:text-sm">Public Speaking</span>
-              <span class="px-3 py-1.5 rounded-full bg-pink-100 text-pink-700 dark:bg-pink-800 dark:text-pink-200 text-xs md:text-sm">Stakeholder Communication</span>
+            <div class="mb-6">
+              <h4 class="text-xs font-semibold tracking-wide text-purple-600 dark:text-purple-400 mb-3 uppercase">Analytics and Data</h4>
+              <div class="flex flex-wrap gap-2">
+                <span class="chip">SQL</span>
+                <span class="chip">R</span>
+                <span class="chip">Python</span>
+                <span class="chip">Tableau</span>
+                <span class="chip">GA4</span>
+              </div>
+            </div>
+
+            <div class="mb-6">
+              <h4 class="text-xs font-semibold tracking-wide text-green-600 dark:text-green-400 mb-3 uppercase">Tools and Technology</h4>
+              <div class="flex flex-wrap gap-2">
+                <span class="chip">Jira</span>
+                <span class="chip">Confluence</span>
+                <span class="chip">Power BI</span>
+                <span class="chip">Planisware</span>
+                <span class="chip">Power Automate</span>
+              </div>
+            </div>
+
+            <div>
+              <h4 class="text-xs font-semibold tracking-wide text-pink-600 dark:text-pink-400 mb-3 uppercase">Leadership and Collaboration</h4>
+              <div class="flex flex-wrap gap-2">
+                <span class="chip">Team Leadership</span>
+                <span class="chip">Cross Functional Collaboration</span>
+                <span class="chip">Mentorship</span>
+                <span class="chip">Public Speaking</span>
+                <span class="chip">Stakeholder Communication</span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Vertical gradient divider appears only on md and up -->
-      <div class="hidden md:block absolute inset-y-0 left-1/2 w-px -translate-x-1/2">
-        <div class="h-full bg-gradient-to-b from-pink-500 via-purple-500 to-indigo-500 opacity-70"></div>
+        <!-- Decorative divider visible on md and up -->
+        <div class="hidden md:block absolute inset-y-0 left-1/2 w-px -translate-x-1/2">
+          <div class="h-full bg-gradient-to-b from-pink-500 via-purple-500 to-indigo-500 opacity-70"></div>
+        </div>
       </div>
+    </div>
+  </section>
+/* assets/css/styles.css */
+.chip{padding:.375rem .75rem;border-radius:9999px;font-size:.75rem;line-height:1rem;font-weight:600;background-color:rgba(99,102,241,.12);color:#4f46e5}
+.dark .chip{background-color:rgba(99,102,241,.25);color:#c7d2fe}
+<!-- Product Impact Section -->	
+<section id="product-impact" class="py-12">
+  <div class="container">
+    <h2 class="text-3xl font-bold text-center mb-16">Product Impact</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+      <article class="bg-white dark:bg-gray-800 rounded-2xl p-10 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition border-t-4 border-indigo-500" data-aos="fade-up">
+        <div class="flex items-center mb-6"><span class="text-3xl mr-4">📈</span><h3 class="text-xl font-semibold">Product Strategy and Roadmapping</h3></div>
+        <p class="text-gray-700 dark:text-gray-300">Aligned business goals with customer needs. At EnerSys, streamlined global project tracking to accelerate delivery. At BlueStacks, partnered with engineering and QA to deliver over one hundred iterations to a user base above two hundred million.</p>
+      </article>
+
+      <article class="bg-white dark:bg-gray-800 rounded-2xl p-10 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition border-t-4 border-purple-500" data-aos="fade-up" data-aos-delay="100">
+        <div class="flex items-center mb-6"><span class="text-3xl mr-4">🤝</span><h3 class="text-xl font-semibold">Stakeholder and Cross Functional Leadership</h3></div>
+        <p class="text-gray-700 dark:text-gray-300">Coordinated with more than fifty stakeholders across functions. Led sprint planning and reviews at BlueStacks. At EnerSys, ran requirement workshops that improved alignment and decision speed.</p>
+      </article>
+
+      <article class="bg-white dark:bg-gray-800 rounded-2xl p-10 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition border-t-4 border-indigo-500" data-aos="fade-up" data-aos-delay="150">
+        <div class="flex items-center mb-6"><span class="text-3xl mr-4">📊</span><h3 class="text-xl font-semibold">Data Informed Decisions</h3></div>
+        <p class="text-gray-700 dark:text-gray-300">Built dashboards at EnerSys for early risk visibility. At BlueStacks, analyzed behavior to measure impact and guided priorities, increasing revenue by 10%</p>
+      </article>
+
+      <article class="bg-white dark:bg-gray-800 rounded-2xl p-10 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition border-t-4 border-purple-500" data-aos="fade-up" data-aos-delay="200">
+        <div class="flex items-center mb-6"><span class="text-3xl mr-4">⚙️</span><h3 class="text-xl font-semibold">Operational Efficiency and Impact</h3></div>
+        <p class="text-gray-700 dark:text-gray-300">Automated onboarding and reporting at EnerSys and cut manual effort by 60% At BlueStacks, drove frequent releases that reduced defects and improved experience.</p>
+      </article>
     </div>
   </div>
 </section>
-  <!-- =================== EDUCATION SECTION =================== -->
-<section id="education" class="py-20 bg-white dark:bg-gray-900">
-  <div class="container mx-auto px-4">
-    <h2 class="text-3xl font-bold text-center mb-12 text-gray-800 dark:text-white" data-aos="fade-up">
-      Education
-    </h2>
+<!-- Certifications Section -->	
+<section id="certifications" class="py-12 bg-gradient-to-r from-pink-50 to-purple-50 dark:from-pink-900/20 dark:to-purple-900/20">
+  <div class="container">
+    <h2 class="text-2xl md:text-3xl font-bold text-center mb-8">Professional Certifications</h2>
 
-    <!-- Tabs Wrapper -->
-    <div x-data="{ activeTab: 'ub' }" class="max-w-5xl mx-auto">
-      
-      <!-- Tab Buttons -->
-      <div class="flex justify-center space-x-6 mb-8">
-        <button 
-          @click="activeTab = 'ub'"
-          :class="activeTab === 'ub' ? 'bg-blue-600 text-white' : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300'"
-          class="px-6 py-2 rounded-full font-medium transition-all">
-          Master's
+    <div x-data="{ showAll: false }" class="max-w-5xl mx-auto">
+      <div class="flex flex-wrap gap-2 md:gap-3 justify-center transition-all duration-300 overflow-hidden"
+           :class="showAll ? 'max-h-[9999px]' : 'max-h-[96px]'" aria-live="polite">
+
+        <a class="chip bg-blue-50 dark:bg-blue-900/20 dark:text-blue-300 hover:opacity-90"
+           href="assets/documents/GoogleProjectManagement.pdf" target="_blank" rel="noopener">
+          Google Project Management by Google on Coursera
+        </a>
+
+        <a class="chip bg-indigo-50 dark:bg-indigo-900/20 dark:text-indigo-300 hover:opacity-90"
+           href="assets/documents/FoundationsofPM.pdf" target="_blank" rel="noopener">
+          Foundations of Project Management by Google on Coursera
+        </a>
+
+        <a class="chip bg-cyan-50 dark:bg-cyan-900/20 dark:text-cyan-300 hover:opacity-90"
+           href="assets/documents/ProjectInitiation.pdf" target="_blank" rel="noopener">
+          Project Initiation by Google on Coursera
+        </a>
+
+        <a class="chip bg-purple-50 dark:bg-purple-900/20 dark:text-purple-300 hover:opacity-90"
+           href="assets/documents/ProjectPlanning.pdf" target="_blank" rel="noopener">
+          Project Planning by Google on Coursera
+        </a>
+
+        <a class="chip bg-amber-50 dark:bg-amber-900/20 dark:text-amber-300 hover:opacity-90"
+           href="assets/documents/ProjectExecution.pdf" target="_blank" rel="noopener">
+          Project Execution by Google on Coursera
+        </a>
+
+        <a class="chip bg-pink-50 dark:bg-pink-900/20 dark:text-pink-300 hover:opacity-90"
+           href="assets/documents/AgilePM.pdf" target="_blank" rel="noopener">
+          Agile Project Management by Google on Coursera
+        </a>
+      </div>
+
+      <div class="mt-4 text-center">
+        <button @click="showAll = !showAll"
+                class="text-sm px-3 py-1.5 rounded-full bg-white/60 dark:bg-white/10 border border-gray-200 dark:border-white/10 hover:bg-white/80 dark:hover:bg-white/20 transition">
+          <span x-show="!showAll">Show more</span>
+          <span x-show="showAll">Show less</span>
         </button>
-        <button 
-          @click="activeTab = 'mit'"
-          :class="activeTab === 'mit' ? 'bg-blue-600 text-white' : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300'"
-          class="px-6 py-2 rounded-full font-medium transition-all">
-          Bachelor's
-        </button>
-      </div>
-        
-        <!-- UB Education Tab  -->
-<div x-show="activeTab === 'ub'" class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8" data-aos="fade-up">
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-
-    <!-- Left Side: Degree Info -->
-    <div>
-      <div class="flex items-center mb-4">
-        <img src="assets/images/UB Logo.png" alt="University at Buffalo Logo"
-          class="w-20 h-20 object-contain mr-6 dark:brightness-110">
-        <div>
-          <h3 class="text-xl font-bold text-gray-800 dark:text-white">
-            Master of Business Administration
-          </h3>
-          <p class="text-blue-600 dark:text-blue-400">STEM Designated</p>
-          <p class="text-gray-600 dark:text-gray-300">
-            University at Buffalo, SUNY – School of Management
-          </p>
-          <p class="text-gray-500 dark:text-gray-400">Aug 2023 – Jun 2025</p>
-        </div>
-      </div>
-
-      <!-- GPA -->
-      <p class="inline-block bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-400 px-3 py-1 rounded-full text-sm font-medium mb-4">
-        GPA: 3.96/4.0
-      </p>
-
-      <!-- Buttons Row -->
-      <div class="flex flex-wrap gap-4">
-        <a href="assets/documents/CeDiploma.pdf" target="_blank"
-           class="inline-flex items-center px-5 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-white rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-600 dark:hover:text-blue-400 transition">
-          <i class="fas fa-award mr-2 text-blue-500 dark:text-blue-400"></i>
-          View Credential
-        </a>
-        <a href="education-details.html"
-           class="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition">
-          View More Details
-        </a>
-      </div>
-    </div>
-
-    <!-- Right Side: Focus Area Tiles -->
-    <div class="flex flex-wrap gap-2 md:justify-end">
-      <span class="px-4 py-2 bg-pink-100 text-pink-700 dark:bg-pink-800 dark:text-pink-200 rounded-full text-sm font-medium">Data Analytics</span>
-      <span class="px-4 py-2 bg-green-100 text-green-700 dark:bg-green-800 dark:text-green-200 rounded-full text-sm font-medium">Information Systems</span>
-      <span class="px-4 py-2 bg-blue-100 text-blue-700 dark:bg-blue-800 dark:text-blue-200 rounded-full text-sm font-medium">Data Visualization</span>
-    </div>
-
-  </div>
-</div>
-
-            <!-- MIT Tab  -->
-<div x-show="activeTab === 'mit'" class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8" data-aos="fade-up">
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-
-    <!-- Left Side: Degree Info -->
-    <div>
-      <div class="flex items-center mb-4">
-        <img src="assets/images/UB Logo.png" alt="University at Buffalo Logo"
-          class="w-20 h-20 object-contain mr-6 dark:brightness-110">
-        <div>
-          <h3 class="text-xl font-bold text-gray-800 dark:text-white">
-            Bachelor of Technology
-          </h3>
-          <p class="text-blue-600 dark:text-blue-400">Computer Science and Engineering</p>
-          <p class="text-gray-600 dark:text-gray-300">
-            MIT University, Shillong, India
-          </p>
-          <p class="text-gray-500 dark:text-gray-400">Aug 2014 – Jun 2018</p>
-        </div>
-      </div>
-
-      <!-- GPA -->
-      <p class="inline-block bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-400 px-3 py-1 rounded-full text-sm font-medium mb-4">
-        GPA: 2.70/4.0
-      </p>
-
-      <!-- Buttons Row -->
-      <div class="flex flex-wrap gap-4">
-        <a href="assets/documents/CeDiploma.pdf" target="_blank"
-           class="inline-flex items-center px-5 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-white rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-600 dark:hover:text-blue-400 transition">
-          <i class="fas fa-award mr-2 text-blue-500 dark:text-blue-400"></i>
-          View Credential
-        </a>
-        <a href="education-details.html"
-           class="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition">
-          View More Details
-        </a>
-      </div>
-    </div>
-
-    <!-- Right Side: Focus Area Tiles -->
-    <div class="flex flex-wrap gap-2 md:justify-end">
-      <span class="px-4 py-2 bg-pink-100 text-pink-700 dark:bg-pink-800 dark:text-pink-200 rounded-full text-sm font-medium">Programming</span>
-      <span class="px-4 py-2 bg-green-100 text-green-700 dark:bg-green-800 dark:text-green-200 rounded-full text-sm font-medium">Database Management</span>
-      <span class="px-4 py-2 bg-blue-100 text-blue-700 dark:bg-blue-800 dark:text-blue-200 rounded-full text-sm font-medium">Project Management</span>
-    </div>
-
-  </div>
-</div>
-
       </div>
     </div>
   </div>
-</section>
-
-<!-- Alpine.js for Tabs -->
-<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-  <!-- ======================================================= 
-                  Experience Section 
-======================================================== -->
-
-<section id="experience" class="py-20 bg-gradient-to-r from-pink-50 to-purple-50 dark:from-pink-900/20 dark:to-purple-900/20">
-  <div class="container mx-auto px-6">
-    <h2 class="text-3xl font-bold text-center mb-12 text-gray-800 dark:text-white" data-aos="fade-up">
-      Work Experience
-    </h2>
+<!-- Experience Section -->	
+<section id="experience" class="py-12 bg-gradient-to-r from-pink-50 to-purple-50 dark:from-pink-900/20 dark:to-purple-900/20">
+  <div class="container">
+    <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">Work Experience</h2>
 
     <div class="relative border-l-4 border-indigo-500 dark:border-indigo-400 space-y-12">
-
       <!-- EnerSys -->
       <div class="ml-8 relative" data-aos="fade-up" data-aos-duration="800">
         <div class="absolute -left-10 w-16 h-16 bg-white dark:bg-gray-800 border-4 border-indigo-500 rounded-full flex items-center justify-center shadow-lg">
-          <img src="assets/images/enersys_logo.png" alt="EnerSys Logo" class="w-10 h-10 object-contain">
+          <img src="assets/images/enersys_logo.png" alt="EnerSys Logo" width="40" height="40" loading="lazy" class="w-10 h-10 object-contain" />
         </div>
 
-        <div class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
-          <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-1">PMO Intern</h3>
+        <div class="experience-item bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg hover:shadow-xl">
+          <h3 class="text-xl font-bold mb-1">PMO Intern</h3>
           <p class="text-blue-600 dark:text-blue-400">EnerSys</p>
-          <p class="text-gray-500 dark:text-gray-400 mb-6">May 2024 to May 2025 · Global HQ</p>
+          <p class="text-gray-500 dark:text-gray-400 mb-6">May 2024 to May 2025 • Global HQ</p>
 
-          <!-- Key Metrics -->
           <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-            <div class="bg-green-50 dark:bg-green-900/20 rounded-lg p-4 hover:scale-105 hover:shadow-lg transition-all">
-              <p class="text-green-600 dark:text-green-300 font-semibold mb-1">Manual Effort Reduced</p>
+            <div class="bg-green-50 dark:bg-green-900/20 rounded-lg p-4">
+              <p class="text-green-700 dark:text-green-300 font-semibold mb-1">Manual Effort Reduced</p>
               <p class="text-3xl font-bold text-green-700 dark:text-green-200">60%</p>
               <p class="text-sm text-gray-600 dark:text-gray-300">Automation and AI assisted logic</p>
             </div>
-            <div class="bg-indigo-50 dark:bg-indigo-900/20 rounded-lg p-4 hover:scale-105 hover:shadow-lg transition-all">
-              <p class="text-indigo-600 dark:text-indigo-300 font-semibold mb-1">Knowledge Assets</p>
+            <div class="bg-indigo-50 dark:bg-indigo-900/20 rounded-lg p-4">
+              <p class="text-indigo-700 dark:text-indigo-300 font-semibold mb-1">Knowledge Assets</p>
               <p class="text-3xl font-bold text-indigo-700 dark:text-indigo-200">80+</p>
               <p class="text-sm text-gray-600 dark:text-gray-300">Training materials and FAQs</p>
             </div>
-            <div class="bg-purple-50 dark:bg-purple-900/20 rounded-lg p-4 hover:scale-105 hover:shadow-lg transition-all">
-              <p class="text-purple-600 dark:text-purple-300 font-semibold mb-1">Resolution Time</p>
+            <div class="bg-purple-50 dark:bg-purple-900/20 rounded-lg p-4">
+              <p class="text-purple-700 dark:text-purple-300 font-semibold mb-1">Resolution Time</p>
               <p class="text-3xl font-bold text-purple-700 dark:text-purple-200">80% faster</p>
               <p class="text-sm text-gray-600 dark:text-gray-300">Support workflow in Planner</p>
             </div>
           </div>
 
-          <!-- Keywords -->
           <div class="flex flex-wrap gap-2 md:gap-3">
-            <span class="px-3 py-1 rounded-full text-xs md:text-sm bg-blue-50 text-blue-700 dark:bg-blue-900/20 dark:text-blue-300">Power Automate</span>
-            <span class="px-3 py-1 rounded-full text-xs md:text-sm bg-blue-50 text-blue-700 dark:bg-blue-900/20 dark:text-blue-300">AI assisted workflows</span>
-            <span class="px-3 py-1 rounded-full text-xs md:text-sm bg-cyan-50 text-cyan-700 dark:bg-cyan-900/20 dark:text-cyan-300">Portfolio and PPM tooling</span>
-            <span class="px-3 py-1 rounded-full text-xs md:text-sm bg-emerald-50 text-emerald-700 dark:bg-emerald-900/20 dark:text-emerald-300">Stakeholder alignment</span>
-            <span class="px-3 py-1 rounded-full text-xs md:text-sm bg-amber-50 text-amber-700 dark:bg-amber-900/20 dark:text-amber-300">Risk and KPI visibility</span>
-            <span class="px-3 py-1 rounded-full text-xs md:text-sm bg-indigo-50 text-indigo-700 dark:bg-indigo-900/20 dark:text-indigo-300">Scribe playbooks</span>
-            <span class="px-3 py-1 rounded-full text-xs md:text-sm bg-fuchsia-50 text-fuchsia-700 dark:bg-fuchsia-900/20 dark:text-fuchsia-300">Basecamp hub</span>
-            <span class="px-3 py-1 rounded-full text-xs md:text-sm bg-sky-50 text-sky-700 dark:bg-sky-900/20 dark:text-sky-300">Planner intake</span>
+            <span class="chip">Power Automate</span>
+            <span class="chip">AI assisted workflows</span>
+            <span class="chip">Portfolio and PPM tooling</span>
+            <span class="chip">Stakeholder alignment</span>
+            <span class="chip">Risk and KPI visibility</span>
+            <span class="chip">Scribe documentation</span>
+            <span class="chip">Basecamp maintenance</span>
+            <span class="chip">Planner intake</span>
           </div>
         </div>
       </div>
@@ -467,15 +357,14 @@
       <!-- BlueStacks -->
       <div class="ml-8 relative" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
         <div class="absolute -left-10 w-16 h-16 bg-white dark:bg-gray-800 border-4 border-purple-500 rounded-full flex items-center justify-center shadow-lg">
-          <img src="assets/images/bluestacks_logo.png" alt="BlueStacks Logo" class="w-10 h-10 object-contain">
+          <img src="assets/images/bluestacks_logo.png" alt="BlueStacks Logo" width="40" height="40" loading="lazy" class="w-10 h-10 object-contain" />
         </div>
 
-        <div class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
+        <div class="experience-item bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
           <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-1">Project Manager and Scrum Master</h3>
           <p class="text-blue-600 dark:text-blue-400">BlueStacks</p>
           <p class="text-gray-500 dark:text-gray-400 mb-6">Jan 2022 to Aug 2023 · Gurugram India</p>
 
-          <!-- Key Metrics -->
           <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
             <div class="bg-red-50 dark:bg-red-900/20 rounded-lg p-4 hover:scale-105 hover:shadow-lg transition-all">
               <p class="text-red-600 dark:text-red-300 font-semibold mb-1">User Base</p>
@@ -494,16 +383,15 @@
             </div>
           </div>
 
-          <!-- Keywords -->
           <div class="flex flex-wrap gap-2 md:gap-3">
-            <span class="px-3 py-1 rounded-full text-xs md:text-sm bg-purple-50 text-purple-700 dark:bg-purple-900/20 dark:text-purple-300">Scrum ceremonies</span>
-            <span class="px-3 py-1 rounded-full text-xs md:text-sm bg-violet-50 text-violet-700 dark:bg-violet-900/20 dark:text-violet-300">Backlog refinement</span>
-            <span class="px-3 py-1 rounded-full text-xs md:text-sm bg-rose-50 text-rose-700 dark:bg-rose-900/20 dark:text-rose-300">A B testing</span>
-            <span class="px-3 py-1 rounded-full text-xs md:text-sm bg-teal-50 text-teal-700 dark:bg-teal-900/20 dark:text-teal-300">Behavior analytics</span>
-            <span class="px-3 py-1 rounded-full text-xs md:text-sm bg-sky-50 text-sky-700 dark:bg-sky-900/20 dark:text-sky-300">OKR alignment</span>
-            <span class="px-3 py-1 rounded-full text-xs md:text-sm bg-amber-50 text-amber-700 dark:bg-amber-900/20 dark:text-amber-300">Discoverability</span>
-            <span class="px-3 py-1 rounded-full text-xs md:text-sm bg-emerald-50 text-emerald-700 dark:bg-emerald-900/20 dark:text-emerald-300">Retention</span>
-            <span class="px-3 py-1 rounded-full text-xs md:text-sm bg-indigo-50 text-indigo-700 dark:bg-indigo-900/20 dark:text-indigo-300">Cross team alignment</span>
+            <span class="chip">Scrum ceremonies</span>
+            <span class="chip">Backlog refinement</span>
+            <span class="chip">A/B testing</span>
+            <span class="chip">Behavior analytics</span>
+            <span class="chip">OKR alignment</span>
+            <span class="chip">Discoverability</span>
+            <span class="chip">Retention</span>
+            <span class="chip">Cross team alignment</span>
           </div>
         </div>
       </div>
@@ -511,155 +399,353 @@
       <!-- BlueStacks earlier roles condensed -->
       <div class="ml-8 relative" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
         <div class="absolute -left-10 w-16 h-16 bg-white dark:bg-gray-800 border-4 border-teal-500 rounded-full flex items-center justify-center shadow-lg">
-          <img src="assets/images/bluestacks_logo.png" alt="BlueStacks Logo" class="w-10 h-10 object-contain">
+          <img src="assets/images/bluestacks_logo.png" alt="BlueStacks Logo" width="40" height="40" loading="lazy" class="w-10 h-10 object-contain" />
         </div>
 
-        <div class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
+        <div class="experience-item bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
           <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-1">Senior Member of Technical Staff and Scrum Master</h3>
           <p class="text-blue-600 dark:text-blue-400">BlueStacks</p>
           <p class="text-gray-500 dark:text-gray-400 mb-6">Jan 2021 to Dec 2021 · Gurugram India</p>
 
-          <!-- Keywords -->
           <div class="flex flex-wrap gap-2 md:gap-3">
-            <span class="px-3 py-1 rounded-full text-xs md:text-sm bg-lime-50 text-lime-700 dark:bg-lime-900/20 dark:text-lime-300">Sprint planning</span>
-            <span class="px-3 py-1 rounded-full text-xs md:text-sm bg-stone-50 text-stone-700 dark:bg-stone-900/20 dark:text-stone-300">Defect triage</span>
-            <span class="px-3 py-1 rounded-full text-xs md:text-sm bg-cyan-50 text-cyan-700 dark:bg-cyan-900/20 dark:text-cyan-300">Agile coaching</span>
-            <span class="px-3 py-1 rounded-full text-xs md:text-sm bg-fuchsia-50 text-fuchsia-700 dark:bg-fuchsia-900/20 dark:text-fuchsia-300">Confluence release hub</span>
-            <span class="px-3 py-1 rounded-full text-xs md:text-sm bg-amber-50 text-amber-700 dark:bg-amber-900/20 dark:text-amber-300">Revenue impact plus 10 percent</span>
+            <span class="chip">Sprint planning</span>
+            <span class="chip">Defect triage</span>
+            <span class="chip">Agile coaching</span>
+            <span class="chip">Confluence implementation</span>
+            <span class="chip">Revenue impact plus 10 percent</span>
           </div>
         </div>
       </div>
 
       <div class="ml-8 relative" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
         <div class="absolute -left-10 w-16 h-16 bg-white dark:bg-gray-800 border-4 border-sky-500 rounded-full flex items-center justify-center shadow-lg">
-          <img src="assets/images/bluestacks_logo.png" alt="BlueStacks Logo" class="w-10 h-10 object-contain">
+          <img src="assets/images/bluestacks_logo.png" alt="BlueStacks Logo" width="40" height="40" loading="lazy" class="w-10 h-10 object-contain" />
         </div>
 
-        <div class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
+        <div class="experience-item bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
           <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-1">Member of Technical Staff</h3>
           <p class="text-blue-600 dark:text-blue-400">BlueStacks</p>
           <p class="text-gray-500 dark:text-gray-400 mb-6">May 2018 to Dec 2020 · Gurugram India</p>
 
-          <!-- Keywords -->
           <div class="flex flex-wrap gap-2 md:gap-3">
-            <span class="px-3 py-1 rounded-full text-xs md:text-sm bg-emerald-50 text-emerald-700 dark:bg-emerald-900/20 dark:text-emerald-300">Smoke and sanity testing</span>
-            <span class="px-3 py-1 rounded-full text-xs md:text-sm bg-emerald-50 text-emerald-700 dark:bg-emerald-900/20 dark:text-emerald-300">Regression and UAT</span>
-            <span class="px-3 py-1 rounded-full text-xs md:text-sm bg-sky-50 text-sky-700 dark:bg-sky-900/20 dark:text-sky-300">API testing</span>
-            <span class="px-3 py-1 rounded-full text-xs md:text-sm bg-zinc-50 text-zinc-700 dark:bg-zinc-900/20 dark:text-zinc-300">Jira tracking</span>
-            <span class="px-3 py-1 rounded-full text-xs md:text-sm bg-indigo-50 text-indigo-700 dark:bg-indigo-900/20 dark:text-indigo-300">Confluence docs</span>
-            <span class="px-3 py-1 rounded-full text-xs md:text-sm bg-rose-50 text-rose-700 dark:bg-rose-900/20 dark:text-rose-300">Ramp up time minus 80 percent</span>
+            <span class="chip">Smoke and sanity testing</span>
+            <span class="chip">Regression and UAT</span>
+            <span class="chip">API testing</span>
+            <span class="chip">Jira Issue tracking</span>
+            <span class="chip">Project documentation</span>
+            <span class="chip">Ramp up time minus 80 percent</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>  
+<!-- Projects Section -->	  
+<section id="projects" class="py-12">
+  <div class="container">
+    <h2 class="text-3xl font-bold text-center mb-12">Academic Projects</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="project-card bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition overflow-hidden" data-tags="product,design">
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2">Taskly App • Product Concept</h3>
+          <p class="text-gray-700 dark:text-gray-300 mb-4">Defined requirements, created user stories, and designed booking flow mockups in Figma and Canva for an on demand service marketplace.</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="chip">Product Design</span><span class="chip">Figma</span><span class="chip">User Stories</span>
+          </div>
+          <a href="https://www.canva.com/design/DAGYevwlK0Y/KCHmQMUvLEh-R28dB9qH8g/view?mode=prototype" target="_blank" rel="noopener" class="px-4 py-2 bg-indigo-600 text-white rounded-full text-sm hover:bg-indigo-700">View Mockup</a>
+        </div>
+      </div>
+	      <!-- Click-n-Cook – Product Concept -->
+      <div class="project-card bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition overflow-hidden" data-tags="product,design">
+  <div class="p-6">
+    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Click-n-Cook – Product Concept</h3>
+    <p class="text-gray-600 dark:text-gray-300 mb-4">
+      Designed mobile app mockups for Click-n-Cook, a smart recipe app that generates personalized recipes based on dietary preferences and restrictions.
+    </p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="px-3 py-1 rounded-full bg-pink-100 text-pink-700 text-xs font-medium">Product Design</span>
+      <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-medium">Marvel App</span>
+      <span class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-xs font-medium">User Experience</span>
+    </div>
+    <div class="flex gap-3">
+      <a href="https://marvelapp.com/prototype/8j3ei2d/screen/95503217" target="_blank" rel="noopener"
+         class="px-4 py-2 bg-indigo-600 text-white rounded-full text-sm hover:bg-indigo-700">View Mockup</a>
+    </div>
+  </div>
+</div>
+
+      <!-- The Guac Stop – Data Warehouse -->
+      <div class="project-card bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition overflow-hidden" data-tags="ETL Pipelines,Data Analytics">
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">The Guac Stop – Data Warehouse</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">
+            Designed a star schema and built ETL pipelines in Apache Hop to integrate sales data, enabling Power BI dashboards for retail analytics.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-3 py-1 rounded-full bg-purple-100 text-purple-700 text-xs font-medium">Apache Hop</span>
+            <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-medium">ETL</span>
+            <span class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-xs font-medium">Power BI</span>
+            <span class="px-3 py-1 rounded-full bg-indigo-100 text-indigo-700 text-xs font-medium">Star Schema</span>
+          </div>
+          <div class="flex gap-3">
+            <a href="assets/documents/TGSReport.pdf" target="_blank" rel="noopener"
+               class="px-4 py-2 bg-indigo-600 text-white rounded-full text-sm hover:bg-indigo-700">View Report</a>
           </div>
         </div>
       </div>
 
+      <!-- Swimmers Club – SQL Database -->
+      <div class="project-card bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition overflow-hidden" data-tags="SQL, Database">
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Swimmers Club – SQL Database</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">
+            Designed and implemented a relational database in SQL, modeled in Figma, to streamline class management and supply tracking for a fictional sports club.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-medium">SQL</span>
+            <span class="px-3 py-1 rounded-full bg-pink-100 text-pink-700 text-xs font-medium">Database Design</span>
+            <span class="px-3 py-1 rounded-full bg-purple-100 text-purple-700 text-xs font-medium">Lucidchart</span>
+          </div>
+          <div class="flex gap-3">
+            <a href="assets/documents/SwimmersClubDBMS.pdf" target="_blank" rel="noopener"
+               class="px-4 py-2 bg-indigo-600 text-white rounded-full text-sm hover:bg-indigo-700">View Schema</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Marketing Attribution Modelling in R -->
+      <div class="project-card bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition overflow-hidden" data-tags="R, Marketing Analytics">
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Marketing Attribution Modelling</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">
+            Compared first touch, last touch, and data driven models in R to analyze marketing channel performance and identify ROI drivers.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-xs font-medium">R</span>
+            <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-medium">Data Analysis</span>
+            <span class="px-3 py-1 rounded-full bg-purple-100 text-purple-700 text-xs font-medium">Attribution Models</span>
+          </div>
+          <div class="flex gap-3">
+            <a href="assets/documents/AttributionModelling.pdf" target="_blank" rel="noopener"
+               class="px-4 py-2 bg-indigo-600 text-white rounded-full text-sm hover:bg-indigo-700">View Report</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Restaurant Kiosk – System Design -->
+      <div class="project-card bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition overflow-hidden" data-tags="System Design, Use Case">
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Restaurant Kiosk – System Design</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">
+            Created system vision, use case diagrams, sequence diagrams, and activity diagrams to model a restaurant self service kiosk system.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-3 py-1 rounded-full bg-pink-100 text-pink-700 text-xs font-medium">System Analysis</span>
+            <span class="px-3 py-1 rounded-full bg-purple-100 text-purple-700 text-xs font-medium">Use Cases</span>
+            <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-medium">UML Diagrams</span>
+          </div>
+          <div class="flex gap-3">
+            <a href="assets/documents/RestaurantKioskSystemAnalysis.pdf" target="_blank" rel="noopener"
+               class="px-4 py-2 bg-indigo-600 text-white rounded-full text-sm hover:bg-indigo-700">View Diagrams</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Forensic Analysis Investigation -->
+      <div class="project-card bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition overflow-hidden" data-tags="Forensic Analysis, Cybersecurity">
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Forensic Analysis Investigation</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">
+            Investigated suspicious binaries and Chrome data artifacts, documenting findings in a structured forensic report with evidence analysis and chain of custody.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-3 py-1 rounded-full bg-red-100 text-red-700 text-xs font-medium">Cybersecurity</span>
+            <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-medium">Forensic Report</span>
+            <span class="px-3 py-1 rounded-full bg-purple-100 text-purple-700 text-xs font-medium">Evidence Analysis</span>
+          </div>
+          <div class="flex gap-3">
+            <a href="assets/documents/IncidentReport.pdf" target="_blank" rel="noopener"
+               class="px-4 py-2 bg-indigo-600 text-white rounded-full text-sm hover:bg-indigo-700">View Report</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Revenue Analytics with Power BI -->
+      <div class="project-card bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition overflow-hidden" data-tags="Data, SQL, PowerBI">
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Revenue Analytics with Power BI</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">
+            Designed a star schema and built interactive dashboards in Power BI to analyze 200M plus revenue by supplier, customer category, color, and season.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-medium">Power BI</span>
+            <span class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-xs font-medium">Data Modeling</span>
+            <span class="px-3 py-1 rounded-full bg-indigo-100 text-indigo-700 text-xs font-medium">Star Schema</span>
+            <span class="px-3 py-1 rounded-full bg-pink-100 text-pink-700 text-xs font-medium">Data Cleaning</span>
+          </div>
+          <div class="flex gap-3">
+            <a href="assets/documents/datamodelling.pdf" target="_blank" rel="noopener"
+                class="px-4 py-2 bg-indigo-600 text-white rounded-full text-sm hover:bg-indigo-700">View Dashboard</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>  
+<!-- Education Section -->	  
+	  <section id="education" class="py-12">
+  <div class="container">
+    <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">Education</h2>
+
+    <div x-data="{ activeTab: 'ub' }" class="max-w-5xl mx-auto">
+      <div class="flex justify-center gap-6 mb-8">
+        <button @click="activeTab = 'ub'"
+                :class="activeTab === 'ub' ? 'bg-blue-600 text-white' : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300'"
+                class="px-6 py-2 rounded-full font-medium transition-all">Master’s</button>
+        <button @click="activeTab = 'mit'"
+                :class="activeTab === 'mit' ? 'bg-blue-600 text-white' : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300'"
+                class="px-6 py-2 rounded-full font-medium transition-all">Bachelor’s</button>
+      </div>
+
+      <div x-show="activeTab === 'ub'" class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8" data-aos="fade-up">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+          <div>
+            <div class="flex items-center mb-4">
+              <img src="assets/images/UB Logo.png" alt="University at Buffalo logo" width="80" height="80" class="w-20 h-20 object-contain mr-6 dark:brightness-110" loading="lazy" />
+              <div>
+                <h3 class="text-xl font-bold">Master of Business Administration</h3>
+                <p class="text-blue-600 dark:text-blue-400">STEM Designated</p>
+                <p class="text-gray-600 dark:text-gray-300">University at Buffalo, SUNY • School of Management</p>
+                <p class="text-gray-500 dark:text-gray-400">Aug 2023 to Jun 2025</p>
+              </div>
+            </div>
+            <p class="inline-block bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-400 px-3 py-1 rounded-full text-sm font-medium mb-4">GPA 3.96 out of 4.0</p>
+            <div class="flex flex-wrap gap-4">
+              <a href="assets/documents/CeDiploma.pdf" target="_blank" class="inline-flex items-center px-5 py-2 bg-gray-100 dark:bg-gray-700 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-600 dark:hover:text-blue-400 transition">
+                <i class="fas fa-award mr-2 text-blue-500 dark:text-blue-400"></i> View Credential
+              </a>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-2 md:justify-end">
+            <span class="chip">Data Analytics</span><span class="chip">Information Systems</span><span class="chip">Data Visualization</span>
+          </div>
+        </div>
+      </div>
+
+      <div x-show="activeTab === 'mit'" class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8" data-aos="fade-up">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+          <div>
+            <div class="flex items-center mb-4">
+              <img src="assets/images/UB Logo.png" alt="University logo" width="80" height="80" class="w-20 h-20 object-contain mr-6 dark:brightness-110" loading="lazy" />
+              <div>
+                <h3 class="text-xl font-bold">Bachelor of Technology</h3>
+                <p class="text-blue-600 dark:text-blue-400">Computer Science and Engineering</p>
+                <p class="text-gray-600 dark:text-gray-300">MIT University, Shillong, India</p>
+                <p class="text-gray-500 dark:text-gray-400">Aug 2014 to Jun 2018</p>
+              </div>
+            </div>
+            <p class="inline-block bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-400 px-3 py-1 rounded-full text-sm font-medium mb-4">GPA 2.70 out of 4.0</p>
+            <div class="flex flex-wrap gap-4">
+              <a href="assets/documents/CeDiploma.pdf" target="_blank" class="inline-flex items-center px-5 py-2 bg-gray-100 dark:bg-gray-700 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-600 dark:hover:text-blue-400 transition">
+                <i class="fas fa-award mr-2 text-blue-500 dark:text-blue-400"></i> View Credential
+              </a>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-2 md:justify-end">
+            <span class="chip">Programming</span><span class="chip">Database Management</span><span class="chip">Project Management</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Contact Section -->	
+</section>
+<section id="contact" class="py-12 bg-gradient-to-r from-pink-50 to-purple-50 dark:from-pink-900/20 dark:to-purple-900/20">
+  <div class="container">
+    <h2 class="text-3xl font-bold text-center mb-10">Let’s Connect</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="bg-green-50 dark:bg-green-900/20 p-6 rounded-xl shadow-lg" data-aos="fade-right">
+        <p class="text-gray-700 dark:text-gray-300 mb-6 text-justify leading-relaxed">
+          I am seeking roles in product management, business analysis, or project management. If you are building useful products or solving with data, I would love to help.
+        </p>
+        <div class="space-y-4">
+          <a href="mailto:meenakshisinhany1995@gmail.com" class="flex items-center text-gray-800 dark:text-gray-200"><i class="fas fa-envelope mr-3 text-red-500"></i> meenakshisinhany1995@gmail.com</a>
+          <a href="tel:+17162922360" class="flex items-center text-gray-800 dark:text-gray-200"><i class="fas fa-phone mr-3 text-green-500"></i> +1 716 292 2360</a>
+          <a href="https://www.linkedin.com/in/meenakshi-sinha-ub/" target="_blank" class="flex items-center"><i class="fab fa-linkedin mr-3 text-blue-600"></i> LinkedIn</a>
+          <a href="https://github.com/theminihub" target="_blank" class="flex items-center"><i class="fab fa-github mr-3"></i> GitHub</a>
+        </div>
+      </div>
+
+      <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-xl shadow-lg flex flex-col items-center justify-center text-center" data-aos="fade-left">
+        <i class="fas fa-handshake text-4xl text-blue-600 mb-4"></i>
+        <h3 class="text-lg font-semibold mb-3">Open to Opportunities</h3>
+        <p class="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">Let’s chat about building impactful products and solving big problems together.</p>
+        <a href="mailto:meenakshisinhany1995@gmail.com" class="px-5 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition">Send Me an Email</a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- AOS (Animate on Scroll) -->
-<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-  AOS.init();
-</script>
-
-
-<!-- =================== CERTIFICATIONS (Chip Badges) =================== -->
-<section id="certifications" class="py-12 bg-white dark:bg-gray-900">
-  <div class="container mx-auto px-4">
-    <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 text-gray-800 dark:text-white">
-      Certifications & Badges
-    </h2>
-
-    <!-- Chip list wrapper -->
-    <div x-data="{ showAll: false }" class="max-w-5xl mx-auto">
-      <!-- Chips
-           - Mobile: wraps nicely and stays compact
-           - Desktop: neat, airy spacing
-           - The max-height keeps it tight until expanded
-      -->
-      <div
-        class="flex flex-wrap gap-2 md:gap-3 justify-center transition-all duration-300 overflow-hidden"
-        :class="showAll ? 'max-h-[9999px]' : 'max-h-[96px]'"
-        aria-live="polite"
-      >
-        <!-- IIM ACPBDA -->
-        <a href="assets/docs/Abhishek Gangadhar Harihar Final Certificates.pdf" target="_blank"
-           class="px-3 py-1.5 rounded-full text-xs md:text-sm font-medium bg-blue-50 text-blue-700 dark:bg-blue-900/20 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/40 transition"
-           aria-label="View ACPBDA IIM Indore credential (opens in new tab)">
-          🎓 ACPBDA — IIM Indore
-        </a>
-
-        <!-- Tredence Data Science -->
-        <a href="assets/images/Data Science Certificate.png" target="_blank"
-           class="px-3 py-1.5 rounded-full text-xs md:text-sm font-medium bg-indigo-50 text-indigo-700 dark:bg-indigo-900/20 dark:text-indigo-300 hover:bg-indigo-100 dark:hover:bg-indigo-900/40 transition"
-           aria-label="View Data Science credential from Tredence (opens in new tab)">
-          📘 Data Science — Tredence
-        </a>
-
-        <!-- Snowflake Masterclass -->
-        <a href="assets/docs/Snowflake Masterclass - Udemy certificate.pdf" target="_blank"
-           class="px-3 py-1.5 rounded-full text-xs md:text-sm font-medium bg-cyan-50 text-cyan-700 dark:bg-cyan-900/20 dark:text-cyan-300 hover:bg-cyan-100 dark:hover:bg-cyan-900/40 transition"
-           aria-label="View Snowflake Masterclass credential (opens in new tab)">
-          ❄️ Snowflake Masterclass — Udemy
-        </a>
-
-        <!-- SQL Masterclass -->
-        <a href="assets/docs/SQL Masterclass certificate.pdf" target="_blank"
-           class="px-3 py-1.5 rounded-full text-xs md:text-sm font-medium bg-purple-50 text-purple-700 dark:bg-purple-900/20 dark:text-purple-300 hover:bg-purple-100 dark:hover:bg-purple-900/40 transition"
-           aria-label="View SQL Masterclass credential (opens in new tab)">
-          🗄️ SQL Masterclass — Udemy
-        </a>
-
-        <!-- PL-300 -->
-        <a href="assets/docs/Certificate of Participation POWER BI PL-300.pdf" target="_blank"
-           class="px-3 py-1.5 rounded-full text-xs md:text-sm font-medium bg-amber-50 text-amber-700 dark:bg-amber-900/20 dark:text-amber-300 hover:bg-amber-100 dark:hover:bg-amber-900/40 transition"
-           aria-label="View PL-300 Microsoft Power BI credential (opens in new tab)">
-          📊 PL-300: Power BI — EY
-        </a>
-
-        <!-- Tableau A-Z -->
-        <a href="assets/docs/TABLEAU begineer certificate.pdf" target="_blank"
-           class="px-3 py-1.5 rounded-full text-xs md:text-sm font-medium bg-pink-50 text-pink-700 dark:bg-pink-900/20 dark:text-pink-300 hover:bg-pink-100 dark:hover:bg-pink-900/40 transition"
-           aria-label="View Tableau A-Z credential (opens in new tab)">
-          📈 Tableau A-Z — Udemy
-        </a>
-
-        <!-- Add more chips here if you like -->
-      </div>
-
-      <!-- Show more / less -->
-      <div class="mt-6 flex justify-center">
-        <button
-          @click="showAll = !showAll"
-          class="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition"
-          :aria-expanded="showAll.toString()"
-          aria-controls="certifications"
-        >
-          <span x-show="!showAll">Show more</span>
-          <span x-show="showAll">Show less</span>
-          <i class="fas fa-chevron-down ml-2 transition-transform"
-             :class="showAll ? 'rotate-180' : ''"></i>
-        </button>
-      </div>
-    </div>
+<footer class="bg-gray-900 dark:bg-black text-white py-8">
+  <div class="container text-center">
+    <p>© 2025 Meenakshi. All rights reserved.</p>
   </div>
-</section>
+</footer>
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 
-<!-- Alpine.js (remove if you’re already loading it globally) -->
-<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-
-  <!-- =================== FOOTER =================== -->
-  <footer class="bg-gray-900 text-white py-6">
-    <div class="container mx-auto text-center text-sm">
-      © 2025 Meenakshi. All rights reserved.
-    </div>
-  </footer>
-
-  <!-- AOS Init -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init({ duration: 800, once: true });
+    // Run after DOM ready
+    document.addEventListener('DOMContentLoaded', () => {
+      // AOS
+      AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100,
+        easing: 'ease-in-out'
+      });
+
+      // Dark mode toggle
+      const toggle = document.getElementById('darkModeToggle');
+      toggle?.addEventListener('click', () => {
+        const el = document.documentElement;
+        const isDark = el.classList.toggle('dark');
+        localStorage.setItem('darkMode', isDark ? 'true' : 'false');
+      });
+
+      // Optional filter logic if you later add filter buttons with class .filter-btn
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const projectCards = document.querySelectorAll('.project-card');
+
+      filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          filterButtons.forEach(b => b.classList.remove('bg-blue-600','text-white'));
+          button.classList.add('bg-blue-600','text-white');
+          const filter = button.getAttribute('data-filter');
+
+          projectCards.forEach(card => {
+            const tags = (card.getAttribute('data-tags') || '').split(',');
+            const show = filter === 'all' || tags.includes(filter);
+            if (show) {
+              if (card.style.display === 'none') {
+                card.classList.remove('fade-out');
+                card.classList.add('fade-in');
+                card.style.display = 'block';
+              }
+            } else {
+              if (card.style.display !== 'none') {
+                card.classList.add('fade-out');
+                card.classList.remove('fade-in');
+                setTimeout(() => { card.style.display = 'none'; }, 300);
+              }
+            }
+          });
+        });
+      });
+    });
   </script>
 </body>
 </html>
