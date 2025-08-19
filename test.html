@@ -194,73 +194,171 @@
 </section>
 
 <!-- Skills Section -->
-<section id="skills" class="py-20 bg-white dark:bg-gray-900">
-  <div class="container mx-auto px-6">
-    <h2 class="text-3xl font-bold text-center mb-12 text-gray-800 dark:text-white">
-      Skills
-    </h2>
+<section id="core-competencies" class="py-20 bg-gray-50 dark:bg-gray-900">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-12 text-gray-800 dark:text-white">Core Competencies</h2>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+    <!-- Filter Buttons (single-select; Product is default) -->
+    <div id="competency-filters" class="flex flex-wrap justify-center gap-3 mb-8" role="tablist" aria-label="Competency filters">
+      <button type="button" data-category="product" aria-pressed="true" role="tab"
+        class="filter-btn px-4 py-2 rounded-full text-sm font-medium transition focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-300 dark:focus:ring-pink-500 focus:ring-offset-white dark:focus:ring-offset-gray-900">
+        Product
+      </button>
+      <button type="button" data-category="data" aria-pressed="false" role="tab"
+        class="filter-btn px-4 py-2 rounded-full text-sm font-medium transition focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-300 dark:focus:ring-purple-500 focus:ring-offset-white dark:focus:ring-offset-gray-900">
+        Data
+      </button>
+      <button type="button" data-category="collaboration" aria-pressed="false" role="tab"
+        class="filter-btn px-4 py-2 rounded-full text-sm font-medium transition focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-300 dark:focus:ring-green-500 focus:ring-offset-white dark:focus:ring-offset-gray-900">
+        Collaboration
+      </button>
+      <button type="button" data-category="creativity" aria-pressed="false" role="tab"
+        class="filter-btn px-4 py-2 rounded-full text-sm font-medium transition focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-300 dark:focus:ring-yellow-500 focus:ring-offset-white dark:focus:ring-offset-gray-900">
+        Creativity
+      </button>
+      <button type="button" data-category="tools" aria-pressed="false" role="tab"
+        class="filter-btn px-4 py-2 rounded-full text-sm font-medium transition focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-300 dark:focus:ring-blue-500 focus:ring-offset-white dark:focus:ring-offset-gray-900">
+        Tools
+      </button>
+    </div>
 
-      <!-- Product Skills -->
-      <div>
-        <h3 class="text-xl font-semibold mb-6 text-indigo-600 dark:text-indigo-400">
-          Product Management
-        </h3>
-        <div class="flex flex-wrap gap-3">
-          <span class="px-4 py-2 rounded-full bg-indigo-100 text-indigo-700 dark:bg-indigo-800 dark:text-indigo-200 text-sm font-medium">Roadmapping</span>
-          <span class="px-4 py-2 rounded-full bg-indigo-100 text-indigo-700 dark:bg-indigo-800 dark:text-indigo-200 text-sm font-medium">Stakeholder Management</span>
-          <span class="px-4 py-2 rounded-full bg-indigo-100 text-indigo-700 dark:bg-indigo-800 dark:text-indigo-200 text-sm font-medium">Agile & Scrum</span>
-          <span class="px-4 py-2 rounded-full bg-indigo-100 text-indigo-700 dark:bg-indigo-800 dark:text-indigo-200 text-sm font-medium">Release Planning</span>
-          <span class="px-4 py-2 rounded-full bg-indigo-100 text-indigo-700 dark:bg-indigo-800 dark:text-indigo-200 text-sm font-medium">User-Centered Design</span>
+    <!-- Skills Grid -->
+    <div id="skills-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- Product Management & Development -->
+      <div class="skill-card product bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md">
+        <h3 class="text-lg font-semibold text-pink-600 dark:text-pink-400 mb-4">Product Management & Development</h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="chip">Product lifecycle management</span>
+          <span class="chip">Product development & execution</span>
+          <span class="chip">Roadmap definition</span>
+          <span class="chip">Feature prioritization</span>
+          <span class="chip">Product requirements gathering</span>
+          <span class="chip">Usability studies</span>
+          <span class="chip">User research</span>
+          <span class="chip">Market analysis</span>
+          <span class="chip">Competitive research</span>
+          <span class="chip">Success metrics</span>
         </div>
       </div>
 
-      <!-- Analytics & Data Skills -->
-      <div>
-        <h3 class="text-xl font-semibold mb-6 text-purple-600 dark:text-purple-400">
-          Analytics & Data
-        </h3>
-        <div class="flex flex-wrap gap-3">
-          <span class="px-4 py-2 rounded-full bg-purple-100 text-purple-700 dark:bg-purple-800 dark:text-purple-200 text-sm font-medium">SQL</span>
-          <span class="px-4 py-2 rounded-full bg-purple-100 text-purple-700 dark:bg-purple-800 dark:text-purple-200 text-sm font-medium">R</span>
-          <span class="px-4 py-2 rounded-full bg-purple-100 text-purple-700 dark:bg-purple-800 dark:text-purple-200 text-sm font-medium">Python</span>
-          <span class="px-4 py-2 rounded-full bg-purple-100 text-purple-700 dark:bg-purple-800 dark:text-purple-200 text-sm font-medium">Tableau</span>
-          <span class="px-4 py-2 rounded-full bg-purple-100 text-purple-700 dark:bg-purple-800 dark:text-purple-200 text-sm font-medium">GA4 Analytics</span>
+      <!-- Data & Analytics -->
+      <div class="skill-card data bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md">
+        <h3 class="text-lg font-semibold text-purple-600 dark:text-purple-400 mb-4">Data & Analytics</h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="chip">Data-driven decision making</span>
+          <span class="chip">Large-scale data analysis</span>
+          <span class="chip">Performance metrics & KPIs</span>
+          <span class="chip">A/B testing & experimentation</span>
+          <span class="chip">Power BI</span>
+          <span class="chip">BigQuery</span>
+          <span class="chip">Excel</span>
         </div>
       </div>
 
-      <!-- Technical & Tools Skills -->
-      <div>
-        <h3 class="text-xl font-semibold mb-6 text-green-600 dark:text-green-400">
-          Tools & Technology
-        </h3>
-        <div class="flex flex-wrap gap-3">
-          <span class="px-4 py-2 rounded-full bg-green-100 text-green-700 dark:bg-green-800 dark:text-green-200 text-sm font-medium">Jira</span>
-          <span class="px-4 py-2 rounded-full bg-green-100 text-green-700 dark:bg-green-800 dark:text-green-200 text-sm font-medium">Confluence</span>
-          <span class="px-4 py-2 rounded-full bg-green-100 text-green-700 dark:bg-green-800 dark:text-green-200 text-sm font-medium">Power BI</span>
-          <span class="px-4 py-2 rounded-full bg-green-100 text-green-700 dark:bg-green-800 dark:text-green-200 text-sm font-medium">Planisware</span>
-          <span class="px-4 py-2 rounded-full bg-green-100 text-green-700 dark:bg-green-800 dark:text-green-200 text-sm font-medium">Power Automate</span>
+      <!-- Collaboration & Leadership -->
+      <div class="skill-card collaboration bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md">
+        <h3 class="text-lg font-semibold text-green-600 dark:text-green-400 mb-4">Collaboration & Leadership</h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="chip">Cross-functional collaboration</span>
+          <span class="chip">Consensus & shared vision</span>
+          <span class="chip">Technical & non-technical communication</span>
+          <span class="chip">Team leadership & facilitation</span>
+          <span class="chip">Scrum ceremonies</span>
+          <span class="chip">Sprint execution</span>
+          <span class="chip">Stakeholder alignment</span>
         </div>
       </div>
 
-      <!-- Leadership & Soft Skills -->
-      <div>
-        <h3 class="text-xl font-semibold mb-6 text-pink-600 dark:text-pink-400">
-          Leadership & Collaboration
-        </h3>
-        <div class="flex flex-wrap gap-3">
-          <span class="px-4 py-2 rounded-full bg-pink-100 text-pink-700 dark:bg-pink-800 dark:text-pink-200 text-sm font-medium">Team Leadership</span>
-          <span class="px-4 py-2 rounded-full bg-pink-100 text-pink-700 dark:bg-pink-800 dark:text-pink-200 text-sm font-medium">Cross-Functional Collaboration</span>
-          <span class="px-4 py-2 rounded-full bg-pink-100 text-pink-700 dark:bg-pink-800 dark:text-pink-200 text-sm font-medium">Mentorship</span>
-          <span class="px-4 py-2 rounded-full bg-pink-100 text-pink-700 dark:bg-pink-800 dark:text-pink-200 text-sm font-medium">Public Speaking</span>
-          <span class="px-4 py-2 rounded-full bg-pink-100 text-pink-700 dark:bg-pink-800 dark:text-pink-200 text-sm font-medium">Stakeholder Communication</span>
+      <!-- Creativity & Adaptability -->
+      <div class="skill-card creativity bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md">
+        <h3 class="text-lg font-semibold text-yellow-600 dark:text-yellow-400 mb-4">Creativity & Adaptability</h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="chip">Problem‑solving in ambiguity</span>
+          <span class="chip">Adaptability</span>
+          <span class="chip">Learning agility</span>
+          <span class="chip">Creative ideation</span>
+          <span class="chip">Innovation</span>
+          <span class="chip">Unique perspectives</span>
         </div>
       </div>
 
+      <!-- Tools & Methodologies -->
+      <div class="skill-card tools bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md">
+        <h3 class="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-4">Tools & Methodologies</h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="chip">Excel</span>
+          <span class="chip">Power BI</span>
+          <span class="chip">SQL</span>
+          <span class="chip">Python</span>
+          <span class="chip">R</span>
+          <span class="chip">Jira</span>
+          <span class="chip">Confluence</span>
+          <span class="chip">Lucidchart</span>
+          <span class="chip">Visio</span>
+          <span class="chip">Figma</span>
+          <span class="chip">Canva</span>
+          <span class="chip">Power Automate</span>
+          <span class="chip">Planisware</span>
+          <span class="chip">Agile (Scrum)</span>
+          <span class="chip">Agile (Kanban)</span>
+          <span class="chip">Wireframing</span>
+          <span class="chip">Prototyping</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
+
+<!-- Minimal chip styling (works without Tailwind @apply) -->
+<style>
+  .chip{
+    display:inline-block; padding:.25rem .75rem; border-radius:9999px;
+    font-size:.75rem; font-weight:500; background:#f3f4f6; color:#374151;
+  }
+  .dark .chip{ background:#374151; color:#e5e7eb; }
+
+  /* Filter button states */
+  .filter-btn{ background:#eef2ff; color:#4338ca; }              /* default indigo-ish */
+  .filter-btn[aria-pressed="true"]{
+    background:#4f46e5; color:#fff; box-shadow:0 4px 10px rgba(79,70,229,.25);
+  }
+  /* Optional: color hints per button label (purely cosmetic) */
+  #competency-filters button:nth-child(1){ background:#ffe4e6; color:#9f1239; } /* Product */
+  #competency-filters button:nth-child(2){ background:#ede9fe; color:#5b21b6; } /* Data */
+  #competency-filters button:nth-child(3){ background:#dcfce7; color:#166534; } /* Collaboration */
+  #competency-filters button:nth-child(4){ background:#fef9c3; color:#92400e; } /* Creativity */
+  #competency-filters button:nth-child(5){ background:#dbeafe; color:#1e40af; } /* Tools */
+  #competency-filters button[aria-pressed="true"]{ background:#4f46e5; color:#fff; }
+</style>
+
+<script>
+  // Single-select filter with default = 'product'
+  (function(){
+    const buttons = document.querySelectorAll('#competency-filters .filter-btn');
+    const cards = document.querySelectorAll('.skill-card');
+
+    function setFilter(category){
+      // update button states
+      buttons.forEach(btn=>{
+        const active = btn.dataset.category === category;
+        btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+      });
+      // show only matching cards
+      cards.forEach(card=>{
+        card.classList.toggle('hidden', !card.classList.contains(category));
+      });
+    }
+
+    // attach handlers
+    buttons.forEach(btn=>{
+      btn.addEventListener('click', ()=> setFilter(btn.dataset.category));
+    });
+
+    // initial default (no "all" state)
+    setFilter('product');
+  })();
+</script>
 
 <!-- Alpine.js CDN -->
 <script src="https://unpkg.com/alpinejs" defer></script>
