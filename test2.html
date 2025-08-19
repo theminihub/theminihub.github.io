@@ -695,52 +695,65 @@
 </section>
 
 <!-- Projects Section -->	  
-<section id="projects" class="py-12">
-  <div class="container">
-    <h2 class="text-3xl font-bold text-center mb-12">Academic Projects</h2>
+<!-- Projects Section  -->
+<section id="projects" class="py-12 bg-gray-50 dark:bg-gray-900">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-12 text-gray-800 dark:text-white">
+      Academic Projects
+    </h2>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <div class="project-card bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition overflow-hidden" data-tags="product,design">
+
+      <!-- Taskly App – Product Concept -->
+      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition overflow-hidden">
         <div class="p-6">
-          <h3 class="text-xl font-bold mb-2">Taskly App • Product Concept</h3>
-          <p class="text-gray-700 dark:text-gray-300 mb-4">Defined requirements, created user stories, and designed booking flow mockups in Figma and Canva for an on demand service marketplace.</p>
-          <div class="flex flex-wrap gap-2 mb-4">
-            <span class="chip">Product Design</span><span class="chip">Figma</span><span class="chip">User Stories</span>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Taskly App – Product Concept</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">
+            Defined requirements, created user stories, and designed booking flow mockups in Figma and Canva for an on demand service marketplace.
+          </p>
+          <div class="flex flex-wrap gap-2 md:gap-3 mb-4">
+            <span class="px-3 py-1 rounded-full text-xs md:text-sm bg-pink-50 text-pink-700 dark:bg-pink-900/20 dark:text-pink-300">Product Design</span>
+            <span class="px-3 py-1 rounded-full text-xs md:text-sm bg-blue-50 text-blue-700 dark:bg-blue-900/20 dark:text-blue-300">Figma</span>
+            <span class="px-3 py-1 rounded-full text-xs md:text-sm bg-indigo-50 text-indigo-700 dark:bg-indigo-900/20 dark:text-indigo-300">User Stories</span>
           </div>
-          <a href="https://www.canva.com/design/DAGYevwlK0Y/KCHmQMUvLEh-R28dB9qH8g/view?mode=prototype" target="_blank" rel="noopener" class="px-4 py-2 bg-indigo-600 text-white rounded-full text-sm hover:bg-indigo-700">View Mockup</a>
+          <div class="flex gap-3">
+            <a href="https://www.canva.com/design/DAGYevwlK0Y/KCHmQMUvLEh-R28dB9qH8g/view?mode=prototype" target="_blank" rel="noopener"
+               class="px-4 py-2 bg-indigo-600 text-white rounded-full text-sm hover:bg-indigo-700">View Mockup</a>
+          </div>
         </div>
       </div>
-	      <!-- Click-n-Cook – Product Concept -->
-      <div class="project-card bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition overflow-hidden" data-tags="product,design">
-  <div class="p-6">
-    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Click-n-Cook – Product Concept</h3>
-    <p class="text-gray-600 dark:text-gray-300 mb-4">
-      Designed mobile app mockups for Click-n-Cook, a smart recipe app that generates personalized recipes based on dietary preferences and restrictions.
-    </p>
-    <div class="flex flex-wrap gap-2 mb-4">
-      <span class="px-3 py-1 rounded-full bg-pink-100 text-pink-700 text-xs font-medium">Product Design</span>
-      <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-medium">Marvel App</span>
-      <span class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-xs font-medium">User Experience</span>
-    </div>
-    <div class="flex gap-3">
-      <a href="https://marvelapp.com/prototype/8j3ei2d/screen/95503217" target="_blank" rel="noopener"
-         class="px-4 py-2 bg-indigo-600 text-white rounded-full text-sm hover:bg-indigo-700">View Mockup</a>
-    </div>
-  </div>
-</div>
+
+      <!-- Click-n-Cook – Product Concept -->
+      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition overflow-hidden">
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Click-n-Cook – Product Concept</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">
+            Designed mobile app mockups for Click-n-Cook, a smart recipe app that generates personalized recipes based on dietary preferences and restrictions.
+          </p>
+          <div class="flex flex-wrap gap-2 md:gap-3 mb-4">
+            <span class="px-3 py-1 rounded-full text-xs md:text-sm bg-pink-50 text-pink-700 dark:bg-pink-900/20 dark:text-pink-300">Product Design</span>
+            <span class="px-3 py-1 rounded-full text-xs md:text-sm bg-blue-50 text-blue-700 dark:bg-blue-900/20 dark:text-blue-300">Marvel App</span>
+            <span class="px-3 py-1 rounded-full text-xs md:text-sm bg-green-50 text-green-700 dark:bg-green-900/20 dark:text-green-300">User Experience</span>
+          </div>
+          <div class="flex gap-3">
+            <a href="https://marvelapp.com/prototype/8j3ei2d/screen/95503217" target="_blank" rel="noopener"
+               class="px-4 py-2 bg-indigo-600 text-white rounded-full text-sm hover:bg-indigo-700">View Mockup</a>
+          </div>
+        </div>
+      </div>
 
       <!-- The Guac Stop – Data Warehouse -->
-      <div class="project-card bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition overflow-hidden" data-tags="ETL Pipelines,Data Analytics">
+      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition overflow-hidden">
         <div class="p-6">
           <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">The Guac Stop – Data Warehouse</h3>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
             Designed a star schema and built ETL pipelines in Apache Hop to integrate sales data, enabling Power BI dashboards for retail analytics.
           </p>
-          <div class="flex flex-wrap gap-2 mb-4">
-            <span class="px-3 py-1 rounded-full bg-purple-100 text-purple-700 text-xs font-medium">Apache Hop</span>
-            <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-medium">ETL</span>
-            <span class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-xs font-medium">Power BI</span>
-            <span class="px-3 py-1 rounded-full bg-indigo-100 text-indigo-700 text-xs font-medium">Star Schema</span>
+          <div class="flex flex-wrap gap-2 md:gap-3 mb-4">
+            <span class="px-3 py-1 rounded-full text-xs md:text-sm bg-purple-50 text-purple-700 dark:bg-purple-900/20 dark:text-purple-300">Apache Hop</span>
+            <span class="px-3 py-1 rounded-full text-xs md:text-sm bg-blue-50 text-blue-700 dark:bg-blue-900/20 dark:text-blue-300">ETL</span>
+            <span class="px-3 py-1 rounded-full text-xs md:text-sm bg-green-50 text-green-700 dark:bg-green-900/20 dark:text-green-300">Power BI</span>
+            <span class="px-3 py-1 rounded-full text-xs md:text-sm bg-indigo-50 text-indigo-700 dark:bg-indigo-900/20 dark:text-indigo-300">Star Schema</span>
           </div>
           <div class="flex gap-3">
             <a href="assets/documents/TGSReport.pdf" target="_blank" rel="noopener"
@@ -750,16 +763,16 @@
       </div>
 
       <!-- Swimmers Club – SQL Database -->
-      <div class="project-card bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition overflow-hidden" data-tags="SQL, Database">
+      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition overflow-hidden">
         <div class="p-6">
           <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Swimmers Club – SQL Database</h3>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
             Designed and implemented a relational database in SQL, modeled in Figma, to streamline class management and supply tracking for a fictional sports club.
           </p>
-          <div class="flex flex-wrap gap-2 mb-4">
-            <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-medium">SQL</span>
-            <span class="px-3 py-1 rounded-full bg-pink-100 text-pink-700 text-xs font-medium">Database Design</span>
-            <span class="px-3 py-1 rounded-full bg-purple-100 text-purple-700 text-xs font-medium">Lucidchart</span>
+          <div class="flex flex-wrap gap-2 md:gap-3 mb-4">
+            <span class="px-3 py-1 rounded-full text-xs md:text-sm bg-blue-50 text-blue-700 dark:bg-blue-900/20 dark:text-blue-300">SQL</span>
+            <span class="px-3 py-1 rounded-full text-xs md:text-sm bg-pink-50 text-pink-700 dark:bg-pink-900/20 dark:text-pink-300">Database Design</span>
+            <span class="px-3 py-1 rounded-full text-xs md:text-sm bg-purple-50 text-purple-700 dark:bg-purple-900/20 dark:text-purple-300">Lucidchart</span>
           </div>
           <div class="flex gap-3">
             <a href="assets/documents/SwimmersClubDBMS.pdf" target="_blank" rel="noopener"
@@ -769,16 +782,16 @@
       </div>
 
       <!-- Marketing Attribution Modelling in R -->
-      <div class="project-card bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition overflow-hidden" data-tags="R, Marketing Analytics">
+      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition overflow-hidden">
         <div class="p-6">
           <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Marketing Attribution Modelling</h3>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
             Compared first touch, last touch, and data driven models in R to analyze marketing channel performance and identify ROI drivers.
           </p>
-          <div class="flex flex-wrap gap-2 mb-4">
-            <span class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-xs font-medium">R</span>
-            <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-medium">Data Analysis</span>
-            <span class="px-3 py-1 rounded-full bg-purple-100 text-purple-700 text-xs font-medium">Attribution Models</span>
+          <div class="flex flex-wrap gap-2 md:gap-3 mb-4">
+            <span class="px-3 py-1 rounded-full text-xs md:text-sm bg-green-50 text-green-700 dark:bg-green-900/20 dark:text-green-300">R</span>
+            <span class="px-3 py-1 rounded-full text-xs md:text-sm bg-blue-50 text-blue-700 dark:bg-blue-900/20 dark:text-blue-300">Data Analysis</span>
+            <span class="px-3 py-1 rounded-full text-xs md:text-sm bg-purple-50 text-purple-700 dark:bg-purple-900/20 dark:text-purple-300">Attribution Models</span>
           </div>
           <div class="flex gap-3">
             <a href="assets/documents/AttributionModelling.pdf" target="_blank" rel="noopener"
@@ -788,16 +801,16 @@
       </div>
 
       <!-- Restaurant Kiosk – System Design -->
-      <div class="project-card bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition overflow-hidden" data-tags="System Design, Use Case">
+      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition overflow-hidden">
         <div class="p-6">
           <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Restaurant Kiosk – System Design</h3>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
             Created system vision, use case diagrams, sequence diagrams, and activity diagrams to model a restaurant self service kiosk system.
           </p>
-          <div class="flex flex-wrap gap-2 mb-4">
-            <span class="px-3 py-1 rounded-full bg-pink-100 text-pink-700 text-xs font-medium">System Analysis</span>
-            <span class="px-3 py-1 rounded-full bg-purple-100 text-purple-700 text-xs font-medium">Use Cases</span>
-            <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-medium">UML Diagrams</span>
+          <div class="flex flex-wrap gap-2 md:gap-3 mb-4">
+            <span class="px-3 py-1 rounded-full text-xs md:text-sm bg-pink-50 text-pink-700 dark:bg-pink-900/20 dark:text-pink-300">System Analysis</span>
+            <span class="px-3 py-1 rounded-full text-xs md:text-sm bg-purple-50 text-purple-700 dark:bg-purple-900/20 dark:text-purple-300">Use Cases</span>
+            <span class="px-3 py-1 rounded-full text-xs md:text-sm bg-blue-50 text-blue-700 dark:bg-blue-900/20 dark:text-blue-300">UML Diagrams</span>
           </div>
           <div class="flex gap-3">
             <a href="assets/documents/RestaurantKioskSystemAnalysis.pdf" target="_blank" rel="noopener"
@@ -807,16 +820,16 @@
       </div>
 
       <!-- Forensic Analysis Investigation -->
-      <div class="project-card bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition overflow-hidden" data-tags="Forensic Analysis, Cybersecurity">
+      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition overflow-hidden">
         <div class="p-6">
           <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Forensic Analysis Investigation</h3>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
             Investigated suspicious binaries and Chrome data artifacts, documenting findings in a structured forensic report with evidence analysis and chain of custody.
           </p>
-          <div class="flex flex-wrap gap-2 mb-4">
-            <span class="px-3 py-1 rounded-full bg-red-100 text-red-700 text-xs font-medium">Cybersecurity</span>
-            <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-medium">Forensic Report</span>
-            <span class="px-3 py-1 rounded-full bg-purple-100 text-purple-700 text-xs font-medium">Evidence Analysis</span>
+          <div class="flex flex-wrap gap-2 md:gap-3 mb-4">
+            <span class="px-3 py-1 rounded-full text-xs md:text-sm bg-red-50 text-red-700 dark:bg-red-900/20 dark:text-red-300">Cybersecurity</span>
+            <span class="px-3 py-1 rounded-full text-xs md:text-sm bg-blue-50 text-blue-700 dark:bg-blue-900/20 dark:text-blue-300">Forensic Report</span>
+            <span class="px-3 py-1 rounded-full text-xs md:text-sm bg-purple-50 text-purple-700 dark:bg-purple-900/20 dark:text-purple-300">Evidence Analysis</span>
           </div>
           <div class="flex gap-3">
             <a href="assets/documents/IncidentReport.pdf" target="_blank" rel="noopener"
@@ -826,27 +839,28 @@
       </div>
 
       <!-- Revenue Analytics with Power BI -->
-      <div class="project-card bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition overflow-hidden" data-tags="Data, SQL, PowerBI">
+      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition overflow-hidden">
         <div class="p-6">
           <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Revenue Analytics with Power BI</h3>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
             Designed a star schema and built interactive dashboards in Power BI to analyze 200M plus revenue by supplier, customer category, color, and season.
           </p>
-          <div class="flex flex-wrap gap-2 mb-4">
-            <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-medium">Power BI</span>
-            <span class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-xs font-medium">Data Modeling</span>
-            <span class="px-3 py-1 rounded-full bg-indigo-100 text-indigo-700 text-xs font-medium">Star Schema</span>
-            <span class="px-3 py-1 rounded-full bg-pink-100 text-pink-700 text-xs font-medium">Data Cleaning</span>
+          <div class="flex flex-wrap gap-2 md:gap-3 mb-4">
+            <span class="px-3 py-1 rounded-full text-xs md:text-sm bg-blue-50 text-blue-700 dark:bg-blue-900/20 dark:text-blue-300">Power BI</span>
+            <span class="px-3 py-1 rounded-full text-xs md:text-sm bg-green-50 text-green-700 dark:bg-green-900/20 dark:text-green-300">Data Modeling</span>
+            <span class="px-3 py-1 rounded-full text-xs md:text-sm bg-indigo-50 text-indigo-700 dark:bg-indigo-900/20 dark:text-indigo-300">Star Schema</span>
+            <span class="px-3 py-1 rounded-full text-xs md:text-sm bg-pink-50 text-pink-700 dark:bg-pink-900/20 dark:text-pink-300">Data Cleaning</span>
           </div>
           <div class="flex gap-3">
             <a href="assets/documents/datamodelling.pdf" target="_blank" rel="noopener"
-                class="px-4 py-2 bg-indigo-600 text-white rounded-full text-sm hover:bg-indigo-700">View Dashboard</a>
+               class="px-4 py-2 bg-indigo-600 text-white rounded-full text-sm hover:bg-indigo-700">View Dashboard</a>
           </div>
         </div>
       </div>
+
     </div>
   </div>
-</section>  
+</section>
 <!-- Education Section -->	  
 	  <section id="education" class="py-12">
   <div class="container">
