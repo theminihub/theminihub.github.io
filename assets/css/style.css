@@ -159,3 +159,17 @@ a {
         font-size: 1rem;
     }
 } 
+/* Chip styles */
+.chip {
+  padding: .375rem .75rem;
+  border-radius: 9999px;
+  font-size: .75rem;
+  line-height: 1rem;
+  font-weight: 600;
+  background-color: rgba(99,102,241,.12);
+  color: #4f46e5;
+}
+.dark .chip {
+  background-color: rgba(99,102,241,.25);
+  color: #c7d2fe;
+}
